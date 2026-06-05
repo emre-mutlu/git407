@@ -5,10 +5,13 @@
 (`scripts/main.js`) GİT423 ile **ORTAK / birebir** (aynı sistem, kasıtlı); tasarım bu derse
 özgü ("Motion Studio"). Week 1 hazır ve headless Chrome ile görsel olarak doğrulandı.
 
+**CANLI:** https://emre-mutlu.github.io/git407/ — GitHub Pages, `main`/kök (06-05).
+
 ## Kaldığın yer
-- **14 slayt** (weeks/week1.js): giriş(hero) → ne yapacağız → motion nedir → neden →
+- **13 slayt** (weeks/week1.js): giriş(hero) → ne yapacağız → motion nedir → neden →
   mg/animation/VFX ayrımı → kullanım alanları → tarihçe → **TEZ (Film Jenerikleri)** →
-  sözlük → keyframe/interpolation → easing+bezier → 12 ilke → araç kutusu → görev.
+  sözlük → keyframe/interpolation → easing+bezier → 12 ilke → araç kutusu.
+  (06-05: görev/"Hafta Arası Görevin" slaytı kaldırıldı → son slayt artık araç kutusu.)
 - **Tasarım sistemi** (styles/main.css): Archivo + Hanken Grotesk + Martian Mono;
   oklch gradient (gri orta yok); sol-accent-bar kartlar; sağda playhead'li timeline nav;
   altta timecode transport + üstte scrubber; chromatic-split hero başlık.
@@ -17,29 +20,37 @@
 - **Tarihçe:** isimler en önemli işlerine link (Art of the Title /designer/saul-bass,
   /pablo-ferro, /title/se7en; MTV→YouTube ident; Bugün→Motionographer).
 - **Tez slaytı:** "Film Jeneriklerinde Hareketli Grafik Kullanımı" · Emre Mutlu ·
-  Gazi Üniv. Güzel Sanatlar Enstitüsü · 2018 · YÖK **tezNo 498917** → tez.yok.gov.tr.
+  Gazi Üniv. Güzel Sanatlar Enstitüsü · 2018 · YÖK **tezNo 498917**. Link 06-05'te ana
+  sayfadan → YÖK Ulusal Tez Merkezi girişine alındı (tez.yok.gov.tr/UlusalTezMerkezi/,
+  HTTP 200); etiket "YÖK Ulusal Tez Merkezi · Tez No 498917". Doğrudan id'li detay linki
+  hâlâ opsiyonel (aşağı bkz).
 - **Çalıştırma:** `npm run dev` → `python3 -m http.server 4173` (ES module file:// ile açılmaz).
 
 ## Sıradaki
-- **Tez slaytı:** doğrudan YÖK detay linki (Emre tarayıcıdan id'li URL'yi verince eklenecek);
-  istenirse özet/ana bulgular kartın altına. Gazi/2018 künyesi web'den, Emre teyit edecek.
+- **Tez slaytı:** ana link YÖK Ulusal Tez Merkezi girişine bağlandı (alternatif, 06-05).
+  Opsiyonel iyileştirme: doğrudan id'li detay linki (`tezDetay.jsp?id=…&no=…`) — yalnız
+  tarayıcıda tezi açınca görünür, tezNo'dan üretilemez; Emre URL'yi verince tek satırda
+  değişir. İstenirse özet/ana bulgular kartın altına. Gazi/2018 künyesi web'den, Emre teyit edecek.
 - **AÇIK KARAR — dersin araç yönü:** After Effects (klasik) mi, web/kod-tabanlı motion mu?
   Week 1 araç-bağımsız tutuldu; week 2+ için netleşmeli.
-- **Deploy:** yok. Statik → Cloudflare Pages / GitHub Pages kolay. **Remote yok**
-  (git init yapıldı, origin eklenmedi); GitHub repo + Pages kurulabilir.
+- **Deploy: ✅ TAMAM (06-05).** CANLI → https://emre-mutlu.github.io/git407/ (GitHub Pages,
+  `main`/kök; index+css+js+week1.js HTTP 200, JS MIME ok, build ~12 sn). git423 de GitHub
+  Pages'te. **Sıra (farklı proje):** okul-portali → git423+git407 link kartları.
 - Week 2 içeriği.
 
 ## Notlar
 - Editöryel çizgi git423 ile ortak: terim İngilizce-önce (ilk geçişte TR parantez),
   em-dash yalnız kod yorumunda, düz başlık. İngilizce uppercase chip'lere `lang="en"`
   (yoksa Türkçe locale "EASING"→"EASİNG" yapıyor).
-- master=CANLI mantığı git407'de henüz yok (deploy kurulmadı), serbest commit güvenli.
+- **`main`=CANLI (06-05):** branch `master→main`; Pages `main`/kök → **her push canlıyı
+  yeniden build eder** (~12 sn; git423 modeli). Artık "serbest commit" DEĞİL → dikkatli.
 
 ## Görevler
-- [ ] Tez doğrudan linki + (ops.) özet
+- [x] GitHub remote + statik deploy → CANLI (GitHub Pages, main/kök, 06-05)
+- [x] Tez linki → YÖK Ulusal Tez Merkezi girişi (alternatif, 06-05); görev slaytı kaldırıldı
+- [ ] (ops.) Tez doğrudan id'li detay linki + özet
 - [ ] Araç yönü kararı → Week 2
-- [ ] (ops.) GitHub remote + statik deploy
 
-⚓ Anchor onboarding bekliyor · sezilen ilişki: GİT423'ün sunum motorunu paylaşır (ortak-sistem / kardeş varyant), git423 ile kardeş eğitim projesi · kova: eğitim
+⚓ Anchor onboard EDİLDİ (06-05) · ilişki: GİT423'ün sunum motorunu paylaşır (ortak-sistem / kardeş varyant), git423 ile kardeş eğitim projesi; ikisi de GitHub Pages'te canlı · kova: eğitim
 
-*Son güncelleme: 2026-06-05*
+*Son güncelleme: 2026-06-05 · DEPLOY: emre-mutlu/git407 (public) + master→main + GitHub Pages (main/kök) → CANLI https://emre-mutlu.github.io/git407/ doğrulandı. **main=CANLI** artık geçerli. · 06-05 (2): görev slaytı kaldırıldı (14→13 slayt), tez linki YÖK Ulusal Tez Merkezi girişine alındı (HTTP 200) — push canlıyı yeniden build eder.*

@@ -188,7 +188,7 @@ export const week1 = {
                             <span class="mg-chip mg-chip--cyan" lang="en">kinetic typography</span>
                             <span class="mg-chip">tasarım teknikleri</span>
                         </div>
-                        <a class="mg-link" href="https://tez.yok.gov.tr" target="_blank" rel="noopener">tez.yok.gov.tr · Tez No 498917</a>
+                        <a class="mg-link" href="https://tez.yok.gov.tr/UlusalTezMerkezi/" target="_blank" rel="noopener">YÖK Ulusal Tez Merkezi · Tez No 498917</a>
                     </div>
                 </div>
             `
@@ -335,33 +335,6 @@ export const week1 = {
                             <span class="mg-chip" lang="en">timeline · keyframe · easing</span>
                         </div>
                     </div>
-                </div>
-            `
-        },
-
-        /* 13 — GÖREV ---------------------------------------------------- */
-        {
-            id: "gorev",
-            category: "Uygulama",
-            title: "Hafta Arası Görevin",
-            html: `
-                <p class="mg-intro">Bu hafta üretmiyoruz · <strong>gözümüzü eğitiyoruz</strong>. İki küçük iş:</p>
-                <div class="mg-grid-2 stagger">
-                    <div class="mg-card mg-card--magenta">
-                        <span class="mg-card__icon">🎞️</span>
-                        <div class="mg-card__title">1 · Motion moodboard</div>
-                        <p class="mg-card__text">Beğendiğin <strong>3 motion graphics örneği</strong> bul (jenerik, reklam, UI, sosyal · fark etmez). Linklerini topla, neden seçtiğini bir cümleyle yaz.</p>
-                    </div>
-                    <div class="mg-card mg-card--cyan">
-                        <span class="mg-card__icon">👁️</span>
-                        <div class="mg-card__title">2 · Easing avı</div>
-                        <p class="mg-card__text">Telefonundaki bir geçişi izle. Hareket <strong>linear mi, eased mi?</strong> Yavaş mı başlıyor? Bir örnek not al, gelecek hafta konuşacağız.</p>
-                    </div>
-                </div>
-                <div class="mg-links" style="margin-top:18px;">
-                    <span class="mg-links__label">başlamak için</span>
-                    <a class="mg-link" href="https://www.artofthetitle.com" target="_blank" rel="noopener">Art of the Title</a>
-                    <a class="mg-link" href="https://motionographer.com" target="_blank" rel="noopener">Motionographer</a>
                 </div>
             `
         },
