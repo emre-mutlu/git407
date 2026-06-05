@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hareketli Grafik Tasarımı · Sunum</title>
+
+    <!-- Fonts: Archivo (display) · Hanken Grotesk (body) · Martian Mono (timecode) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Atmosphere: drifting glow + film grain -->
+    <div class="stage-glow" aria-hidden="true"></div>
+    <div class="stage-grain" aria-hidden="true"></div>
+
+    <!-- Top scrubber / playhead progress -->
+    <div class="scrubber" aria-hidden="true"><span class="scrubber-fill"></span></div>
+
+    <div class="app-shell">
+        <!-- Header / control bar -->
+        <header class="app-header">
+            <a href="." class="header-logo" title="Başa dön">
+                <span class="rec-dot"></span>
+                <span class="logo-text">Hareketli&nbsp;Grafik<span class="logo-accent">Tasarımı</span></span>
+            </a>
+            <div class="header-controls">
+                <span class="hud-fps" aria-hidden="true">24<small>FPS</small></span>
+                <label for="week-select" class="sr-only">Hafta Seçiniz</label>
+                <div class="select-wrap">
+                    <select id="week-select">
+                        <option value="week1" selected>01 · Hareketli Grafiğe Giriş</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stage + timeline -->
+        <div class="app-main-layout">
+            <main id="slide-container" class="slide-container" tabindex="0">
+                <div class="loading-slide">Sahne yükleniyor<span class="dots"></span></div>
+            </main>
+
+            <nav class="sidebar-nav" aria-label="Slayt Navigasyonu">
+                <ul id="nav-dots" class="nav-dots"><!-- frames injected by engine --></ul>
+            </nav>
+        </div>
+
+        <!-- Transport bar -->
+        <footer class="app-footer">
+            <div class="transport">
+                <span class="key-badge">←</span>
+                <span class="key-badge">→</span>
+                <span class="hint-text">slayt geçişi</span>
+            </div>
+            <div class="timecode">
+                <span class="rec-dot small" aria-hidden="true"></span>
+                <span id="current-slide-num">0</span><span class="tc-sep">/</span><span id="total-slides-num">0</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Engine: unchanged from the shared system -->
+    <script type="module" src="scripts/main.js?v=1.0.0"></script>
+
+    <!-- Additive progress enhancer (does not touch the engine): mirror the slide
+         counter into a CSS var so the top scrubber glides like a playhead. -->
+    <script>
+        (function () {
+            var cur = document.getElementById('current-slide-num');
+            var tot = document.getElementById('total-slides-num');
+            var root = document.documentElement;
+            function sync() {
+                var c = parseInt(cur.textContent, 10) || 0;
+                var t = parseInt(tot.textContent, 10) || 0;
+                root.style.setProperty('--progress', t > 0 ? (c / t * 100) + '%' : '0%');
+            }
+            var mo = new MutationObserver(sync);
+            mo.observe(cur, { childList: true, characterData: true, subtree: true });
+            mo.observe(tot, { childList: true, characterData: true, subtree: true });
+            sync();
+        })();
+    </script>
+</body>
+</html>

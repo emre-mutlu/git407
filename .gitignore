@@ -1,0 +1,12 @@
+# dependencies (yok ama olası)
+node_modules/
+
+# macOS
+.DS_Store
+
+# logs
+npm-debug.log*
+
+# editor
+.idea/
+.vscode/

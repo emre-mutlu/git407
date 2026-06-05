@@ -1,0 +1,370 @@
+/**
+ * ==========================================================================
+ * WEEK 1 MODULE: Hareketli Grafik Tasarımına Giriş
+ * Görsel İletişim Tasarımı · 1. Hafta — harekete ilk bakış
+ * ==========================================================================
+ *
+ * Şema week<N> = { title, slides: [ { id, title, category, type, html, ... } ] }
+ * paylaşılan motordan (scripts/main.js) gelir. Tasarım dili: styles/main.css
+ * (.mg-* içerik kiti, .stagger ile kademeli giriş, .split chromatic başlık).
+ *
+ * Editöryel: terim İngilizce-önce (ilk geçişte TR parantez), em-dash yok,
+ * düz başlık, kırılgan ders-no yok.
+ */
+
+export const week1 = {
+    title: "01 · Hareketli Grafiğe Giriş",
+    slides: [
+
+        /* 01 — HERO ----------------------------------------------------- */
+        {
+            id: "acilis",
+            title: "Hareketli Grafik Tasarımı",
+            subtitle: "Görsel İletişim Tasarımı · 1. Hafta · Harekete ilk bakış",
+            type: "hero",
+            html: `
+                <div style="margin-top:32px; display:flex; flex-direction:column; align-items:center; gap:20px;">
+                    <p class="u-mono" style="font-size:0.84rem; color:var(--text-dim); letter-spacing:0.06em;">grafik tasarım <span class="u-magenta">+</span> zaman <span class="u-cyan">=</span> hareket</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
+                        <span class="mg-chip mg-chip--magenta" lang="en">keyframe</span>
+                        <span class="mg-chip mg-chip--cyan" lang="en">easing</span>
+                        <span class="mg-chip" lang="en">timeline</span>
+                        <span class="mg-chip mg-chip--amber">12 ilke</span>
+                    </div>
+                </div>
+            `
+        },
+
+        /* 02 — NE YAPACAĞIZ --------------------------------------------- */
+        {
+            id: "ne-yapacagiz",
+            category: "Giriş",
+            title: "Bu Derste Ne Yapacağız",
+            html: `
+                <p class="mg-intro">Bu dönem, durağan (static) tasarım bilginizi <strong>zamana</strong> taşıyacağız. Sayfada duran bir kompozisyonu değil, saniyeler boyunca <strong>akan, ivmelenen, anlatan</strong> bir görseli tasarlamayı öğreneceğiz.</p>
+                <div class="mg-grid-3 stagger">
+                    <div class="mg-card mg-card--magenta">
+                        <span class="mg-card__icon">◷</span>
+                        <div class="mg-card__title">Zamanı tasarlamak</div>
+                        <p class="mg-card__text">Bir elemanın <strong>ne zaman</strong>, <strong>ne hızla</strong> ve <strong>hangi sırayla</strong> hareket ettiğine karar vermek.</p>
+                    </div>
+                    <div class="mg-card mg-card--cyan">
+                        <span class="mg-card__icon">⌖</span>
+                        <div class="mg-card__title">Dilini öğrenmek</div>
+                        <p class="mg-card__text">keyframe, easing, timeline, composition · sektörün gerçekte kullandığı <strong>terimler</strong>.</p>
+                    </div>
+                    <div class="mg-card mg-card--amber">
+                        <span class="mg-card__icon">▶</span>
+                        <div class="mg-card__title">Üretmek</div>
+                        <p class="mg-card__text">Dönem sonunda <strong>kendi kısa motion parçanı</strong> tasarlayıp canlandırmış olacaksın.</p>
+                    </div>
+                </div>
+            `
+        },
+
+        /* 03 — TANIM ---------------------------------------------------- */
+        {
+            id: "nedir",
+            category: "Tanım",
+            title: "Motion Graphics Nedir",
+            html: `
+                <div class="mg-grid-2-1">
+                    <div>
+                        <p class="mg-intro" style="margin-bottom:14px;"><strong>Motion graphics (hareketli grafik)</strong>, grafik tasarımın <strong>zamanla</strong> birleşmesidir. Tipografi, şekil, renk, ikon gibi tasarım elemanlarını alır ve onlara <strong>hareket</strong> kazandırır.</p>
+                        <p style="font-size:0.9rem; line-height:1.6; color:var(--text-dim); margin:0;">Anahtar fark şu: bir poster <em>tek bir an</em> anlatır, motion graphics ise bir <strong>süre boyunca</strong> anlatır. İzleyicinin gözünü zaman içinde yönlendirir, bilgiyi sıraya koyar, bir ritim kurar. Bu yüzden <span class="u-grad">motion design</span> da denir: hareketin kendisi tasarlanır.</p>
+                    </div>
+                    <div class="mg-callout">
+                        <h4>Kısa tanım</h4>
+                        <p><strong>Tasarım + zaman.</strong> Elemanların zaman içindeki davranışını planlamak. Çoğunlukla soyut, tipografik ve bilgi odaklıdır · bir karakteri canlandırmaktan farklıdır.</p>
+                    </div>
+                </div>
+            `
+        },
+
+        /* 04 — NEDEN ---------------------------------------------------- */
+        {
+            id: "neden",
+            category: "Neden",
+            title: "Hareket Neden İşe Yarar",
+            html: `
+                <p class="mg-intro">Hareket dekoratif bir süs değil, bir <strong>iletişim aracıdır</strong>. Doğru kullanıldığında izleyicinin beynine durağan tasarımın yapamadığı şeyleri söyler.</p>
+                <div class="mg-grid-2 stagger">
+                    <ul class="mg-list">
+                        <li><strong>Dikkat:</strong> Göz, hareket eden şeye refleksle döner · vurguyu zamanla kurarsın.</li>
+                        <li><strong>Hiyerarşi:</strong> Neyin önce, neyin sonra görüneceğini sıralayarak bilgiyi yönetirsin.</li>
+                    </ul>
+                    <ul class="mg-list">
+                        <li><strong>Anlatı:</strong> Bir geçiş, iki durum arasındaki <em>ilişkiyi</em> gösterir · neden-sonuç kurar.</li>
+                        <li><strong>Duygu:</strong> Hızlı ve sert mi, yumuşak ve ağır mı · hareketin karakteri bir ton taşır.</li>
+                    </ul>
+                </div>
+                <div class="mg-callout" style="margin-top:16px;">
+                    <h4>Aklında kalsın</h4>
+                    <p>İyi motion graphics, hareketi <strong>bir amaç için</strong> kullanır. Amacı olmayan hareket gürültüdür · izleyiciyi yorar.</p>
+                </div>
+            `
+        },
+
+        /* 05 — AYRIM ---------------------------------------------------- */
+        {
+            id: "ayrim",
+            category: "Ayrım",
+            title: "Motion Graphics, Animation ve VFX",
+            html: `
+                <p class="mg-intro">Üçü de "hareketli görüntü" üretir ama farklı işler. Bu ayrım, dönem boyunca neye odaklandığımızı netleştirir.</p>
+                <div class="mg-grid-3 stagger">
+                    <div class="mg-card mg-card--magenta">
+                        <span class="mg-card__icon">◳</span>
+                        <div class="mg-card__title">Motion Graphics</div>
+                        <p class="mg-card__text"><strong>Tasarım elemanları</strong> hareket eder: tipografi, şekil, ikon, grafik. Genelde soyut ve bilgi odaklı. <span class="u-magenta">Bizim alanımız.</span></p>
+                    </div>
+                    <div class="mg-card mg-card--cyan">
+                        <span class="mg-card__icon">⛷</span>
+                        <div class="mg-card__title">Character Animation</div>
+                        <p class="mg-card__text"><strong>Karakter ve oyunculuk</strong>: bir figürün canlanması, jest, ifade, ağırlık. Hikâye anlatımı ve performans işidir.</p>
+                    </div>
+                    <div class="mg-card mg-card--amber">
+                        <span class="mg-card__icon">▦</span>
+                        <div class="mg-card__title">VFX</div>
+                        <p class="mg-card__text"><strong>Visual effects (görsel efekt)</strong>: çekilmiş gerçek görüntüye dijital katman eklemek · patlama, simülasyon, kompozit.</p>
+                    </div>
+                </div>
+                <p style="text-align:center; font-size:0.8rem; color:var(--text-mute); margin-top:14px;">Sınırlar bulanıktır ve sık sık birlikte kullanılırlar · biz <span class="u-strong">motion graphics</span>'e odaklanacağız.</p>
+            `
+        },
+
+        /* 06 — KULLANIM ALANLARI ---------------------------------------- */
+        {
+            id: "nerede",
+            category: "Kullanım Alanları",
+            title: "Nerede Karşımıza Çıkar",
+            html: `
+                <p class="mg-intro">Aslında her gün onlarca kez izliyorsun. Bir kez fark edince her yerde görmeye başlayacaksın.</p>
+                <div class="mg-grid-3 stagger">
+                    <div class="mg-card"><span class="mg-card__icon">🎬</span><div class="mg-card__title">Title sequence</div><p class="mg-card__text">Film ve dizi <strong>jeneriği</strong>. Türün ilk doğduğu yer.</p></div>
+                    <div class="mg-card"><span class="mg-card__icon">📺</span><div class="mg-card__title">Broadcast</div><p class="mg-card__text">Kanal kimliği, alt bant, <strong>bumper</strong> ve geçişler.</p></div>
+                    <div class="mg-card"><span class="mg-card__icon">📱</span><div class="mg-card__title">UI motion</div><p class="mg-card__text">Uygulama geçişleri, <strong>micro-interaction</strong>, yüklenme.</p></div>
+                    <div class="mg-card"><span class="mg-card__icon">🟦</span><div class="mg-card__title">Social</div><p class="mg-card__text">Reels, story, <strong>kinetic typography</strong>, sticker.</p></div>
+                    <div class="mg-card"><span class="mg-card__icon">💡</span><div class="mg-card__title">Explainer</div><p class="mg-card__text">Bir ürünü veya fikri anlatan <strong>kısa animasyonlu video</strong>.</p></div>
+                    <div class="mg-card"><span class="mg-card__icon">📊</span><div class="mg-card__title">Data viz</div><p class="mg-card__text">Hareketle anlatılan <strong>grafik ve veri</strong>.</p></div>
+                </div>
+            `
+        },
+
+        /* 07 — TARİHÇE -------------------------------------------------- */
+        {
+            id: "tarih",
+            category: "Tarihçe",
+            title: "Kısa Bir Tarih",
+            html: `
+                <p class="mg-intro">Motion graphics bir gecede doğmadı. Kökleri sinema jeneriklerine uzanır · isimlere tıklayıp en önemli işlerini izleyebilirsin:</p>
+                <div class="mg-timeline stagger">
+                    <div class="mg-timeline__item"><div class="mg-timeline__year">1950'ler</div><p class="mg-timeline__label"><a class="mg-tl-a" href="https://www.artofthetitle.com/designer/saul-bass/" target="_blank" rel="noopener">Saul Bass</a>tipografik jeneriğin babası</p></div>
+                    <div class="mg-timeline__item"><div class="mg-timeline__year">1960'lar</div><p class="mg-timeline__label"><a class="mg-tl-a" href="https://www.artofthetitle.com/designer/pablo-ferro/" target="_blank" rel="noopener">Pablo Ferro</a>hızlı kesişler, elle tipografi</p></div>
+                    <div class="mg-timeline__item"><div class="mg-timeline__year">1980'ler</div><p class="mg-timeline__label"><a class="mg-tl-a" href="https://www.youtube.com/results?search_query=mtv+1981+moon+landing+ident" target="_blank" rel="noopener">MTV</a>kanal kimliği patlaması</p></div>
+                    <div class="mg-timeline__item"><div class="mg-timeline__year">1995</div><p class="mg-timeline__label"><a class="mg-tl-a" href="https://www.artofthetitle.com/title/se7en/" target="_blank" rel="noopener">Kyle Cooper</a>Se7en jeneriği, dijital çağ</p></div>
+                    <div class="mg-timeline__item"><div class="mg-timeline__year">Bugün</div><p class="mg-timeline__label"><a class="mg-tl-a" href="https://motionographer.com" target="_blank" rel="noopener">Her ekran</a>sosyal, UI, yayın, web</p></div>
+                </div>
+            `
+        },
+
+        /* + TEZ · Film Jenerikleri (kaynak) ----------------------------- */
+        {
+            id: "tez",
+            category: "Kaynak · Derinleşme",
+            title: "Daha Derine: Film Jenerikleri",
+            html: `
+                <div class="mg-grid-2-1">
+                    <div>
+                        <p class="mg-intro" style="margin-bottom:16px;">Az önce gördüğümüz jenerik (title sequence) tarihi, başlı başına bir araştırma alanı. Dersin yürütücüsünün <strong>yüksek lisans tezi</strong> tam da bunu inceliyor: jeneriklerde hareketli grafiğin nasıl kullanıldığını.</p>
+                        <p style="font-size:0.98rem; line-height:1.6; color:var(--text-dim); margin:0;">İsteyen daha derine inebilir · tipografi, ritim, teknik ve anlatının jenerikte nasıl buluştuğunu örneklerle ele alıyor.</p>
+                    </div>
+                    <div class="mg-card mg-card--magenta" style="padding:26px;">
+                        <div class="mg-links__label" style="margin-bottom:12px;">Yüksek Lisans Tezi · 2018</div>
+                        <div style="font-family:var(--font-display); font-weight:700; font-size:1.4rem; line-height:1.2; color:var(--text); margin-bottom:10px;">Film Jeneriklerinde Hareketli Grafik Kullanımı</div>
+                        <div style="font-size:0.98rem; color:var(--text-dim); margin-bottom:18px;">Emre Mutlu · Gazi Üniversitesi, Güzel Sanatlar Enstitüsü</div>
+                        <div style="display:flex; flex-wrap:wrap; gap:7px; margin-bottom:20px;">
+                            <span class="mg-chip mg-chip--magenta">jenerik tarihi</span>
+                            <span class="mg-chip mg-chip--cyan" lang="en">kinetic typography</span>
+                            <span class="mg-chip">tasarım teknikleri</span>
+                        </div>
+                        <a class="mg-link" href="https://tez.yok.gov.tr" target="_blank" rel="noopener">tez.yok.gov.tr · Tez No 498917</a>
+                    </div>
+                </div>
+            `
+        },
+
+        /* 08 — SÖZLÜK --------------------------------------------------- */
+        {
+            id: "yapi-taslari",
+            category: "Sözlük",
+            title: "Hareketin Yapı Taşları",
+            html: `
+                <p class="mg-intro">Dönem boyunca bu altı terimi sürekli kullanacağız. Bugün tanışıyoruz · ilerleyen haftalarda derinleşeceğiz.</p>
+                <div class="mg-grid-3 stagger">
+                    <div class="mg-term"><span class="mg-term__k">frame <small>· kare</small></span><p class="mg-term__d">Hareketin tek bir durağan görüntüsü. Film, art arda gösterilen frame'lerden oluşur.</p></div>
+                    <div class="mg-term"><span class="mg-term__k">frame rate <small>· kare hızı</small></span><p class="mg-term__d">Saniyedeki frame sayısı (fps). 24, 30, 60 · akıcılığı belirler.</p></div>
+                    <div class="mg-term"><span class="mg-term__k">timeline <small>· zaman çizelgesi</small></span><p class="mg-term__d">Olayları zamana dizdiğin alan. Motion yazılımlarının kalbi.</p></div>
+                    <div class="mg-term"><span class="mg-term__k">keyframe <small>· anahtar kare</small></span><p class="mg-term__d">Bir özelliğin belirli bir andaki değerini sabitlediğin nokta.</p></div>
+                    <div class="mg-term"><span class="mg-term__k">easing <small>· ivmelenme</small></span><p class="mg-term__d">Hareketin nasıl hızlanıp yavaşladığı · karakterini verir.</p></div>
+                    <div class="mg-term"><span class="mg-term__k">composition <small>· kompozisyon</small></span><p class="mg-term__d">Katmanların bir araya geldiği sahne · üzerinde çalıştığın tuval.</p></div>
+                </div>
+            `
+        },
+
+        /* 09 — KEYFRAME & INTERPOLATION --------------------------------- */
+        {
+            id: "keyframe",
+            category: "Çekirdek Kavram",
+            title: "Keyframe ve Interpolation",
+            html: `
+                <div class="mg-grid-2-1">
+                    <div>
+                        <p class="mg-intro" style="margin-bottom:14px;">Sen her frame'i tek tek çizmezsin. Sadece <strong>önemli anları</strong> (keyframe) işaretlersin: "burada solda, şurada sağda". Yazılım aradaki tüm frame'leri kendisi doldurur.</p>
+                        <p style="font-size:0.9rem; line-height:1.6; color:var(--text-dim); margin:0;">Bu doldurma işine <strong>interpolation (ara değerleme)</strong> denir. İki keyframe arasını yazılımın hesaplaması · işte motion'ın temel mekaniği budur. Senin işin <span class="u-strong">doğru anları</span> ve aralarındaki <span class="u-grad">geçişin karakterini</span> seçmektir.</p>
+                    </div>
+                    <div class="mg-card mg-card--cyan">
+                        <div class="mg-card__title" style="margin-bottom:12px;">İki keyframe</div>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <div style="flex:none; width:36px; height:36px; border-radius:8px; background:var(--magenta);"></div>
+                            <div style="flex:1; height:2px; background:linear-gradient(90deg,var(--magenta),var(--cyan)); position:relative;">
+                                <span class="u-mono" style="position:absolute; top:-22px; left:50%; transform:translateX(-50%); font-size:0.58rem; color:var(--text-mute);">interpolation</span>
+                            </div>
+                            <div style="flex:none; width:36px; height:36px; border-radius:8px; background:var(--cyan);"></div>
+                        </div>
+                        <p class="mg-card__text" style="margin-top:14px;">Sen <strong>iki ucu</strong> koyarsın · yazılım arasını canlandırır.</p>
+                    </div>
+                </div>
+            `
+        },
+
+        /* 10 — EASING & BEZIER ------------------------------------------ */
+        {
+            id: "easing",
+            category: "Çekirdek Kavram",
+            title: "Easing ve Bezier Eğrileri",
+            html: `
+                <p class="mg-intro">Aynı mesafe, aynı süre · ama hareketin <strong>hissi</strong> bambaşka olabilir. Farkı yaratan easing'dir: hızın zaman içinde nasıl değiştiği. Bir <strong>bezier eğrisi</strong> ile çizilir:</p>
+                <div class="mg-grid-3 stagger">
+                    <div class="mg-bezier">
+                        <svg viewBox="-8 -26 116 134" role="img" aria-label="linear easing eğrisi">
+                            <defs><linearGradient id="mg-grad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff2d6b"/><stop offset="0.5" stop-color="#b14bff"/><stop offset="1" stop-color="#19e3ff"/></linearGradient></defs>
+                            <rect class="mg-curve-box" x="0" y="0" width="100" height="100"/>
+                            <path class="mg-curve-guide" d="M0,100 L100,0"/>
+                            <path class="mg-curve-path" d="M0,100 L100,0"/>
+                            <circle class="mg-curve-dot" cx="0" cy="100" r="4.5"/>
+                            <circle class="mg-curve-dot c2" cx="100" cy="0" r="4.5"/>
+                        </svg>
+                        <div class="mg-bezier__name">linear</div>
+                        <div class="mg-bezier__val">robotik, mekanik</div>
+                    </div>
+                    <div class="mg-bezier">
+                        <svg viewBox="-8 -26 116 134" role="img" aria-label="ease-out eğrisi">
+                            <rect class="mg-curve-box" x="0" y="0" width="100" height="100"/>
+                            <path class="mg-curve-guide" d="M0,100 L100,0"/>
+                            <path class="mg-curve-path" d="M0,100 C16,0 40,0 100,0"/>
+                            <circle class="mg-curve-dot" cx="0" cy="100" r="4.5"/>
+                            <circle class="mg-curve-dot c2" cx="100" cy="0" r="4.5"/>
+                        </svg>
+                        <div class="mg-bezier__name">ease-out</div>
+                        <div class="mg-bezier__val">doğal, yumuşak</div>
+                    </div>
+                    <div class="mg-bezier">
+                        <svg viewBox="-8 -26 116 134" role="img" aria-label="overshoot eğrisi">
+                            <rect class="mg-curve-box" x="0" y="0" width="100" height="100"/>
+                            <path class="mg-curve-guide" d="M0,100 L100,0"/>
+                            <path class="mg-curve-path" d="M0,100 C30,-16 55,4 100,0"/>
+                            <circle class="mg-curve-dot" cx="0" cy="100" r="4.5"/>
+                            <circle class="mg-curve-dot c2" cx="100" cy="0" r="4.5"/>
+                        </svg>
+                        <div class="mg-bezier__name">overshoot</div>
+                        <div class="mg-bezier__val">canlı, oyuncu</div>
+                    </div>
+                </div>
+                <div class="mg-links" style="margin-top:24px; justify-content:center;">
+                    <span class="mg-links__label">canlı dene</span>
+                    <a class="mg-link" href="https://easings.net" target="_blank" rel="noopener">easings.net</a>
+                    <a class="mg-link" href="https://cubic-bezier.com" target="_blank" rel="noopener">cubic-bezier.com</a>
+                </div>
+            `
+        },
+
+        /* 11 — 12 İLKE -------------------------------------------------- */
+        {
+            id: "ilkeler",
+            category: "İlkeler",
+            title: "Animasyonun On İki İlkesi",
+            html: `
+                <p class="mg-intro">1930'larda Disney animatörlerinin damıttığı <strong>12 ilke</strong>, inandırıcı hareketin dilbilgisidir. Hepsi motion graphics'e de uygular. Bugün en sık kullanacağımız altısı:</p>
+                <div class="mg-grid-3 stagger">
+                    <div class="mg-card mg-card--magenta"><div class="mg-card__title">Timing &amp; spacing</div><p class="mg-card__text">Zamanlama ve aralıklama · hareketin <strong>en temel</strong> ikilisi.</p></div>
+                    <div class="mg-card mg-card--cyan"><div class="mg-card__title">Ease in / out</div><p class="mg-card__text">Yavaş başla, yavaş bitir · gerçek nesneler öyle hareket eder.</p></div>
+                    <div class="mg-card mg-card--amber"><div class="mg-card__title">Anticipation</div><p class="mg-card__text">Hazırlık · büyük hareketten önce küçük bir ters jest.</p></div>
+                    <div class="mg-card"><div class="mg-card__title">Follow-through</div><p class="mg-card__text">Savrulma · duran nesnenin parçaları biraz sonra durur.</p></div>
+                    <div class="mg-card"><div class="mg-card__title">Squash &amp; stretch</div><p class="mg-card__text">Ezilme ve gerilme · ağırlık ve esneklik hissi.</p></div>
+                    <div class="mg-card"><div class="mg-card__title">Staging</div><p class="mg-card__text">Sahneleme · gözü doğru yere, doğru anda yönlendirmek.</p></div>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; margin-top:18px;">
+                    <span class="mg-links__label">diğer ilkeler</span>
+                    <span class="mg-chip" lang="en">arcs</span>
+                    <span class="mg-chip" lang="en">secondary action</span>
+                    <span class="mg-chip" lang="en">exaggeration</span>
+                    <span class="mg-chip" lang="en">straight ahead</span>
+                    <span class="mg-chip" lang="en">solid drawing</span>
+                    <span class="mg-chip" lang="en">appeal</span>
+                </div>
+            `
+        },
+
+        /* 12 — ARAÇ KUTUSU ---------------------------------------------- */
+        {
+            id: "arac",
+            category: "Üretim",
+            title: "Araç Kutusu",
+            html: `
+                <div class="mg-grid-2-1">
+                    <div>
+                        <p class="mg-intro" style="margin-bottom:14px;">Sektörün fiili standardı <strong>Adobe After Effects</strong>: timeline tabanlı, keyframe ve easing üzerine kurulu bir compositing yazılımı. Dönem boyunca ortak dilimiz bu olacak.</p>
+                        <p style="font-size:0.9rem; line-height:1.6; color:var(--text-dim); margin:0;">Ama unutma: araç değişir, <span class="u-grad">ilke kalır</span>. Aynı keyframe ve easing mantığı kodda (CSS, web), Blender'da, hatta bir sunum yazılımında da geçerlidir. Bu yüzden önce <strong>düşünmeyi</strong>, sonra <strong>aracı</strong> öğreneceğiz.</p>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
+                        <span class="ae-logo" role="img" aria-label="Adobe After Effects"><b>Ae</b></span>
+                        <div style="font-family:var(--font-display); font-weight:700; font-size:1.25rem; color:var(--text);">After Effects</div>
+                        <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
+                            <span class="mg-chip mg-chip--cyan">ana araç</span>
+                            <span class="mg-chip" lang="en">timeline · keyframe · easing</span>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+
+        /* 13 — GÖREV ---------------------------------------------------- */
+        {
+            id: "gorev",
+            category: "Uygulama",
+            title: "Hafta Arası Görevin",
+            html: `
+                <p class="mg-intro">Bu hafta üretmiyoruz · <strong>gözümüzü eğitiyoruz</strong>. İki küçük iş:</p>
+                <div class="mg-grid-2 stagger">
+                    <div class="mg-card mg-card--magenta">
+                        <span class="mg-card__icon">🎞️</span>
+                        <div class="mg-card__title">1 · Motion moodboard</div>
+                        <p class="mg-card__text">Beğendiğin <strong>3 motion graphics örneği</strong> bul (jenerik, reklam, UI, sosyal · fark etmez). Linklerini topla, neden seçtiğini bir cümleyle yaz.</p>
+                    </div>
+                    <div class="mg-card mg-card--cyan">
+                        <span class="mg-card__icon">👁️</span>
+                        <div class="mg-card__title">2 · Easing avı</div>
+                        <p class="mg-card__text">Telefonundaki bir geçişi izle. Hareket <strong>linear mi, eased mi?</strong> Yavaş mı başlıyor? Bir örnek not al, gelecek hafta konuşacağız.</p>
+                    </div>
+                </div>
+                <div class="mg-links" style="margin-top:18px;">
+                    <span class="mg-links__label">başlamak için</span>
+                    <a class="mg-link" href="https://www.artofthetitle.com" target="_blank" rel="noopener">Art of the Title</a>
+                    <a class="mg-link" href="https://motionographer.com" target="_blank" rel="noopener">Motionographer</a>
+                </div>
+            `
+        },
+
+    ]
+};
