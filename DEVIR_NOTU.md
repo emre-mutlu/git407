@@ -35,7 +35,9 @@
   itibaren **7 oturum (H2–H8)** · plan aşağıda. Çıktı alma: temel H2, detay H8.
 - **Deploy: ✅ TAMAM (06-05).** CANLI → https://emre-mutlu.github.io/git407/ (GitHub Pages,
   `main`/kök; index+css+js+week1.js HTTP 200, JS MIME ok, build ~12 sn). git423 de GitHub
-  Pages'te. **Sıra (farklı proje):** okul-portali → git423+git407 link kartları.
+  Pages'te. **Sıra (farklı proje, 06-11 güncel):** ders link-kartları artık **kampus**'ta
+  (okul-portali kümesi 06-09'da greenfield `kampus`'a süpersede oldu; eski "okul-portali →
+  link kartları" planı geçersiz — kampus CANLI: kampus-ese.pages.dev).
 - **Week 2 destesi** (sıradaki iş): AE'ye giriş + temel çıktı alma (plan H2).
 
 ## Dönem planı (06-11, Emre ile kararlaştırıldı)
