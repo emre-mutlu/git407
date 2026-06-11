@@ -31,12 +31,29 @@
   Opsiyonel iyileştirme: doğrudan id'li detay linki (`tezDetay.jsp?id=…&no=…`) — yalnız
   tarayıcıda tezi açınca görünür, tezNo'dan üretilemez; Emre URL'yi verince tek satırda
   değişir. İstenirse özet/ana bulgular kartın altına. Gazi/2018 künyesi web'den, Emre teyit edecek.
-- **AÇIK KARAR — dersin araç yönü:** After Effects (klasik) mi, web/kod-tabanlı motion mu?
-  Week 1 araç-bağımsız tutuldu; week 2+ için netleşmeli.
+- **KARAR (06-11): araç yönü = After Effects ağırlıklı.** Kalan dönem bu haftadan
+  itibaren **7 oturum (H2–H8)** · plan aşağıda. Çıktı alma: temel H2, detay H8.
 - **Deploy: ✅ TAMAM (06-05).** CANLI → https://emre-mutlu.github.io/git407/ (GitHub Pages,
   `main`/kök; index+css+js+week1.js HTTP 200, JS MIME ok, build ~12 sn). git423 de GitHub
   Pages'te. **Sıra (farklı proje):** okul-portali → git423+git407 link kartları.
-- Week 2 içeriği.
+- **Week 2 destesi** (sıradaki iş): AE'ye giriş + temel çıktı alma (plan H2).
+
+## Dönem planı (06-11, Emre ile kararlaştırıldı)
+- **H2 · AE'ye Giriş: Arayüzden İlk Çıktıya** — arayüz/comp/timeline, comp settings
+  (fps·çözünürlük·süre), transform beşlisi + anchor point, ilk keyframe + Easy Ease,
+  **temel çıktı alma** (H.264 quick export). Uygulama: logo giriş animasyonu → MP4.
+- **H3 · Graph Editor: Hareketin Karakteri** — value/speed graph, ease ve overshoot'u
+  elle kurma, motion path. Uygulama: aynı hareket × 3 easing.
+- **H4 · Animasyon Prensipleri Uygulamada** — 12 ilkenin AE pratiği (timing&spacing,
+  squash&stretch, anticipation, follow-through, arcs…). Uygulama: bouncing ball + UI overshoot.
+- **H5 · Shape Layer ve Vektör Animasyon** — path/fill/stroke, trim paths, repeater,
+  AI'dan içe alma, line-draw. Uygulama: ikon seti. **Final proje brief'i** (15-20 sn parça).
+- **H6 · Kinetik Tipografi** — text animator + range selector, title sequence bağlamı
+  (tarihçe + tez bağlantısı). Uygulama: kısa replik. Ara teslim: styleframe/moodboard.
+- **H7 · Katmanlı Kompozisyon ve Ses** — parenting/null, precompose, mask, track matte,
+  adjustment layer, sese senkron (waveform/marker). Ara teslim: animatik/WIP.
+- **H8 · Çıktı Derinleşme + Final Kritik** — Render Queue vs Media Encoder, codec/format
+  (H.264·ProRes·alpha), sosyal formatlar (9:16/1:1), GIF/Lottie bakışı; final teslim + kritik.
 
 ## Notlar
 - Editöryel çizgi git423 ile ortak: terim İngilizce-önce (ilk geçişte TR parantez),
@@ -49,8 +66,9 @@
 - [x] GitHub remote + statik deploy → CANLI (GitHub Pages, main/kök, 06-05)
 - [x] Tez linki → YÖK Ulusal Tez Merkezi girişi (alternatif, 06-05); görev slaytı kaldırıldı
 - [ ] (ops.) Tez doğrudan id'li detay linki + özet
-- [ ] Araç yönü kararı → Week 2
+- [x] Araç yönü kararı → **AE ağırlıklı** (06-11) + 7 oturumluk dönem planı (H2–H8)
+- [ ] Week 2 destesi (AE giriş + temel çıktı)
 
 ⚓ Anchor onboard EDİLDİ (06-05) · ilişki: GİT423'ün sunum motorunu paylaşır (ortak-sistem / kardeş varyant), git423 ile kardeş eğitim projesi; ikisi de GitHub Pages'te canlı · kova: eğitim
 
-*Son güncelleme: 2026-06-05 · DEPLOY: emre-mutlu/git407 (public) + master→main + GitHub Pages (main/kök) → CANLI https://emre-mutlu.github.io/git407/ doğrulandı. **main=CANLI** artık geçerli. · 06-05 (2): görev slaytı kaldırıldı (14→13 slayt), tez linki YÖK Ulusal Tez Merkezi girişine alındı (HTTP 200) — push canlıyı yeniden build eder.*
+*Son güncelleme: 2026-06-11 (araç kararı AE + H2–H8 dönem planı eklendi; sıradaki: Week 2 destesi) · 2026-06-05 · DEPLOY: emre-mutlu/git407 (public) + master→main + GitHub Pages (main/kök) → CANLI https://emre-mutlu.github.io/git407/ doğrulandı. **main=CANLI** artık geçerli. · 06-05 (2): görev slaytı kaldırıldı (14→13 slayt), tez linki YÖK Ulusal Tez Merkezi girişine alındı (HTTP 200) — push canlıyı yeniden build eder.*
