@@ -31,10 +31,8 @@
                 <span class="hud-fps" aria-hidden="true">24<small>FPS</small></span>
                 <label for="week-select" class="sr-only">Hafta Seçiniz</label>
                 <div class="select-wrap">
-                    <select id="week-select">
-                        <option value="week1" selected>01 · Hareketli Grafiğe Giriş</option>
-                        <option value="week2">02 · After Effects'e Giriş</option>
-                    </select>
+                    <!-- Options injected by the engine from weeks/manifest.js -->
+                    <select id="week-select"></select>
                 </div>
             </div>
         </header>
@@ -65,7 +63,7 @@
     </div>
 
     <!-- Engine: unchanged from the shared system -->
-    <script type="module" src="scripts/main.js?v=1.0.0"></script>
+    <script type="module" src="scripts/main.js?v=1.1.0"></script>
 
     <!-- Additive progress enhancer (does not touch the engine): mirror the slide
          counter into a CSS var so the top scrubber glides like a playhead. -->

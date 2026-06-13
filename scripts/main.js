@@ -4,12 +4,22 @@
  * ==========================================================================
  */
 
-import { week1 } from '../weeks/week1.js';
+import { manifest } from '../weeks/manifest.js';
 
-// Cache for loaded weeks
-const weeksData = {
-    week1: week1
-};
+// Engine version stamp — bump on any shared-engine change so drift between
+// git407 and git423 stays visible (bin/sync-engine.sh distributes this file
+// verbatim; the stamp tells you which copy a site is actually running).
+const ENGINE_VERSION = '1.1.0';
+
+// Per-site localStorage namespace, derived from the first path segment
+// (github.io/git407/… → "git407", github.io/git423/… → "git423"). Keeps the
+// engine byte-identical across sites while stopping the two decks from
+// clobbering each other's "resume slide" key. Falls back to "local" in dev.
+const SITE_ID = location.pathname.split('/').filter(Boolean)[0] || 'local';
+const slideKey = (weekKey) => `${SITE_ID}_sunum_slide_${weekKey}`;
+
+// Runtime cache for dynamically-loaded week modules.
+const weeksData = {};
 
 class PresentationEngine {
     constructor() {
@@ -28,8 +38,34 @@ class PresentationEngine {
     }
 
     async init() {
+        const defaultWeek = this.populateWeeks();
         this.setupEventListeners();
-        await this.loadWeek(this.weekSelect.value);
+        await this.loadWeek(defaultWeek);
+    }
+
+    /**
+     * Build the week dropdown from weeks/manifest.js (per-site content) and
+     * return the default week key. "Add a deck = drop weekN.js + one manifest
+     * line" — no engine edit, the build-less SPA is preserved. The manifest is
+     * the only per-site file the engine imports; the engine itself stays
+     * byte-identical across git407 / git423.
+     */
+    populateWeeks() {
+        const first = manifest.length ? manifest[0].key : null;
+        if (!this.weekSelect) return first;
+        this.weekSelect.innerHTML = '';
+        let defaultKey = first;
+        manifest.forEach((entry) => {
+            const opt = document.createElement('option');
+            opt.value = entry.key;
+            opt.textContent = entry.label;
+            if (entry.default) {
+                opt.selected = true;
+                defaultKey = entry.key;
+            }
+            this.weekSelect.appendChild(opt);
+        });
+        return defaultKey;
     }
 
     setupEventListeners() {
@@ -237,7 +273,7 @@ class PresentationEngine {
         this.totalSlidesNum.textContent = this.slides.length;
         
         // Restore saved slide index or go to first slide
-        const savedIndex = localStorage.getItem(`vcd_sunum_slide_${this.currentWeekKey}`);
+        const savedIndex = localStorage.getItem(slideKey(this.currentWeekKey));
         let initialIndex = savedIndex ? parseInt(savedIndex, 10) : 0;
         
         // Ensure index is within bounds (in case slides were removed)
@@ -288,7 +324,7 @@ class PresentationEngine {
             
             // Save current slide index to localStorage
             if (this.currentWeekKey) {
-                localStorage.setItem(`vcd_sunum_slide_${this.currentWeekKey}`, this.currentSlideIndex);
+                localStorage.setItem(slideKey(this.currentWeekKey), this.currentSlideIndex);
             }
         };
 
@@ -466,6 +502,7 @@ class Lightbox {
 
 // Instantiate presentation engine when DOM is ready
 window.addEventListener('DOMContentLoaded', () => {
+    console.info(`Sunum motoru v${ENGINE_VERSION} · ${SITE_ID}`);
     window.presentation = new PresentationEngine();
     window.lightbox = new Lightbox();
 });
