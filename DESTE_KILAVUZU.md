@@ -135,9 +135,12 @@ otomatik highlighter eklenmez (build'sizlik korunur) — ihtiyaç doğarsa Faz 1
 
 ## 8. Deste checklist (push öncesi)
 
-- [ ] `weekN.js` şemaya uygun (her slaytta `id` benzersiz, zorunlu alanlar dolu).
-- [ ] her slaytta `notes` var.
-- [ ] editoryal: İngilizce-önce · em-dash yok (gövde) · `lang="en"` chip'lerde.
+- [ ] **`node bin/lint-deck.mjs`** → 0 hata (sibling: `bin/lint-deck.mjs ../git423-ders`).
+      Otomatik kontrol: şema (`id` benzersiz + zorunlu alanlar) · `notes` eksiği ·
+      em-dash (gövde, toplu). `--strict` = uyarılar da kapı · `--quiet` = yalnız hata.
+- [ ] `weekN.js` şemaya uygun (↑ lint ✓) · her slaytta `notes` (↑ lint uyarır).
+- [ ] editoryal **elle**: İngilizce-önce · `lang="en"` chip/iz'lerde (lint *kapsamaz* —
+      EN/TR ayrımı güvenilmez, yanlış-pozitif riski) · em-dash yalnız kod-yorumunda.
 - [ ] `manifest.js`'e satır eklendi (doğru `label`, gerekiyorsa `default`).
 - [ ] medya kuralına uyuldu (boyut/embed).
 - [ ] yerel doğrula: `python3 -m http.server 4173` → tüm slaytlar fit, dropdown +

@@ -8,6 +8,11 @@
 **CANLI:** https://emre-mutlu.github.io/git407/ — GitHub Pages, `main`/kök (06-05).
 
 ## Kaldığın yer
+- **Deste-lint aracı ✅ (06-14, Janus otonom-tur):** `bin/lint-deck.mjs` (node, build'siz) —
+  manifest-güdümlü şema (`id` benzersiz + zorunlu alanlar + type kuralları) + `notes` eksiği +
+  em-dash (toplu, kod-yorumu hariç). Cross-repo: `bin/lint-deck.mjs ../git423-ders`. `--strict`
+  = push-kapısı, `--quiet` = yalnız hata. İki repo da **0 hata**. `lang="en"` bilinçli kapsam-dışı
+  (EN/TR ayrımı güvenilmez → yanlış-pozitif riski). Kılavuz §8 artık lint kapısıyla başlıyor.
 - **UI/UX yenileme ✅ (06-12, Emre talebi "içime sinmedi" → AskUser: hiza+okunabilirlik+chrome
   rötuşu, konsept/renk kalır).** Hepsi `styles/main.css` + week dosyaları; **motor DOKUNULMADI**.
   - **Layout kararı:** sabit-başlık (pinned header, Keynote tarzı) DENENDİ ve GERİ ALINDI —
