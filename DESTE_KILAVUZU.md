@@ -141,6 +141,8 @@ otomatik highlighter eklenmez (build'sizlik korunur) — ihtiyaç doğarsa Faz 1
 - [ ] `weekN.js` şemaya uygun (↑ lint ✓) · her slaytta `notes` (↑ lint uyarır).
 - [ ] editoryal **elle**: İngilizce-önce · `lang="en"` chip/iz'lerde (lint *kapsamaz* —
       EN/TR ayrımı güvenilmez, yanlış-pozitif riski) · em-dash yalnız kod-yorumunda.
+- [ ] **kontak föyü ile bak** (önerilir): `bin/screenshot.sh weekN` → `_contact/contact-weekN.png`
+      (tüm slaytlar tek ölçekli grid'de, gerçek motor render'ı; cross-repo: `... ../git423-ders`).
 - [ ] `manifest.js`'e satır eklendi (doğru `label`, gerekiyorsa `default`).
 - [ ] medya kuralına uyuldu (boyut/embed).
 - [ ] yerel doğrula: `python3 -m http.server 4173` → tüm slaytlar fit, dropdown +

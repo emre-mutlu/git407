@@ -13,6 +13,11 @@
   em-dash (toplu, kod-yorumu hariç). Cross-repo: `bin/lint-deck.mjs ../git423-ders`. `--strict`
   = push-kapısı, `--quiet` = yalnız hata. İki repo da **0 hata**. `lang="en"` bilinçli kapsam-dışı
   (EN/TR ayrımı güvenilmez → yanlış-pozitif riski). Kılavuz §8 artık lint kapısıyla başlıyor.
+- **Kontak-föy aracı ✅ (06-14, Janus otonom-tur):** `bin/screenshot.sh [weekN]` + `_capture.html`
+  (build-less, headless Chrome). Desteyi **gerçek motorla** render eder (DOM klonu → şablon kopyası
+  yok, tam sadakat), tüm slaytları ölçekli CSS grid'de **tek screenshot** → `_contact/contact-weekN.png`.
+  Montaj/puppeteer GEREKMEZ (CSS=grid, Chrome=kamera). Cross-repo `../git423-ders` (geçici harness
+  kopyala→sil). `_contact/` gitignore. Doğrulı: git407 14+24, git423-ders 33+27+29 slayt.
 - **UI/UX yenileme ✅ (06-12, Emre talebi "içime sinmedi" → AskUser: hiza+okunabilirlik+chrome
   rötuşu, konsept/renk kalır).** Hepsi `styles/main.css` + week dosyaları; **motor DOKUNULMADI**.
   - **Layout kararı:** sabit-başlık (pinned header, Keynote tarzı) DENENDİ ve GERİ ALINDI —
