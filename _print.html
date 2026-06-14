@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF Handout render (dev)</title>
+<!--
+  _print.html — DEV render harness for bin/pdf.sh (printable PDF handout).
+  Sibling of _capture.html. Loads the REAL engine (scripts/main.js), renders a
+  deck, then CLONES each rendered slide into its own fixed 1280x720 "page" and
+  applies the SAME scale-to-fit the live engine uses.
+
+  Why we SCREENSHOT this (screen media) instead of printing it: Chrome's
+  --print-to-pdf renders in PRINT media, where the engine's vw-based clamp()
+  fonts resolve against the page box and grow taller than the screen layout →
+  content overflows + clips, and beforeprint does NOT fire under headless
+  --print-to-pdf so we can't re-fit. So bin/pdf.sh screenshots this page (screen
+  media, where fit is correct) and assembles the PNGs into a PDF (fixed-size
+  images are immune to print reflow). Result matches the live presentation.
+
+  Params: ?week=weekN (deck) · ?strip=1 (flush pages, no margins → for capture)
+          ?chunk=C&size=S (render only slides [C*S, C*S+S) → beat the ~16k px
+          screenshot height limit on long decks).
+  Not linked from the site. onRender/interactive bits do NOT run here (static
+  render) — fine for a handout.
+-->
+<link rel="stylesheet" href="styles/main.css">
+<style>
+  html, body { background:#0a0a0a; margin:0; padding:0; }
+  /* engine's live host stays in the DOM (engine needs these IDs) but hidden */
+  #app { position:absolute; width:1px; height:1px; overflow:hidden; opacity:0; pointer-events:none; left:-9999px; }
+
+  /* one slide = one fixed 1280x720 page */
+  .pg {
+    width:1280px; height:720px; overflow:hidden; position:relative; background:#000;
+  }
+  /* un-stack the cloned slide: flow in place, fully visible, fixed stage size
+     (identical to _capture.html's proven .ct-stage .slide rules) */
+  .pg .slide {
+    position:relative !important; inset:auto !important;
+    width:1280px !important; height:720px !important;
+    opacity:1 !important; visibility:visible !important; z-index:auto !important;
+  }
+  /* freeze entrance animations → final state, zero timing dependence */
+  .pg .slide, .pg .slide * { animation:none !important; transition:none !important; }
+
+  /* preview (open in a browser): gaps + centering so you can scroll + QA */
+  body:not(.strip) { padding:24px; }
+  body:not(.strip) .pg { margin:0 auto 24px; border:1px solid #262626; border-radius:8px; }
+  /* strip (for bin/pdf.sh capture): flush stack, no chrome */
+  body.strip .pg { margin:0; border:0; border-radius:0; }
+</style>
+</head>
+<body>
+  <!-- minimal host the engine wires to (hidden) -->
+  <div id="app">
+    <select id="week-select"></select>
+    <main id="slide-container" tabindex="-1"></main>
+    <ul id="nav-dots"></ul>
+    <span id="current-slide-num"></span><span id="total-slides-num"></span>
+  </div>
+
+  <!-- the real engine -->
+  <script type="module" src="scripts/main.js"></script>
+
+  <!-- page builder -->
+  <script type="module">
+    const params = new URLSearchParams(location.search);
+    if (params.get('strip')) document.body.classList.add('strip');
+    const chunk = params.has('chunk') ? parseInt(params.get('chunk'), 10) : null;
+    const size  = params.has('size')  ? parseInt(params.get('size'),  10) : null;
+
+    // wait until the engine has instantiated + done its first render
+    const waitEngine = () => new Promise(res => {
+      (function poll(){
+        if (window.presentation && Array.isArray(window.presentation.slideElements)) res();
+        else setTimeout(poll, 25);
+      })();
+    });
+    await waitEngine();
+    const eng = window.presentation;
+
+    // switch deck if requested (engine default already loaded otherwise)
+    const week = params.get('week');
+    if (week && week !== eng.currentWeekKey) await eng.loadWeek(week);
+    await new Promise(r => requestAnimationFrame(r));
+    if (document.fonts && document.fonts.ready) { try { await document.fonts.ready; } catch (e) {} }
+
+    // mirror the engine's fitSlide so each page scales content exactly as live
+    const fit = (slideEl) => {
+      const inner = slideEl.querySelector('.slide-inner');
+      if (!inner) return;
+      inner.style.transform = '';
+      const cs = getComputedStyle(slideEl);
+      const availH = slideEl.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+      const availW = slideEl.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      const needH = inner.scrollHeight, needW = inner.scrollWidth;
+      if (needH <= 0 || needW <= 0 || availH <= 0) return;
+      let s = Math.min(availH / needH, availW / needW, 1);
+      if (s < 1) inner.style.transform = `scale(${Math.max(s, 0.4)})`;
+    };
+
+    // optional slice [chunk*size, chunk*size+size) to beat the screenshot height cap
+    let els = eng.slideElements;
+    if (chunk !== null && size !== null && !Number.isNaN(chunk) && !Number.isNaN(size)) {
+      els = els.slice(chunk * size, chunk * size + size);
+    }
+
+    els.forEach((el) => {
+      const clone = el.cloneNode(true);
+      clone.classList.add('active');                 // trigger .active visible state
+      const pg = document.createElement('div'); pg.className = 'pg';
+      pg.appendChild(clone);
+      document.body.appendChild(pg);                 // in DOM first → fit measures right
+      fit(clone);
+    });
+
+    document.title = `pdf: ${eng.currentWeekKey} (${els.length})`;
+    document.body.dataset.ready = '1';
+  </script>
+</body>
+</html>

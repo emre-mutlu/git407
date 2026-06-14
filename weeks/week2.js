@@ -86,7 +86,7 @@ export const week2 = {
                     </div>
                     <div class="mg-callout">
                         <h4>Dosya türleri</h4>
-                        <p><strong>.aep</strong> = AE projesi · içine <strong>import</strong> edilenler: PSD, AI, PNG, JPG, MP4. AE bunları <strong>kopyalamaz</strong>, bağ kurar — kaynak dosya taşınmamalı.</p>
+                        <p><strong>.aep</strong> = AE projesi · içine <strong>import</strong> edilenler: PSD, AI, PNG, JPG, MP4. AE bunları <strong>kopyalamaz</strong>, bağ kurar: kaynak dosya taşınmamalı.</p>
                     </div>
                 </div>
             `
@@ -226,7 +226,7 @@ export const week2 = {
                         <li>Zaman zoom'u: timeline altından yakınlaşıp uzaklaşılır (<span class="ae-kbd">=</span> / <span class="ae-kbd">-</span>).</li>
                         <li>İki katman eklenip listede yerleri değiştirilir; <strong>üsttekinin öne</strong> geçtiği görülür.</li>
                     </ol>
-                    <p class="ae-demo-note">Work area'yı kısaltmak için <span class="ae-kbd">B</span> (başlangıç) ve <span class="ae-kbd">N</span> (bitiş) — sadece o aralık önizlenir.</p>
+                    <p class="ae-demo-note">Work area'yı kısaltmak için <span class="ae-kbd">B</span> (başlangıç) ve <span class="ae-kbd">N</span> (bitiş), sadece o aralık önizlenir.</p>
                 </div>
             `
         },
@@ -267,7 +267,7 @@ export const week2 = {
                         <li>Değerler elle değiştirilir, etkisi sahnede görülür (henüz keyframe yok).</li>
                         <li>Çapa ortalanır: Pan Behind aracı <span class="ae-kbd">Y</span> veya <span class="ae-menu" lang="en">Layer ▸ Transform ▸ Center Anchor Point in Layer Content</span>.</li>
                     </ol>
-                    <p class="ae-demo-note">İpucu: Scale %120 yapılıp döndürülür, sonra anchor ortalanır — fark belirginleşir.</p>
+                    <p class="ae-demo-note">İpucu: Scale %120 yapılıp döndürülür, sonra anchor ortalanır, fark belirginleşir.</p>
                 </div>
             `
         },
@@ -313,7 +313,7 @@ export const week2 = {
                         <li>Playhead <strong>1 sn</strong>'e alınır; logo yeni konuma taşınır → ikinci keyframe otomatik oluşur.</li>
                         <li>Zenginleştirme: Scale %80→%100 ve Opacity %0→%100 eklenir. <span class="ae-kbd">U</span> hepsini gösterir.</li>
                     </ol>
-                    <p class="ae-demo-note">Logo dışarıdan kayarak, büyüyerek ve belirerek giriyor — üç özellik aynı anda.</p>
+                    <p class="ae-demo-note">Logo dışarıdan kayarak, büyüyerek ve belirerek giriyor, üç özellik aynı anda.</p>
                 </div>
             `
         },
@@ -569,7 +569,7 @@ export const week2 = {
                 </div>
                 <div class="mg-callout" style="margin-top:18px;">
                     <h4>İpucu</h4>
-                    <p>Önce <strong>anchor point</strong> ortaya alınır. Başlangıç ve bitiş <strong>yavaşlatılır</strong> (Easy Ease) — küçük dokunuş, büyük fark. <span class="ae-kbd">Ctrl</span> <span class="ae-kbd">S</span> ihmal edilmez.</p>
+                    <p>Önce <strong>anchor point</strong> ortaya alınır. Başlangıç ve bitiş <strong>yavaşlatılır</strong> (Easy Ease). Küçük dokunuş, büyük fark. <span class="ae-kbd">Ctrl</span> <span class="ae-kbd">S</span> ihmal edilmez.</p>
                 </div>
             `
         },

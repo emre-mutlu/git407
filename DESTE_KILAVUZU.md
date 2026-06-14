@@ -143,6 +143,9 @@ otomatik highlighter eklenmez (build'sizlik korunur) — ihtiyaç doğarsa Faz 1
       EN/TR ayrımı güvenilmez, yanlış-pozitif riski) · em-dash yalnız kod-yorumunda.
 - [ ] **kontak föyü ile bak** (önerilir): `bin/screenshot.sh weekN` → `_contact/contact-weekN.png`
       (tüm slaytlar tek ölçekli grid'de, gerçek motor render'ı; cross-repo: `... ../git423-ders`).
+- [ ] **PDF handout** (dağıtılabilir kaynak, ops.): `bin/pdf.sh weekN` → `_pdf/deck-weekN.pdf`
+      (her slayt = bir sayfa, canlı sunumun aynısı; dersi kaçırana/sonradan-kaynak. cross-repo: `... ../git423-ders`).
+      Not: motoru screen-media'da screenshot'layıp sabit-görselden kurar (print-media engine'i kırpıyor) — canlıya dokunmaz.
 - [ ] `manifest.js`'e satır eklendi (doğru `label`, gerekiyorsa `default`).
 - [ ] medya kuralına uyuldu (boyut/embed).
 - [ ] yerel doğrula: `python3 -m http.server 4173` → tüm slaytlar fit, dropdown +

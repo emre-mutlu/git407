@@ -18,6 +18,12 @@
   yok, tam sadakat), tüm slaytları ölçekli CSS grid'de **tek screenshot** → `_contact/contact-weekN.png`.
   Montaj/puppeteer GEREKMEZ (CSS=grid, Chrome=kamera). Cross-repo `../git423-ders` (geçici harness
   kopyala→sil). `_contact/` gitignore. Doğrulı: git407 14+24, git423-ders 33+27+29 slayt.
+- **PDF handout aracı ✅ (06-14, Janus otonom-tur):** `bin/pdf.sh [weekN]` + `_print.html` (build-less,
+  headless Chrome). Dağıtılabilir kaynak (dersi kaçırana) — her slayt = bir sayfa, **canlı sunumun aynısı**.
+  **Bulgu:** `--print-to-pdf` PRINT-media'da engine'in `vw`-clamp fontlarını büyütüp **kırpıyor** + headless'te
+  `beforeprint` fire ETMİYOR → re-fit imkansız. Çözüm: motoru **screen-media'da** chunk'lar (16'lık) halinde
+  screenshot → sabit-boyut arka-plan-görselli `_asm.html` → `--print-to-pdf` (görsel = print-reflow'dan muaf).
+  Cross-repo geçici-harness. `_pdf/` gitignore. Doğrulı: 5/5 deste (git423 w1 33/3-chunk dahil). Canlıya dokunmaz.
 - **UI/UX yenileme ✅ (06-12, Emre talebi "içime sinmedi" → AskUser: hiza+okunabilirlik+chrome
   rötuşu, konsept/renk kalır).** Hepsi `styles/main.css` + week dosyaları; **motor DOKUNULMADI**.
   - **Layout kararı:** sabit-başlık (pinned header, Keynote tarzı) DENENDİ ve GERİ ALINDI —

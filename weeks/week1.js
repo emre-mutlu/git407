@@ -361,7 +361,7 @@ export const week1 = {
                 </div>
                 <div class="mg-callout" style="margin-top:18px;">
                     <h4>İpucu</h4>
-                    <p>Bir kez fark edildiğinde <strong>her yerde</strong> görünür. Sözlükteki terimlerle (keyframe, easing, timing) düşünmek iyi bir başlangıç — bu kelimeler haftaya ekranda canlanıyor.</p>
+                    <p>Bir kez fark edildiğinde <strong>her yerde</strong> görünür. Sözlükteki terimlerle (keyframe, easing, timing) düşünmek iyi bir başlangıç. Bu kelimeler haftaya ekranda canlanıyor.</p>
                 </div>
             `
         },
