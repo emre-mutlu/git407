@@ -20,4 +20,5 @@
 export const manifest = [
     { key: 'week1', label: '01 · Hareketli Grafiğe Giriş', default: true },
     { key: 'week2', label: "02 · After Effects'e Giriş" },
+    { key: 'week3', label: '03 · Graph Editor' },
 ];
