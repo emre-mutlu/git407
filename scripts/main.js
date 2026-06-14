@@ -9,7 +9,7 @@ import { manifest } from '../weeks/manifest.js';
 // Engine version stamp — bump on any shared-engine change so drift between
 // git407 and git423 stays visible (bin/sync-engine.sh distributes this file
 // verbatim; the stamp tells you which copy a site is actually running).
-const ENGINE_VERSION = '1.1.0';
+const ENGINE_VERSION = '1.2.0';
 
 // Per-site localStorage namespace, derived from the first path segment
 // (github.io/git407/… → "git407", github.io/git423/… → "git423"). Keeps the
@@ -267,6 +267,12 @@ class PresentationEngine {
                     console.error(`Error on slide [${slideData.id}] render hook:`, err);
                 }
             }
+
+            // Hydrate interactive motion demos declared in this slide's html.
+            slideEl.querySelectorAll('[data-motion-demo]').forEach((el) => {
+                try { new MotionDemo(el); }
+                catch (err) { console.error(`MotionDemo init [${slideData.id}]:`, err); }
+            });
         });
 
         // Set total count
@@ -497,6 +503,152 @@ class Lightbox {
 
         this.isOpen = false;
         document.body.style.overflow = '';
+    }
+}
+
+// ==========================================================================
+// MOTION DEMO — interactive easing widgets (declarative: [data-motion-demo])
+//   playground = draggable cubic-bezier curve + a dot that traces the eased motion
+//   race       = N named easings animated side-by-side on one click
+// Build-less, vanilla SVG/JS, no deps. Generic (animation-course-wide; inert
+// when no [data-motion-demo] exists, so git423 decks are unaffected).
+// ==========================================================================
+class MotionDemo {
+    constructor(el) {
+        this.el = el;
+        this.mode = el.dataset.motionDemo || 'playground';
+        this.duration = parseInt(el.dataset.duration || '1100', 10);
+        // control points [x1,y1,x2,y2]; y may exceed [0,1] for overshoot.
+        this.presets = {
+            linear:    [0, 0, 1, 1],
+            ease:      [0.25, 0.1, 0.25, 1],
+            overshoot: [0.34, 1.56, 0.64, 1],
+        };
+        this._raf = null;
+        el.classList.add('motion-demo', `md-${this.mode}`);
+        (this.mode === 'race') ? this._buildRace() : this._buildPlayground();
+    }
+
+    // cubic-bezier(p)(t): control pts [x1,y1,x2,y2] → eased y for input x=t in [0,1].
+    static ease(p, t) {
+        const [x1, y1, x2, y2] = p;
+        const bez = (a, b, u) => 3 * (1 - u) * (1 - u) * u * a + 3 * (1 - u) * u * u * b + u * u * u;
+        let lo = 0, hi = 1, u = t;
+        for (let i = 0; i < 20; i++) { u = (lo + hi) / 2; (bez(x1, x2, u) < t) ? (lo = u) : (hi = u); }
+        return bez(y1, y2, u);
+    }
+
+    // unit (x in [0,1], y free) → SVG coords inside a [pad .. size-pad] box (y up).
+    _pt(x, y, size, pad) {
+        const span = size - 2 * pad;
+        return [pad + x * span, size - pad - y * span];
+    }
+
+    _buildPlayground() {
+        const size = 300, pad = 34, ns = 'http://www.w3.org/2000/svg';
+        let pts = (this.el.dataset.bezier || '0.25,0.1,0.25,1').split(',').map(Number);
+        if (pts.length !== 4 || pts.some(Number.isNaN)) pts = [0.25, 0.1, 0.25, 1];
+
+        const svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
+        svg.setAttribute('class', 'md-svg');
+        const mk = (tag, cls, attrs = {}) => {
+            const n = document.createElementNS(ns, tag);
+            if (cls) n.setAttribute('class', cls);
+            for (const k in attrs) n.setAttribute(k, attrs[k]);
+            return n;
+        };
+        const frame = mk('rect', 'md-frame', { x: pad, y: pad, width: size - 2 * pad, height: size - 2 * pad });
+        const [lx0, ly0] = this._pt(0, 0, size, pad), [lx1, ly1] = this._pt(1, 1, size, pad);
+        const diag = mk('line', 'md-diag', { x1: lx0, y1: ly0, x2: lx1, y2: ly1 });
+        const guide1 = mk('line', 'md-guide'), guide2 = mk('line', 'md-guide');
+        const curve = mk('path', 'md-curve');
+        const h1 = mk('circle', 'md-handle', { r: 8 }), h2 = mk('circle', 'md-handle', { r: 8 });
+        const dot = mk('circle', 'md-dot', { r: 7 });
+        svg.append(frame, diag, guide1, guide2, curve, h1, h2, dot);
+
+        const readout = document.createElement('div');
+        readout.className = 'md-readout';
+        const playBtn = document.createElement('button');
+        playBtn.type = 'button'; playBtn.className = 'md-play'; playBtn.textContent = '▶ Oynat';
+
+        const redraw = () => {
+            const [p0x, p0y] = this._pt(0, 0, size, pad);
+            const [p3x, p3y] = this._pt(1, 1, size, pad);
+            const [c1x, c1y] = this._pt(pts[0], pts[1], size, pad);
+            const [c2x, c2y] = this._pt(pts[2], pts[3], size, pad);
+            curve.setAttribute('d', `M ${p0x} ${p0y} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${p3x} ${p3y}`);
+            h1.setAttribute('cx', c1x); h1.setAttribute('cy', c1y);
+            h2.setAttribute('cx', c2x); h2.setAttribute('cy', c2y);
+            guide1.setAttribute('x1', p0x); guide1.setAttribute('y1', p0y); guide1.setAttribute('x2', c1x); guide1.setAttribute('y2', c1y);
+            guide2.setAttribute('x1', p3x); guide2.setAttribute('y1', p3y); guide2.setAttribute('x2', c2x); guide2.setAttribute('y2', c2y);
+            readout.textContent = `cubic-bezier(${pts.map((n) => n.toFixed(2)).join(', ')})`;
+        };
+
+        const bindDrag = (handle, ix, iy) => {
+            handle.addEventListener('pointerdown', (e) => {
+                e.preventDefault(); handle.setPointerCapture(e.pointerId);
+                const span = size - 2 * pad;
+                const move = (ev) => {
+                    const r = svg.getBoundingClientRect();
+                    const sx = (ev.clientX - r.left) / r.width * size;
+                    const sy = (ev.clientY - r.top) / r.height * size;
+                    pts[ix] = Math.min(1, Math.max(0, (sx - pad) / span));
+                    pts[iy] = Math.min(1.6, Math.max(-0.6, (size - pad - sy) / span));
+                    redraw();
+                };
+                const up = () => { svg.removeEventListener('pointermove', move); svg.removeEventListener('pointerup', up); };
+                svg.addEventListener('pointermove', move);
+                svg.addEventListener('pointerup', up);
+            });
+        };
+        bindDrag(h1, 0, 1); bindDrag(h2, 2, 3);
+
+        const play = () => {
+            if (this._raf) cancelAnimationFrame(this._raf);
+            const t0 = performance.now();
+            const step = (now) => {
+                const t = Math.min(1, (now - t0) / this.duration);
+                const [cx, cy] = this._pt(t, MotionDemo.ease(pts, t), size, pad);
+                dot.setAttribute('cx', cx); dot.setAttribute('cy', cy);
+                if (t < 1) this._raf = requestAnimationFrame(step);
+            };
+            this._raf = requestAnimationFrame(step);
+        };
+        playBtn.addEventListener('click', play);
+
+        redraw();
+        const [sx, sy] = this._pt(0, 0, size, pad);
+        dot.setAttribute('cx', sx); dot.setAttribute('cy', sy);
+        this.el.append(svg, readout, playBtn);
+    }
+
+    _buildRace() {
+        const names = (this.el.dataset.easings || 'linear,ease,overshoot')
+            .split(',').map((s) => s.trim()).filter(Boolean);
+        const rows = names.map((name) => {
+            const row = document.createElement('div'); row.className = 'md-row';
+            const label = document.createElement('span'); label.className = 'md-label'; label.setAttribute('lang', 'en'); label.textContent = name;
+            const track = document.createElement('div'); track.className = 'md-track';
+            const dot = document.createElement('span'); dot.className = 'md-dot';
+            track.appendChild(dot); row.append(label, track);
+            this.el.appendChild(row);
+            return { dot, preset: this.presets[name] || this.presets.linear };
+        });
+        const playBtn = document.createElement('button');
+        playBtn.type = 'button'; playBtn.className = 'md-play'; playBtn.textContent = '▶ Yarıştır';
+        const play = () => {
+            if (this._raf) cancelAnimationFrame(this._raf);
+            const t0 = performance.now();
+            const step = (now) => {
+                const t = Math.min(1, (now - t0) / this.duration);
+                rows.forEach((r) => { r.dot.style.left = (MotionDemo.ease(r.preset, t) * 100) + '%'; });
+                if (t < 1) this._raf = requestAnimationFrame(step);
+            };
+            this._raf = requestAnimationFrame(step);
+        };
+        playBtn.addEventListener('click', play);
+        this.el.appendChild(playBtn);
     }
 }
 
