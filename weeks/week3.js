@@ -183,6 +183,41 @@ export const week3 = {
             notes: "Eller üstünde tip değişimi. Hold demosu en çarpıcı: akıcı → sıçramalı. Ctrl-klik hızlı yolunu hatırlat.",
         },
         {
+            id: "elle-egri",
+            category: "Şekillendirme",
+            title: "Eğriyi Elle: Kollar ve Influence",
+            html: `
+                <p class="mg-intro">Easy Ease hazır bir eğriydi. Graph editor'da her keyframe'in iki <strong>kolu</strong> (bezier handle) vardır; bunlar çekilerek eğri elle şekillenir. Kolu <strong>uzatmak</strong> o yöndeki yavaşlamayı artırır.</p>
+                <div class="mg-grid-2 stagger">
+                    <div class="mg-card mg-card--cyan"><div class="mg-card__title">Slow in</div><p class="mg-card__text">Giriş kolu uzun: nesne hedefe <strong>yumuşak</strong> yaklaşır, yavaşlayarak durur.</p></div>
+                    <div class="mg-card mg-card--magenta"><div class="mg-card__title">Slow out</div><p class="mg-card__text">Çıkış kolu uzun: nesne <strong>tembel</strong> başlar, yavaşça hızlanır.</p></div>
+                </div>
+                <p class="mg-foot"><strong>Influence</strong> (%) = kolun uzunluğu. Kısa kol keskin, uzun kol yayvan geçiş.</p>
+                <div style="margin-top:16px;"><span class="mg-trace" lang="en">slow in / slow out</span></div>
+            `,
+            notes: "Easy Ease'in elle hâli. Kol uzunluğu = influence = yavaşlama miktarı. Uzun kol yumuşak, kısa sert. Yandaki oyna slaytı bunu canlı gösterir.",
+        },
+        {
+            id: "demo-elle-egri",
+            category: "AE Demo",
+            title: "Demo · Kolları Çekmek",
+            html: `
+                <div class="ae-demo ae-demo--full">
+                    <div class="ae-demo__head">
+                        <span class="ae-demo__badge"><b>Ae</b></span>
+                        <span class="ae-demo__label">Canlı · After Effects</span>
+                    </div>
+                    <ol class="ae-demo__steps">
+                        <li>Graph Editor'da bir keyframe seçilir; <strong>sarı kollar</strong> belirir. Speed graph'ta çekildikçe tümseğin şekli değişir.</li>
+                        <li>Giriş kolu yatay uzatılır: nesnenin <strong>yumuşak indiği</strong> görülür. Kısaltılınca <strong>sert</strong> durur.</li>
+                        <li>Çıkış kolu ayarlanır; <span class="ae-kbd">Space</span> ile her ayardan sonra hareket izlenir.</li>
+                    </ol>
+                    <p class="ae-demo-note">Yandaki canlı playground: aynı kolları çekip etkiyi tarayıcıda anında görmek mümkün.</p>
+                </div>
+            `,
+            notes: "Eller üstünde. Sarı kollar = bezier handle. Çek, önizle, çek, önizle. Playground slaytıyla birebir aynı mantık.",
+        },
+        {
             id: "oyna-playground",
             title: "Oyna: Eğriyi Elle Şekillendir",
             category: "Etkileşim",
@@ -194,6 +229,108 @@ export const week3 = {
             notes: "Sınıfça bir kol aşağı, bir yukarı. Aynı süre, bambaşka his. Overshoot için ikinci kontrol noktası 1'in üstüne çekilir.",
         },
         {
+            id: "overshoot",
+            category: "Şekillendirme",
+            title: "Overshoot: %100'ün Ötesi",
+            html: `
+                <p class="mg-intro">Bazen hareket hedefi <strong>aşıp geri döner</strong>, bir yay gibi. Buna <strong>overshoot</strong> denir. Value graph'ta eğri hedef değerin <strong>üstüne</strong> çıkıp geri iner; kol kutunun dışına taşar.</p>
+                <div class="mg-grid-2-1">
+                    <div>
+                        <p class="mg-sub">Overshoot harekete <strong>enerji ve canlılık</strong> katar: snappy arayüz geçişleri, zıplayan logolar, esprili mikro animasyonlar. Az miktarı bile cansız bir hareketi diriltir.</p>
+                    </div>
+                    <div class="mg-callout">
+                        <h4>İlke bağı</h4>
+                        <p>Overshoot, abartının (<span lang="en">exaggeration</span>) hareketteki hâlidir: gerçeği biraz zorlayıp <strong>daha okunur</strong> kılmak.</p>
+                    </div>
+                </div>
+                <div style="margin-top:16px;"><span class="mg-trace" lang="en">exaggeration</span></div>
+            `,
+            notes: "Overshoot = hedefi aşıp dönmek = yay/snappy his. Value graph'ta %100 üstüne taşar. Az bile çok katar. Exaggeration ilkesi.",
+        },
+        {
+            id: "demo-overshoot",
+            category: "AE Demo",
+            title: "Demo · Yayı Kurmak",
+            html: `
+                <div class="ae-demo ae-demo--full">
+                    <div class="ae-demo__head">
+                        <span class="ae-demo__badge"><b>Ae</b></span>
+                        <span class="ae-demo__label">Canlı · After Effects</span>
+                    </div>
+                    <ol class="ae-demo__steps">
+                        <li>Value Graph'a geçilir. Hedef keyframe'in kolu yukarı, <strong>kutunun üstüne</strong> çekilir: eğri hedefi aşar.</li>
+                        <li>Aşan tepe sonra geri iner: nesne hedefi geçip <strong>geri yaslanır</strong>. <span class="ae-kbd">Space</span> ile izlenir.</li>
+                        <li>Miktar ayarlanır: hafif overshoot zarif, fazlası komik kaçar. Doz önemli.</li>
+                    </ol>
+                    <p class="ae-demo-note">Pratik yol: iki keyframe yerine üç; orta keyframe hedefin biraz ötesinde, son keyframe hedefte.</p>
+                </div>
+            `,
+            notes: "Value graph'ta kolu kutu dışına çek = overshoot. Ya da 3 keyframe: ötesine geç, hedefe otur. Doz vurgusu: az = zarif.",
+        },
+        {
+            id: "reveal-overshoot",
+            category: "Soru ve Tartışma",
+            type: "reveal",
+            title: "Overshoot Her Yere Uyar mı?",
+            question: "Snappy overshoot harika hissettiriyor. Peki her animasyona konmalı mı? Nerede iyi, nerede ters?",
+            html: `
+                <p class="mg-intro">Bağlama göre. <strong>İyi durduğu yer:</strong> oyunlaştırılmış arayüz, çocuk içeriği, eğlenceli marka, mikro etkileşim. <strong>Dikkat:</strong> ciddi ve kurumsal kimlik, veri görselleştirme, sık tekrarlayan UI; orada abartı yorucu ve ucuz durur.</p>
+                <p class="mg-sub">Soru "snappy mi yumuşak mı" değil, "<strong>bu işe ne yakışır</strong>". Easing bir ton seçimidir; içeriğin sesiyle uyumlu olmalı.</p>
+            `,
+            notes: "Eleştirel göz kur. Cevap: bağlama göre. Eğlenceli = evet, kurumsal/veri = dikkat. Easing = ton. Tasarım kararı, refleks değil.",
+        },
+        {
+            id: "his-sozlugu",
+            category: "Şekillendirme",
+            title: "Eğri → His Sözlüğü",
+            html: `
+                <p class="mg-intro">Her eğri şeklinin bir <strong>hissi</strong>, o hissin bir <strong>yeri</strong> vardır. Teknikten tasarıma geçiş bu eşleştirmeyle olur:</p>
+                <div class="mg-grid-2 stagger">
+                    <div class="mg-term"><span class="mg-term__k" lang="en">linear</span><p class="mg-term__d"><strong>Mekanik, robotik.</strong> Yükleme çubuğu, sabit dönen çark; duygu yok.</p></div>
+                    <div class="mg-term"><span class="mg-term__k" lang="en">ease-out</span><p class="mg-term__d"><strong>Yumuşak iniş.</strong> Bir şeyin gelip oturması; en sık, en güvenli seçim.</p></div>
+                    <div class="mg-term"><span class="mg-term__k" lang="en">ease-in</span><p class="mg-term__d"><strong>Yaylanıp kalkış.</strong> Bir şeyin gidişi, sahneden çıkışı; anticipation hissi.</p></div>
+                    <div class="mg-term"><span class="mg-term__k" lang="en">overshoot</span><p class="mg-term__d"><strong>Enerjik, snappy.</strong> Esprili, dikkat çeken; az dozda imza gibi.</p></div>
+                </div>
+                <p class="mg-foot">Doğru eğri = doğru his. Yazılım bilgisi burada <strong>tasarım kararına</strong> dönüşür.</p>
+            `,
+            notes: "Haftanın tasarım slaytı. Eğri = duygu sözlüğü. linear=duygusuz, ease-out=iner, ease-in=kalkar, overshoot=enerjik. Hangisi ne zaman: içerik karar verir.",
+        },
+        {
+            id: "motion-path",
+            category: "Uzamsal",
+            title: "Motion Path: Uzayda da Eğri Var",
+            html: `
+                <p class="mg-intro">Şimdiye kadarki eğriler <strong>zaman</strong> içindi (ne zaman, ne kadar hızlı). Ama bir nesne uzayda da düz ya da <strong>eğri</strong> gidebilir. Position keyframe'leri arası comp panelinde bir <strong>motion path</strong> (hareket yolu) çizer.</p>
+                <div class="mg-grid-2 stagger">
+                    <div class="mg-card"><div class="mg-card__title">Düz yol</div><p class="mg-card__text">A'dan B'ye doğru çizgi: mekanik, cansız.</p></div>
+                    <div class="mg-card mg-card--magenta"><div class="mg-card__title">Yay (arc)</div><p class="mg-card__text">Hafif kavisli yol: doğal, organik. Gerçek hareket nadiren düzdür.</p></div>
+                </div>
+                <p class="mg-foot">Comp panelinde yol noktalarının kolları çekilir; düz çizgi yaya döner. <span lang="en">Convert Vertex</span> aracı köşeyi yumuşatır.</p>
+                <div style="margin-top:16px;"><span class="mg-trace" lang="en">arcs</span></div>
+            `,
+            notes: "Eğrinin uzamsal yarısı. Zaman eğrisi = graph editor; uzay eğrisi = motion path (comp'ta). Arcs ilkesi: doğada düz hareket yok; kuş, top, el hep yay çizer.",
+        },
+        {
+            id: "demo-motion-path",
+            category: "AE Demo",
+            title: "Demo · Yolu Eğmek",
+            html: `
+                <div class="ae-demo ae-demo--full">
+                    <div class="ae-demo__head">
+                        <span class="ae-demo__badge"><b>Ae</b></span>
+                        <span class="ae-demo__label">Canlı · After Effects</span>
+                    </div>
+                    <ol class="ae-demo__steps">
+                        <li>İki position keyframe'li bir katmanda, comp panelinde noktaları birleştiren <strong>kesik çizgi</strong> (motion path) görülür.</li>
+                        <li>Bir yol noktası seçilir; çıkan <strong>kolları</strong> çekilir, düz yol <strong>yaya</strong> döner.</li>
+                        <li>Köşeli geçiş için <span class="ae-menu" lang="en">Pen tool</span> altındaki <span class="ae-menu" lang="en">Convert Vertex</span> ile nokta yumuşatılır.</li>
+                    </ol>
+                    <p class="ae-demo-note">Yoldaki noktaların sıklığı spacing'i gösterir: sık noktalar yavaş, seyrek noktalar hızlı bölge.</p>
+                </div>
+            `,
+            notes: "Comp panelinde motion path kolları. Düz → yay. Convert Vertex köşe yumuşatır. Bonus: yol noktaları = spacing'in uzamsal hâli.",
+        },
+        {
             id: "uc-easing-yaris",
             title: "Aynı Hareket, Üç Easing",
             category: "Karşılaştırma",
@@ -203,6 +340,157 @@ export const week3 = {
                 <div data-motion-demo="race" data-easings="linear,ease,overshoot"></div>
             `,
             notes: "linear = mekanik/robotik. ease = doğal. overshoot = enerjik/snappy. Hangisi canlı? Bağlama göre değişir.",
+        },
+        {
+            id: "demo-uc-easing",
+            category: "AE Demo",
+            title: "Demo · Aynı Hareket, Üç Easing",
+            html: `
+                <div class="ae-demo ae-demo--full">
+                    <div class="ae-demo__head">
+                        <span class="ae-demo__badge"><b>Ae</b></span>
+                        <span class="ae-demo__label">Canlı · After Effects</span>
+                    </div>
+                    <ol class="ae-demo__steps">
+                        <li>Bir nesne A'dan B'ye taşınır (iki position keyframe). Katman iki kez çoğaltılır (<span class="ae-kbd">Ctrl</span> <span class="ae-kbd">D</span>); üç kopya alt alta.</li>
+                        <li>Biri <strong>linear</strong> bırakılır, biri <strong>Easy Ease</strong> (<span class="ae-kbd">F9</span>), biri graph'ta <strong>overshoot</strong>'a şekillenir.</li>
+                        <li>Üçü aynı anda oynatılır (<span class="ae-kbd">Space</span>): aynı mesafe, aynı süre, üç ayrı his. Yandaki yarış slaytının AE'deki karşılığı.</li>
+                    </ol>
+                    <p class="ae-demo-note">Haftanın özeti: tek değişken easing, sonuç tamamen farklı. Karar tasarımcınındır.</p>
+                </div>
+            `,
+            notes: "Haftanın doruk demosu. 3 kopya, 3 easing, yan yana oynat. Tarayıcıdaki race slaytının AE hâli. 'Tek fark eğri' net görünsün.",
+        },
+        {
+            id: "logoya-uygula",
+            category: "Uygulama",
+            title: "Şimdi Kendi Logona",
+            html: `
+                <p class="mg-intro">Öğrenilen her şey tek bir yerde buluşur: <strong>geçen haftaki logo animasyonu</strong>. Linear keyframe'ler graph editor'da elle şekillenir, bir yere hafif overshoot eklenir, giriş yumuşatılır.</p>
+                <div class="ae-flow" style="margin:20px 0 16px;">
+                    <span class="ae-flow__step">W2 logosu</span>
+                    <span class="ae-flow__arrow">→</span>
+                    <span class="ae-flow__step">graph'ta elle ease</span>
+                    <span class="ae-flow__arrow">→</span>
+                    <span class="ae-flow__step">bir dokunuş overshoot</span>
+                    <span class="ae-flow__arrow">→</span>
+                    <span class="ae-flow__step">canlı giriş</span>
+                </div>
+                <div class="mg-callout">
+                    <h4>W2'yi yapmadıysan</h4>
+                    <p>Sorun değil: basit bir şekil (daire, kare) ile de aynı pratik yapılır. Önemli olan eğriyi elle kurmak.</p>
+                </div>
+            `,
+            notes: "Coda: teknik kendi işine döner. W2 logosu varsa onu canlandır; yoksa basit obje. Süreklilik + 'kendi işini iyileştir' hissi.",
+        },
+        {
+            id: "hatalar",
+            category: "Dikkat",
+            title: "Graph Editor'da Acemi Hataları",
+            html: `
+                <p class="mg-intro">Bu üçü graph editor'a yeni geçenin başına gelir:</p>
+                <div class="mg-grid-3 stagger">
+                    <div class="mg-card mg-card--magenta"><span class="mg-card__icon">▰</span><div class="mg-card__title">Her şeyi linear bırakmak</div><p class="mg-card__text">Keyframe kondu ama eğriye dokunulmadı. Hareket robotik. En sık hata.</p></div>
+                    <div class="mg-card mg-card--amber"><span class="mg-card__icon">◭</span><div class="mg-card__title">Aşırı overshoot</div><p class="mg-card__text">Her şey zıplıyorsa hiçbiri özel değildir. Doz kaçınca ucuz durur.</p></div>
+                    <div class="mg-card mg-card--cyan"><span class="mg-card__icon">▤</span><div class="mg-card__title">Yanlış grafiği okumak</div><p class="mg-card__text">Speed graph'ı value graph sanmak; dipteki düz çizgiyi "sabit değer" okumak.</p></div>
+                </div>
+            `,
+            notes: "Üç klasik. Linear bırakmak = en yaygın. Aşırı overshoot = doz. Grafik karıştırma = speed vs value. Ödev dönüşünde bunlara bak.",
+        },
+        {
+            id: "cheatsheet",
+            category: "Referans",
+            title: "Graph Editor Cheatsheet",
+            html: `
+                <div class="cheat-grid stagger">
+                    <div class="cheat-group">
+                        <h4><span lang="en">Graph Editor</span></h4>
+                        <ul>
+                            <li><span class="keys"><span class="ae-kbd">Shift</span> <span class="ae-kbd">F3</span></span> editörü aç / kapat</li>
+                            <li><span class="keys"><span class="ae-kbd">F9</span></span> Easy Ease (yumuşat)</li>
+                            <li><span class="keys"><span class="ae-kbd">Shift</span> <span class="ae-kbd">F9</span></span> Easy Ease In</li>
+                        </ul>
+                    </div>
+                    <div class="cheat-group">
+                        <h4>Keyframe tipi</h4>
+                        <ul>
+                            <li><span class="keys"><span class="ae-kbd">Ctrl</span> klik</span> linear ile auto bezier arası</li>
+                            <li><span class="keys"><span class="ae-kbd">Ctrl</span> <span class="ae-kbd">Alt</span> klik</span> Hold aç / kapat</li>
+                            <li>sağ tık → <span lang="en">Keyframe Interpolation</span></li>
+                        </ul>
+                    </div>
+                    <div class="cheat-group">
+                        <h4>Grafik &amp; yol</h4>
+                        <ul>
+                            <li><span lang="en">Choose graph type</span> value ile speed arası</li>
+                            <li><span lang="en">Fit selection to view</span> eğriyi sığdır</li>
+                            <li><span lang="en">Separate Dimensions</span> X / Y ayrı eğri</li>
+                            <li><span lang="en">Convert Vertex</span> yol köşesini yumuşat</li>
+                        </ul>
+                    </div>
+                    <div class="cheat-group">
+                        <h4>Gezinme</h4>
+                        <ul>
+                            <li><span class="keys"><span class="ae-kbd">J</span> <span class="ae-kbd">K</span></span> önceki / sonraki keyframe</li>
+                            <li><span class="keys"><span class="ae-kbd">Space</span></span> önizleme</li>
+                            <li><span class="keys"><span class="ae-kbd">U</span></span> animasyonlu özellikler</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
+            notes: "Referans slaytı. Shift+F3 ve F9 en kritik. Separate Dimensions = X/Y bağımsız eğri (pro). Convert Vertex = yol. Öğrenci fotoğraf çeksin.",
+        },
+        {
+            id: "ilham",
+            category: "İlham",
+            title: "İyi Easing Nerede Görülür",
+            html: `
+                <p class="mg-intro">Eğri okuma gözü açılınca her yerde görünür: bir uygulamanın açılışı, bir logonun yaylanışı, bir geçişin yumuşaklığı. Hepsi birkaç iyi eğridir. İzlerken "bu hangi easing" diye sormak en iyi egzersiz.</p>
+                <div class="mg-grid-2 stagger" style="margin-bottom:16px;">
+                    <div class="mg-card mg-card--cyan">
+                        <div class="mg-card__title">UI ve arayüz hareketi</div>
+                        <p class="mg-card__text">Material Design ve iOS geçişleri easing üstüne kuruludur; standartları incelemeye değer.</p>
+                        <a class="mg-link" href="https://m2.material.io/design/motion/the-motion-system.html" target="_blank" rel="noopener" style="margin-top:12px;">Material motion</a>
+                    </div>
+                    <div class="mg-card mg-card--magenta">
+                        <div class="mg-card__title">Motion design topluluğu</div>
+                        <p class="mg-card__text">Snappy, overshoot'lu mikro animasyonların günlük akışı; eğri hissi için en iyi besleme.</p>
+                        <a class="mg-link" href="https://dribbble.com/tags/motion" target="_blank" rel="noopener" style="margin-top:12px;">Dribbble · motion</a>
+                    </div>
+                </div>
+                <div class="mg-links" style="justify-content:center;">
+                    <span class="mg-links__label">eğri kütüphanesi</span>
+                    <a class="mg-link" href="https://easings.net" target="_blank" rel="noopener">easings.net</a>
+                </div>
+            `,
+            notes: "Eğri gözünü besle. UI motion (Material/iOS), Dribbble motion, easings.net. Sürekli egzersiz: 'bu hangi easing' diye bakmak.",
+        },
+        {
+            id: "odev",
+            category: "Haftalık Ödev",
+            title: "Bu Haftanın Ödevi",
+            html: `
+                <div class="mg-task">
+                    <p class="mg-task__brief">Basit bir nesneyle (daire, kare ya da W2 logosu) <strong>aynı A→B hareketinin üç hâli</strong>: <strong>linear</strong>, <strong>Easy Ease</strong> ve <strong>elle overshoot</strong>. Üçü yan yana, tek MP4.</p>
+                    <ul class="mg-list">
+                        <li>Aynı mesafe, aynı süre; tek değişken <strong>easing</strong>.</li>
+                        <li>Overshoot'lu olan <strong>graph editor'da elle</strong> kurulmuş olmalı (hazır preset değil).</li>
+                        <li>Üç kopya alt alta, <strong>aynı anda</strong> oynayacak şekilde.</li>
+                        <li><strong>H.264 / MP4</strong>, en fazla 5 sn.</li>
+                    </ul>
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:18px;">
+                        <span class="mg-links__label">teslim</span>
+                        <span class="mg-chip mg-chip--magenta">MP4 dosyası</span>
+                        <span class="mg-chip" lang="en">3 easing yan yana</span>
+                        <span class="mg-chip mg-chip--cyan">gelecek derse kadar</span>
+                    </div>
+                </div>
+                <div class="mg-callout" style="margin-top:18px;">
+                    <h4>İpucu</h4>
+                    <p>Önce bir hareket kurulur, iki kez çoğaltılır (<span class="ae-kbd">Ctrl</span> <span class="ae-kbd">D</span>), sonra her kopyaya farklı easing verilir. İsteğe bağlı: aynı eğri kendi logona uygulanır.</p>
+                </div>
+            `,
+            notes: "Ödev = aynı hareket × 3 easing → MP4. Overshoot elle kurulmalı (öğrenme kanıtı). Bonus: logoya uygula. Gelecek hafta H4: zıplayan top.",
         },
     ],
 };
