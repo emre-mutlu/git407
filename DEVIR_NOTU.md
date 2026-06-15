@@ -104,10 +104,15 @@
   Pages'te. **Sıra (farklı proje, 06-11 güncel):** ders link-kartları artık **kampus**'ta
   (okul-portali kümesi 06-09'da greenfield `kampus`'a süpersede oldu; eski "okul-portali →
   link kartları" planı geçersiz — kampus CANLI: kampus-ese.pages.dev).
-- ~~Week 2 destesi~~ ✅ TAMAM (06-12). **Sıradaki iş: Week 3 destesi (H3 · Graph Editor)** —
-  value/speed graph, easing/overshoot elle kurma, motion path; ilke (T1): slow in/out ·
-  timing & spacing · arcs · exaggeration. Uygulama: aynı hareket × 3 easing. Week 2 desenini
-  izle (AE DEMO bileşeni, tek sürekli proje, ödev slaytıyla bitiş).
+- ~~Week 2 destesi~~ ✅ · ~~Week 3 destesi (H3 · Graph Editor)~~ ✅ **TAMAM (06-15)** — 27 slayt
+  (value/speed graph · elle ease/overshoot · motion path · his sözlüğü); **interaktiflik tam paket**
+  (3 reveal tartışma + dış medya + 2 canlı MotionDemo slaytı); ilke izi `.mg-trace` (slow in/out ·
+  timing & spacing · arcs · exaggeration). **+ Motor `MotionDemo` v1.2.0** (playground + race,
+  deklaratif `[data-motion-demo]`, git423'e sync'li). Playwright etkileşim + 3-çözünürlük fit doğrulı.
+- **Sıradaki iş: Week 4 destesi (H4 · Ağırlık & Canlılık)** — graph'ı bir rig'e uygulamak:
+  zıplayan top + savrulan kuyruk. İlke (T1): anticipation · follow-through/overlapping · squash & stretch.
+  NOT: "rig" hafif tutulacak (klasik bouncing-ball; gerçek rig/parenting = H7). W3'ün MotionDemo
+  widget'ı W4'te de kullanılabilir.
 - **Haftalık ödev kuralı (06-12):** HER hafta son slayt **Haftalık Ödev** (`.mg-task`).
   W1'e de eklendi ✅ (14 slayt). W2 ödevi: logo giriş animasyonu → MP4.
 
@@ -183,13 +188,14 @@ Design/styleframe (H6) → Animation/WIP animatik (H7) → Render öğretimi + s
 - [ ] (ops.) Tez doğrudan id'li detay linki + özet
 - [x] Araç yönü kararı → **AE ağırlıklı** (06-11) + 7 oturumluk dönem planı (H2–H8)
 - [x] Week 2 destesi (AE giriş + temel çıktı) → 10 slayt, AE DEMO bileşeni, ödev slaytı (06-12)
-- [ ] Week 3 destesi (H3 · Graph Editor) — sıradaki
+- [x] Week 3 destesi (H3 · Graph Editor) → 27 slayt + interaktiflik (reveal+MotionDemo) + motor v1.2.0 (06-15)
+- [ ] Week 4 destesi (H4 · Ağırlık & Canlılık, hafif bouncing-ball) — sıradaki
 - [x] Haftalık ödev kuralı: W1'e de ödev slaytı eklendi (06-12, 14 slayt)
 - [x] UI/UX yenileme: sabit başlık + fit/kompakt/mobil + chrome rötuşu + okunabilirlik (06-12)
 
 ⚓ Anchor onboard EDİLDİ (06-05) · ilişki: GİT423'ün sunum motorunu paylaşır (ortak-sistem / kardeş varyant), git423 ile kardeş eğitim projesi; ikisi de GitHub Pages'te canlı · kova: eğitim
 
-*Son güncelleme: 2026-06-12 (3) — **UI/UX yenileme** (dikey-ortalı blok layout [pinned header
+*Son güncelleme: 2026-06-15 — **Week 3 TAMAM + MotionDemo motoru**: 27 slayt (H3 Graph Editor; kavrayış→okuma→şekillendirme→sentez→kapanış) + interaktiflik tam paket (reveal tartışma + canlı playground/race widget; motor v1.2.0 deklaratif `[data-motion-demo]`, git423'e sync, no-regression week2 temiz); ilke izi `.mg-trace`; Playwright etkileşim + 27/27 scale-1.0 fit (1280×720·1366×768) doğrulı; spec+plan `weeks/week3.plan.md`+`week3.tasks.md`; **main=CANLI push'landı**. Sıradaki: Week 4 (H4, hafif bouncing-ball). · 2026-06-12 (3) — **UI/UX yenileme** (dikey-ortalı blok layout [pinned header
 denendi→Emre istemedi→geri alındı], scale-fit fix + kompakt query, mobil scroll modu, chrome
 rötuşu, hero yatay RGB split, .mg-sub/.mg-foot, emoji→geometrik ikon, yön bilinçli stage
 view-transition; 38 slayt × 3 çözünürlük probe doğrulaması; motor dokunulmadı, push EDİLMEDİ) · 2026-06-12 (Week 2 v2 HAZIR — **24 slayt**: her teknik kavram+AE DEMO ayrı +
