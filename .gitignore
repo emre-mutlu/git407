@@ -12,3 +12,6 @@ npm-debug.log*
 .vscode/
 _contact/
 _pdf/
+
+# playwright mcp (geçici çıktı)
+.playwright-mcp/
