@@ -195,7 +195,9 @@ Design/styleframe (H6) → Animation/WIP animatik (H7) → Render öğretimi + s
 
 ⚓ Anchor onboard EDİLDİ (06-05) · ilişki: GİT423'ün sunum motorunu paylaşır (ortak-sistem / kardeş varyant), git423 ile kardeş eğitim projesi; ikisi de GitHub Pages'te canlı · kova: eğitim
 
-*Son güncelleme: 2026-06-15 — **Week 3 TAMAM + MotionDemo motoru**: 27 slayt (H3 Graph Editor; kavrayış→okuma→şekillendirme→sentez→kapanış) + interaktiflik tam paket (reveal tartışma + canlı playground/race widget; motor v1.2.0 deklaratif `[data-motion-demo]`, git423'e sync, no-regression week2 temiz); ilke izi `.mg-trace`; Playwright etkileşim + 27/27 scale-1.0 fit (1280×720·1366×768) doğrulı; spec+plan `weeks/week3.plan.md`+`week3.tasks.md`; **main=CANLI push'landı**. Sıradaki: Week 4 (H4, hafif bouncing-ball). · 2026-06-12 (3) — **UI/UX yenileme** (dikey-ortalı blok layout [pinned header
+*Son güncelleme: 2026-06-18 — **housekeeping + not↔git reconcile**: `.playwright-mcp/`
+gitignore'landı (MCP geçici çıktısı, `7e520a3`) ve push'landı → yerel↔uzak hizalı. İçerik
+DEĞİŞMEDİ — **W3 TAMAM** hâlâ son durum, **W4 sıradaki**. · 2026-06-15 — **Week 3 TAMAM + MotionDemo motoru**: 27 slayt (H3 Graph Editor; kavrayış→okuma→şekillendirme→sentez→kapanış) + interaktiflik tam paket (reveal tartışma + canlı playground/race widget; motor v1.2.0 deklaratif `[data-motion-demo]`, git423'e sync, no-regression week2 temiz); ilke izi `.mg-trace`; Playwright etkileşim + 27/27 scale-1.0 fit (1280×720·1366×768) doğrulı; spec+plan `weeks/week3.plan.md`+`week3.tasks.md`; **main=CANLI push'landı**. Sıradaki: Week 4 (H4, hafif bouncing-ball). · 2026-06-12 (3) — **UI/UX yenileme** (dikey-ortalı blok layout [pinned header
 denendi→Emre istemedi→geri alındı], scale-fit fix + kompakt query, mobil scroll modu, chrome
 rötuşu, hero yatay RGB split, .mg-sub/.mg-foot, emoji→geometrik ikon, yön bilinçli stage
 view-transition; 38 slayt × 3 çözünürlük probe doğrulaması; motor dokunulmadı, push EDİLMEDİ) · 2026-06-12 (Week 2 v2 HAZIR — **24 slayt**: her teknik kavram+AE DEMO ayrı +
