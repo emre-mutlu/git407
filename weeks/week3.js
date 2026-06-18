@@ -3,8 +3,8 @@
  * WEEK 3 — Graph Editor: Hareketin Karakteri (H3)
  * ==========================================================================
  * Plan: weeks/week3.plan.md · reçete: DESTE_KILAVUZU.md
- * Yapım sürüyor — şu an iskelet (hero + 2 etkileşimli slayt) MotionDemo
- * doğrulaması için; kalan slaytlar week3.tasks.md Task 5-9 ile eklenecek.
+ * 21 slayt: oku (value/speed graph) -> şekillendir (kollar, overshoot) -> his sözlüğü.
+ * 06-18 revizyon: motion-path + canlı widget'lar çıktı, anlatım güçlendirildi.
  */
 
 export const week3 = {
@@ -32,8 +32,8 @@ export const week3 = {
                     <span class="ae-flow__step">Karşılaştır</span>
                 </div>
                 <div class="mg-callout">
-                    <h4>Çıkış kapısı</h4>
-                    <p>Basit bir nesne üç farklı easing'le hareket eder; fark <strong>hissedilir</strong>. Aynı teknik sonra kendi logo animasyonuna taşınır.</p>
+                    <h4>Hafta sonunda</h4>
+                    <p>Aynı basit hareket alınır, ona istenen <strong>karakter</strong> verilir: yumuşak iniş, sert duruş ya da zıplayan bir enerji. Hepsi tek bir eğriyle.</p>
                 </div>
             `,
             notes: "İki saat, çoğu AE'de. Geçen hafta Easy Ease tek tıktı; bu hafta o tıkın altındaki eğriyi açıyoruz. Akış: oku, şekillendir, karşılaştır.",
@@ -43,7 +43,7 @@ export const week3 = {
             category: "Temel",
             title: "Ara Kareler ve Spacing",
             html: `
-                <p class="mg-intro">İki keyframe arası boş değildir: aradaki kareleri <strong>motor üretir</strong>. O karelerin <strong>aralığı</strong> hareketin hızını belirler. Bu aralık dağılımına <strong>spacing</strong> (aralık) denir; graph editor tam olarak bunu çizer.</p>
+                <p class="mg-intro">İki keyframe arası boş değildir: aradaki kareleri <strong>After Effects üretir</strong>. O karelerin <strong>aralığı</strong> hareketin hızını belirler. Bu aralık dağılımına <strong>spacing</strong> (aralık) denir; graph editor tam olarak bunu çizer.</p>
                 <svg viewBox="0 0 230 86" role="img" aria-label="linear ve ease spacing karşılaştırması" style="width:min(440px,82%); height:auto; display:block; margin:6px auto 14px;">
                     <text x="2" y="20" style="font-family:var(--font-mono); font-size:9px; fill:var(--text-mute);" lang="en">LINEAR</text>
                     <circle cx="62" cy="16" r="5" style="fill:var(--cyan);"/><circle cx="86" cy="16" r="5" style="fill:var(--cyan);"/><circle cx="110" cy="16" r="5" style="fill:var(--cyan);"/><circle cx="134" cy="16" r="5" style="fill:var(--cyan);"/><circle cx="158" cy="16" r="5" style="fill:var(--cyan);"/><circle cx="182" cy="16" r="5" style="fill:var(--cyan);"/><circle cx="206" cy="16" r="5" style="fill:var(--cyan);"/>
@@ -56,23 +56,24 @@ export const week3 = {
             notes: "Disney'nin ilk ilkesi. Tahtada aynı iki keyframe, farklı ara-kare dağılımı = bambaşka his. Spacing = eğrinin kendisi; haftanın omurgası.",
         },
         {
-            id: "reveal-spacing",
-            category: "Soru ve Tartışma",
-            type: "reveal",
+            id: "ornek-iki-top",
+            category: "Örnek",
             title: "İki Top, Bir Fark",
-            question: "Aynı sürede A'dan B'ye giden iki top: biri canlı, biri cansız hissettiriyor. Keyframe'leri aynı. Tek fark ne olabilir?",
+            className: "slide-fill",
             html: `
-                <p class="mg-intro">Fark <strong>spacing</strong>'te. Cansız topun ara kareleri eşit aralıklı (sabit hız, linear); canlı topunki uçlarda sıklaşıp ortada seyrekleşiyor (yavaş başla, hızlan, yavaşla).</p>
-                <p class="mg-sub">Keyframe'in <em>nerede</em> olduğu değil, aralarının <em>nasıl doldurulduğu</em> karakteri verir. Bu hafta o doldurmayı elle kuruyoruz.</p>
+                <p class="mg-sub" style="max-width:700px; margin:0 auto;">Aynı sürede inen iki top: keyframe'leri aynı, ama biri <strong>cansız</strong> biri <strong>canlı</strong>. Fark, ara karelerin <strong>aralığında</strong> (spacing): eşit aralık mekanik, gittikçe açılan aralık hızlanma ve can verir. TED-Ed bunu kare kare gösterir.</p>
+                <div style="position:relative; width:min(640px,90%); margin:16px auto 0; aspect-ratio:16/9; border-radius:14px; overflow:hidden; border:1px solid var(--line-2); box-shadow:0 10px 34px -14px rgba(0,0,0,0.65);">
+                    <iframe src="https://www.youtube.com/embed/KRVhtMxQWRs" title="Animation Basics: The Art of Timing and Spacing · TED-Ed" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; inset:0; width:100%; height:100%; border:0;"></iframe>
+                </div>
             `,
-            notes: "Sınıfa sor, tahmin aldır. Çoğu 'hız' der; asıl cevap spacing/easing. Buradan graph editor'e geçiş doğal.",
+            notes: "Spacing'i videoda göster (TED-Ed · Alan Becker): aynı top, farklı ara-kare dağılımı = farklı his. Sınıfta aç, izlet, sonra graph editor'e geç. Eşit aralık = mekanik; açılan aralık = hızlanma ve can.",
         },
         {
             id: "graph-ac",
             category: "Eğriyi Okuma",
             title: "Graph Editor: Eğrinin Açıldığı Yer",
             html: `
-                <p class="mg-intro">Easy Ease bir tuştu ama altında bir <strong>eğri</strong> var. <strong>Graph editor</strong> (grafik düzenleyici) o eğriyi gösterir: keyframe'ler arasını motorun nasıl doldurduğunu çizen grafik. Timeline keyframe'in <em>yerini</em>, graph editor <em>karakterini</em> gösterir.</p>
+                <p class="mg-intro">Easy Ease bir tuştu ama altında bir <strong>eğri</strong> var. <strong>Graph editor</strong> (grafik düzenleyici) o eğriyi gösterir: keyframe'ler arasını After Effects'in nasıl doldurduğunu çizen grafik. Timeline keyframe'in <em>yerini</em>, graph editor <em>karakterini</em> gösterir.</p>
                 <div class="mg-grid-2-1">
                     <div class="mg-callout">
                         <h4>İki ayrı okuma</h4>
@@ -91,7 +92,7 @@ export const week3 = {
             category: "Eğriyi Okuma",
             title: "Value Graph: Değer Ne Yapıyor",
             html: `
-                <p class="mg-intro"><strong>Value graph</strong> (değer grafiği) özelliğin değerini doğrudan çizer: dikey eksen değer, yatay eksen zaman. Konum 0'dan 500'e gidiyorsa çizgi 0'dan 500'e tırmanır.</p>
+                <p class="mg-intro"><strong>Value graph</strong> (değer grafiği) bir <strong>harita</strong> gibidir: nesnenin her an <em>nerede</em> olduğunu, yani değerini çizer. Dikey eksen değer, yatay eksen zaman; konum 0'dan 500'e gidiyorsa çizgi 0'dan 500'e tırmanır.</p>
                 <div class="mg-grid-2 stagger">
                     <div class="mg-card mg-card--cyan"><div class="mg-card__title">Tırmanan çizgi</div><p class="mg-card__text">Değer artıyor: nesne ilerliyor, büyüyor ya da beliriyor.</p></div>
                     <div class="mg-card"><div class="mg-card__title">Düz çizgi</div><p class="mg-card__text">Değer sabit: o aralıkta <strong>hiç değişim yok</strong> (hareketsiz).</p></div>
@@ -105,12 +106,13 @@ export const week3 = {
             category: "Eğriyi Okuma",
             title: "Speed Graph: Ne Kadar Hızlı",
             html: `
-                <p class="mg-intro"><strong>Speed graph</strong> (hız grafiği) değeri değil <strong>hızı</strong> çizer: eğrinin <strong>yüksekliği</strong> o anki hızdır. Tepe en hızlı an; dipteki düz çizgi durağan (hız sıfır).</p>
+                <p class="mg-intro"><strong>Speed graph</strong> (hız grafiği) bir araba <strong>hız göstergesi</strong> gibidir: değeri değil, nesnenin <em>ne kadar hızlı</em> gittiğini çizer. Eğrinin <strong>yüksekliği</strong> o anki hızdır; tepe en hızlı an, dipteki düz çizgi durağan (hız sıfır).</p>
                 <div class="mg-callout" style="margin-bottom:14px;">
                     <h4>Tuzak: aynı şekil, farklı anlam</h4>
                     <p>Value graph'ta düz çizgi "sabit değer" (duruyor) demek. Speed graph'ta <strong>dipteki</strong> düz çizgi "duruyor", <strong>yukarıdaki</strong> düz çizgi "sabit hızla gidiyor" demek.</p>
                 </div>
                 <p class="mg-sub">Easy Ease'in speed graph'ı bir <strong>tümsektir</strong>: dipten başlar (yavaş), tepeye çıkar (hızlı), dibe iner (yavaş). Slow in, slow out.</p>
+                <p class="mg-foot">Position'da value graph X ve Y için <strong>iki ayrı çizgi</strong> gösterir; speed graph ikisini <strong>tek çizgide</strong> birleştirir, bu yüzden hareketin easing'i speed graph'ta daha kolay kurulur.</p>
             `,
             notes: "En çok karıştırılan grafik. Vurgu: yükseklik = hız. Dipte düz = durağan, yukarıda düz = sabit hız. Easy Ease = tümsek. Yavaş ve dikkatli anlat.",
         },
@@ -154,7 +156,7 @@ export const week3 = {
                 <p class="mg-intro">Bir keyframe'in <strong>şekli</strong> tipini söyler; tip de eğrinin nasıl davranacağını belirler. Dört temel tip:</p>
                 <div class="mg-grid-2 stagger" style="margin-bottom:14px;">
                     <div class="mg-term"><span class="mg-term__k" lang="en">Linear <small>· elmas ◆</small></span><p class="mg-term__d">Sabit hız, keskin geçiş. Robotik.</p></div>
-                    <div class="mg-term"><span class="mg-term__k" lang="en">Bezier / Ease <small>· kum saati</small></span><p class="mg-term__d">Yumuşak; kollarla elle şekillenir.</p></div>
+                    <div class="mg-term"><span class="mg-term__k" lang="en">Bezier <small>· kum saati</small></span><p class="mg-term__d">Yumuşak; iki kol elle şekillenir. Easy Ease (<span class="ae-kbd">F9</span>) bunun hazır hâlidir.</p></div>
                     <div class="mg-term"><span class="mg-term__k" lang="en">Auto Bezier <small>· yuvarlak ●</small></span><p class="mg-term__d">AE otomatik yumuşatır; çoğu yere yeter.</p></div>
                     <div class="mg-term"><span class="mg-term__k" lang="en">Hold <small>· kare ▪</small></span><p class="mg-term__d">Ara doldurma yok: değer <strong>sıçrar</strong> (stepped).</p></div>
                 </div>
@@ -185,7 +187,7 @@ export const week3 = {
         {
             id: "elle-egri",
             category: "Şekillendirme",
-            title: "Eğriyi Elle: Kollar ve Influence",
+            title: "Eğriyi Şekillendirmek: Kollar ve Influence",
             html: `
                 <p class="mg-intro">Easy Ease hazır bir eğriydi. Graph editor'da her keyframe'in iki <strong>kolu</strong> (bezier handle) vardır; bunlar çekilerek eğri elle şekillenir. Kolu <strong>uzatmak</strong> o yöndeki yavaşlamayı artırır.</p>
                 <div class="mg-grid-2 stagger">
@@ -195,7 +197,7 @@ export const week3 = {
                 <p class="mg-foot"><strong>Influence</strong> (%) = kolun uzunluğu. Kısa kol keskin, uzun kol yayvan geçiş.</p>
                 <div style="margin-top:16px;"><span class="mg-trace" lang="en">slow in / slow out</span></div>
             `,
-            notes: "Easy Ease'in elle hâli. Kol uzunluğu = influence = yavaşlama miktarı. Uzun kol yumuşak, kısa sert. Yandaki oyna slaytı bunu canlı gösterir.",
+            notes: "Easy Ease'in elle hâli. Kol uzunluğu = influence = yavaşlama miktarı. Uzun kol yumuşak, kısa sert. Speed graph'ta tümseğin şekli buna göre değişir.",
         },
         {
             id: "demo-elle-egri",
@@ -212,21 +214,10 @@ export const week3 = {
                         <li>Giriş kolu yatay uzatılır: nesnenin <strong>yumuşak indiği</strong> görülür. Kısaltılınca <strong>sert</strong> durur.</li>
                         <li>Çıkış kolu ayarlanır; <span class="ae-kbd">Space</span> ile her ayardan sonra hareket izlenir.</li>
                     </ol>
-                    <p class="ae-demo-note">Yandaki canlı playground: aynı kolları çekip etkiyi tarayıcıda anında görmek mümkün.</p>
+                    <p class="ae-demo-note">Kural basit: bir kol oynatılır, <span class="ae-kbd">Space</span> ile izlenir, tekrar oynatılır. Eğri ezbere değil, gözle kurulur.</p>
                 </div>
             `,
-            notes: "Eller üstünde. Sarı kollar = bezier handle. Çek, önizle, çek, önizle. Playground slaytıyla birebir aynı mantık.",
-        },
-        {
-            id: "oyna-playground",
-            title: "Oyna: Eğriyi Elle Şekillendir",
-            category: "Etkileşim",
-            className: "slide-fill",
-            html: `
-                <p class="mg-sub">Kollar (handle) sürüklenir; nokta o eğriyle hareket eder. Aşağı çekildiğinde yavaş başlar, yukarı atıldığında fırlar.</p>
-                <div data-motion-demo="playground" data-bezier="0.34,1.56,0.64,1"></div>
-            `,
-            notes: "Sınıfça bir kol aşağı, bir yukarı. Aynı süre, bambaşka his. Overshoot için ikinci kontrol noktası 1'in üstüne çekilir.",
+            notes: "Eller üstünde. Sarı kollar = bezier handle. Çek, önizle, çek, önizle.",
         },
         {
             id: "overshoot",
@@ -294,94 +285,6 @@ export const week3 = {
                 <p class="mg-foot">Doğru eğri = doğru his. Yazılım bilgisi burada <strong>tasarım kararına</strong> dönüşür.</p>
             `,
             notes: "Haftanın tasarım slaytı. Eğri = duygu sözlüğü. linear=duygusuz, ease-out=iner, ease-in=kalkar, overshoot=enerjik. Hangisi ne zaman: içerik karar verir.",
-        },
-        {
-            id: "motion-path",
-            category: "Uzamsal",
-            title: "Motion Path: Uzayda da Eğri Var",
-            html: `
-                <p class="mg-intro">Şimdiye kadarki eğriler <strong>zaman</strong> içindi (ne zaman, ne kadar hızlı). Ama bir nesne uzayda da düz ya da <strong>eğri</strong> gidebilir. Position keyframe'leri arası comp panelinde bir <strong>motion path</strong> (hareket yolu) çizer.</p>
-                <div class="mg-grid-2 stagger">
-                    <div class="mg-card"><div class="mg-card__title">Düz yol</div><p class="mg-card__text">A'dan B'ye doğru çizgi: mekanik, cansız.</p></div>
-                    <div class="mg-card mg-card--magenta"><div class="mg-card__title">Yay (arc)</div><p class="mg-card__text">Hafif kavisli yol: doğal, organik. Gerçek hareket nadiren düzdür.</p></div>
-                </div>
-                <p class="mg-foot">Comp panelinde yol noktalarının kolları çekilir; düz çizgi yaya döner. <span lang="en">Convert Vertex</span> aracı köşeyi yumuşatır.</p>
-                <div style="margin-top:16px;"><span class="mg-trace" lang="en">arcs</span></div>
-            `,
-            notes: "Eğrinin uzamsal yarısı. Zaman eğrisi = graph editor; uzay eğrisi = motion path (comp'ta). Arcs ilkesi: doğada düz hareket yok; kuş, top, el hep yay çizer.",
-        },
-        {
-            id: "demo-motion-path",
-            category: "AE Demo",
-            title: "Demo · Yolu Eğmek",
-            html: `
-                <div class="ae-demo ae-demo--full">
-                    <div class="ae-demo__head">
-                        <span class="ae-demo__badge"><b>Ae</b></span>
-                        <span class="ae-demo__label">Canlı · After Effects</span>
-                    </div>
-                    <ol class="ae-demo__steps">
-                        <li>İki position keyframe'li bir katmanda, comp panelinde noktaları birleştiren <strong>kesik çizgi</strong> (motion path) görülür.</li>
-                        <li>Bir yol noktası seçilir; çıkan <strong>kolları</strong> çekilir, düz yol <strong>yaya</strong> döner.</li>
-                        <li>Köşeli geçiş için <span class="ae-menu" lang="en">Pen tool</span> altındaki <span class="ae-menu" lang="en">Convert Vertex</span> ile nokta yumuşatılır.</li>
-                    </ol>
-                    <p class="ae-demo-note">Yoldaki noktaların sıklığı spacing'i gösterir: sık noktalar yavaş, seyrek noktalar hızlı bölge.</p>
-                </div>
-            `,
-            notes: "Comp panelinde motion path kolları. Düz → yay. Convert Vertex köşe yumuşatır. Bonus: yol noktaları = spacing'in uzamsal hâli.",
-        },
-        {
-            id: "uc-easing-yaris",
-            title: "Aynı Hareket, Üç Easing",
-            category: "Karşılaştırma",
-            className: "slide-fill",
-            html: `
-                <p class="mg-sub">Aynı mesafe, aynı süre. Tek fark: eğri. Yarıştır ile üçü aynı anda gider.</p>
-                <div data-motion-demo="race" data-easings="linear,ease,overshoot"></div>
-            `,
-            notes: "linear = mekanik/robotik. ease = doğal. overshoot = enerjik/snappy. Hangisi canlı? Bağlama göre değişir.",
-        },
-        {
-            id: "demo-uc-easing",
-            category: "AE Demo",
-            title: "Demo · Aynı Hareket, Üç Easing",
-            html: `
-                <div class="ae-demo ae-demo--full">
-                    <div class="ae-demo__head">
-                        <span class="ae-demo__badge"><b>Ae</b></span>
-                        <span class="ae-demo__label">Canlı · After Effects</span>
-                    </div>
-                    <ol class="ae-demo__steps">
-                        <li>Bir nesne A'dan B'ye taşınır (iki position keyframe). Katman iki kez çoğaltılır (<span class="ae-kbd">Ctrl</span> <span class="ae-kbd">D</span>); üç kopya alt alta.</li>
-                        <li>Biri <strong>linear</strong> bırakılır, biri <strong>Easy Ease</strong> (<span class="ae-kbd">F9</span>), biri graph'ta <strong>overshoot</strong>'a şekillenir.</li>
-                        <li>Üçü aynı anda oynatılır (<span class="ae-kbd">Space</span>): aynı mesafe, aynı süre, üç ayrı his. Yandaki yarış slaytının AE'deki karşılığı.</li>
-                    </ol>
-                    <p class="ae-demo-note">Haftanın özeti: tek değişken easing, sonuç tamamen farklı. Karar tasarımcınındır.</p>
-                </div>
-            `,
-            notes: "Haftanın doruk demosu. 3 kopya, 3 easing, yan yana oynat. Tarayıcıdaki race slaytının AE hâli. 'Tek fark eğri' net görünsün.",
-        },
-        {
-            id: "logoya-uygula",
-            category: "Uygulama",
-            title: "Şimdi Kendi Logona",
-            html: `
-                <p class="mg-intro">Öğrenilen her şey tek bir yerde buluşur: <strong>geçen haftaki logo animasyonu</strong>. Linear keyframe'ler graph editor'da elle şekillenir, bir yere hafif overshoot eklenir, giriş yumuşatılır.</p>
-                <div class="ae-flow" style="margin:20px 0 16px;">
-                    <span class="ae-flow__step">W2 logosu</span>
-                    <span class="ae-flow__arrow">→</span>
-                    <span class="ae-flow__step">graph'ta elle ease</span>
-                    <span class="ae-flow__arrow">→</span>
-                    <span class="ae-flow__step">bir dokunuş overshoot</span>
-                    <span class="ae-flow__arrow">→</span>
-                    <span class="ae-flow__step">canlı giriş</span>
-                </div>
-                <div class="mg-callout">
-                    <h4>W2'yi yapmadıysan</h4>
-                    <p>Sorun değil: basit bir şekil (daire, kare) ile de aynı pratik yapılır. Önemli olan eğriyi elle kurmak.</p>
-                </div>
-            `,
-            notes: "Coda: teknik kendi işine döner. W2 logosu varsa onu canlandır; yoksa basit obje. Süreklilik + 'kendi işini iyileştir' hissi.",
         },
         {
             id: "hatalar",
