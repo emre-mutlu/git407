@@ -57,9 +57,9 @@ class PresentationEngine {
      */
     setupPresenterPanel() {
         if (!this.presenterMode) return;
-        const shell = document.querySelector('.app-shell');
-        if (!shell) return;
-        const footer = shell.querySelector('.app-footer');
+        const layout = document.querySelector('.app-main-layout');
+        if (!layout) return;
+        document.body.classList.add('presenter-on');
         const panel = document.createElement('aside');
         panel.className = 'presenter-panel';
         panel.innerHTML = `
@@ -70,7 +70,8 @@ class PresentationEngine {
             <p class="presenter-panel__note"></p>
             <div class="presenter-panel__next"></div>
         `;
-        shell.insertBefore(panel, footer);
+        const nav = layout.querySelector('.sidebar-nav');
+        layout.insertBefore(panel, nav);
         this.presenterPanel = panel;
     }
 
