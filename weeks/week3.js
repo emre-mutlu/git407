@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * WEEK 3 — Graph Editor: Hareketin Karakteri (H3)
+ * WEEK 3 · Graph Editor: Hareketin Karakteri (H3)
  * ==========================================================================
  * Plan: weeks/week3.plan.md · reçete: DESTE_KILAVUZU.md
  * 21 slayt: oku (value/speed graph) -> şekillendir (kollar, overshoot) -> his sözlüğü.
@@ -371,29 +371,63 @@ export const week3 = {
         {
             id: "odev",
             category: "Haftalık Ödev",
-            title: "Bu Haftanın Ödevi",
+            title: "Bu Haftanın Ödevi: Top Sektirme",
             html: `
                 <div class="mg-task">
-                    <p class="mg-task__brief">Basit bir nesneyle (daire, kare ya da W2 logosu) <strong>aynı A→B hareketinin üç hâli</strong>: <strong>linear</strong>, <strong>Easy Ease</strong> ve <strong>elle overshoot</strong>. Üçü yan yana, tek MP4.</p>
+                    <p class="mg-task__brief">Bir top yere düşüp <strong>sekiyor</strong>: en az <strong>5 kez</strong> seksin, her keresinde bir öncekinden alçak. Hareketin tüm karakteri <strong>graph editor'daki eğride</strong> kurulacak. Tek MP4.</p>
                     <ul class="mg-list">
-                        <li>Aynı mesafe, aynı süre; tek değişken <strong>easing</strong>.</li>
-                        <li>Overshoot'lu olan <strong>graph editor'da elle</strong> kurulmuş olmalı (hazır preset değil).</li>
-                        <li>Üç kopya alt alta, <strong>aynı anda</strong> oynayacak şekilde.</li>
+                        <li>Düşüşte <strong>hızlanma</strong>, tepede <strong>yavaşlama</strong>: eğri <strong>graph editor'da elle</strong> şekillenmeli (hazır preset değil).</li>
+                        <li>Her seferinde biraz daha alçak: <strong>enerji kaybı</strong> görünsün.</li>
+                        <li><strong>Speed graph</strong> ya da <strong>value graph</strong> kullan; tercih sana bağlı.</li>
                         <li><strong>H.264 / MP4</strong>, en fazla 5 sn.</li>
                     </ul>
                     <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:18px;">
                         <span class="mg-links__label">teslim</span>
-                        <span class="mg-chip mg-chip--magenta">MP4 dosyası</span>
-                        <span class="mg-chip" lang="en">3 easing yan yana</span>
-                        <span class="mg-chip mg-chip--cyan">gelecek derse kadar</span>
+                        <span class="mg-chip mg-chip--magenta">MP4 (H.264)</span>
+                        <span class="mg-chip mg-chip--cyan">UZAK'a yükle</span>
+                        <span class="mg-chip">gelecek haftaya kadar</span>
                     </div>
                 </div>
                 <div class="mg-callout" style="margin-top:18px;">
                     <h4>İpucu</h4>
-                    <p>Önce bir hareket kurulur, iki kez çoğaltılır (<span class="ae-kbd">Ctrl</span> <span class="ae-kbd">D</span>), sonra her kopyaya farklı easing verilir. İsteğe bağlı: aynı eğri kendi logona uygulanır.</p>
+                    <p>Önce sadece dikey konumu (Position Y) keyframe'le, zıplamaları kabaca kur; sonra <strong>graph editor</strong>'da eğriyi şekillendir. İsteğe bağlı: topa bir kişilik ver, ağır bowling mi yoksa zıpır pinpon mu?</p>
                 </div>
             `,
-            notes: "Ödev = aynı hareket × 3 easing → MP4. Overshoot elle kurulmalı (öğrenme kanıtı). Bonus: logoya uygula. Gelecek hafta H4: zıplayan top.",
+            notes: "Ödev: top sektirme, MP4 olarak UZAK'a gelecek haftaya kadar. En az 5 kez seksin, her seferinde alçalsın (enerji kaybı). Karakter graph editor eğrisinde; düşüşte hızlan, tepede yavaşla. Speed ya da value graph, öğrenciye bağlı. Squash & stretch YOK, sadece sektirme. Sıra önerisi: önce Position Y, sonra eğri. Bonus: kişilik (bowling vs pinpon).",
+        },
+        {
+            id: "odev-kaynaklar",
+            category: "Kaynak",
+            title: "Ödev İçin Kaynaklar",
+            html: `
+                <p class="mg-intro">Top sektirme, animasyonun klasik ilk egzersizidir: spacing, easing ve ağırlık hissini bir arada çalıştırır. Aşağıdaki iki video da graph editor üzerinden ilerliyor; biri doğrudan top sektirme, diğeri eğri okumayı derinleştiriyor.</p>
+                <div class="mg-grid-2 stagger">
+                    <div class="mg-card mg-card--cyan">
+                        <div class="mg-links__label" style="margin-bottom:10px;">Video · School of Motion</div>
+                        <div class="mg-card__title">Graph Editor → Perfect Ball Bounce</div>
+                        <p class="mg-card__text">Tam ödevin konusu: graph editor'la top sektirme, adım adım. En yakın referans.</p>
+                        <a class="mg-link" href="https://youtu.be/mEmRHw4p4_A" target="_blank" rel="noopener" style="margin-top:14px;">YouTube'da izle</a>
+                    </div>
+                    <div class="mg-card mg-card--magenta">
+                        <div class="mg-links__label" style="margin-bottom:10px;">Video · Jake In Motion</div>
+                        <div class="mg-card__title">The LAST Graph Editor Tutorial</div>
+                        <p class="mg-card__text">Eğri okumayı ve graph editor'ı derinleştiren kapsamlı anlatım; ödevdeki "elle eğri" kısmı için.</p>
+                        <a class="mg-link" href="https://youtu.be/7pOCtlrrE3Y" target="_blank" rel="noopener" style="margin-top:14px;">YouTube'da izle</a>
+                    </div>
+                </div>
+                <div class="mg-callout" style="margin-top:18px;">
+                    <h4>Başka kaynaklar: kendin araştır</h4>
+                    <p>Şu terimleri YouTube ya da Google'da aratarak çok daha fazla anlatıma ulaşabilirsin:</p>
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+                        <span class="mg-chip" lang="en">bouncing ball after effects</span>
+                        <span class="mg-chip" lang="en">graph editor ball bounce</span>
+                        <span class="mg-chip" lang="en">ease in out after effects</span>
+                        <span class="mg-chip" lang="en">bouncing ball timing spacing</span>
+                        <span class="mg-chip">after effects top sektirme</span>
+                    </div>
+                </div>
+            `,
+            notes: "Ödev kaynakları: 2 video + arama terimleri (öğrenci kendi araştırması için). SoM: graph editor'la top sektirme (birebir). Jake In Motion: graph editor derinleştirme (elle eğri). Teslim: MP4, UZAK'a gelecek haftaya kadar.",
         },
     ],
 };
