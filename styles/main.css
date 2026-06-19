@@ -312,6 +312,38 @@ body {
 .hint-text { font-size: 0.74rem; color: var(--text-mute); letter-spacing: 0.06em; text-transform: uppercase; }
 .timecode { display: inline-flex; align-items: center; gap: 9px; font-size: 0.92rem; font-weight: 500; letter-spacing: 0.08em; color: var(--text-dim); }
 .timecode #current-slide-num { color: var(--text); }
+
+/* --------------------------------------------------------------------------
+   PRESENTER PANEL (konuşmacı notları · yalnız ?presenter=1 · yalnız ekran)
+   -------------------------------------------------------------------------- */
+.presenter-panel {
+    flex: 0 0 auto;
+    margin-top: 8px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+}
+.presenter-panel__bar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+}
+.presenter-panel__tag { color: var(--cyan); }
+.presenter-panel__count { color: var(--text-mute); }
+.presenter-panel__note {
+    font-family: var(--font-body); font-size: 1rem; line-height: 1.5;
+    color: var(--text); white-space: pre-wrap;
+}
+.presenter-panel__note.is-empty { color: var(--text-mute); font-style: italic; }
+.presenter-panel__next {
+    margin-top: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-mute);
+}
+@media print { .presenter-panel { display: none !important; } }
 .tc-sep { color: var(--text-mute); }
 
 /* ==========================================================================
