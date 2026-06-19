@@ -69,6 +69,7 @@ class PresentationEngine {
             </div>
             <p class="presenter-panel__note"></p>
             <div class="presenter-panel__next"></div>
+            <div class="presenter-panel__preview" aria-hidden="true"></div>
         `;
         const nav = layout.querySelector('.sidebar-nav');
         layout.insertBefore(panel, nav);
@@ -322,7 +323,8 @@ class PresentationEngine {
         this.goToSlide(initialIndex);
 
         // Fit every slide to the viewport once the browser has laid them out.
-        requestAnimationFrame(() => this.fitAll());
+        // Also refresh the presenter thumbnail now that the panel has a width.
+        requestAnimationFrame(() => { this.fitAll(); this.updatePresenterPanel(); });
     }
 
     /**
@@ -344,6 +346,30 @@ class PresentationEngine {
 
         this.presenterPanel.querySelector('.presenter-panel__next').textContent =
             next ? `Sıradaki ▸ ${next.title}` : 'Son slayt';
+
+        // Next-slide thumbnail: a live, scaled-down clone of the upcoming slide.
+        // The source .slide is position:absolute / opacity:0; .presenter-thumb__slide
+        // overrides that so the clone renders inside the preview box.
+        const preview = this.presenterPanel.querySelector('.presenter-panel__preview');
+        preview.innerHTML = '';
+        const sourceEl = this.slideElements[this.currentSlideIndex + 1];
+        if (sourceEl && preview.clientWidth > 0) {
+            const stageW = this.container.clientWidth || 1280;
+            const stageH = this.container.clientHeight || 720;
+            const scale = preview.clientWidth / stageW;
+            const clone = sourceEl.cloneNode(true);
+            clone.classList.add('presenter-thumb__slide');
+            clone.classList.remove('active');
+            clone.removeAttribute('id');
+            clone.style.width = stageW + 'px';
+            clone.style.height = stageH + 'px';
+            clone.style.transform = `scale(${scale})`;
+            preview.style.height = Math.round(stageH * scale) + 'px';
+            preview.appendChild(clone);
+            preview.style.display = '';
+        } else {
+            preview.style.display = 'none';
+        }
     }
 
     goToSlide(index) {

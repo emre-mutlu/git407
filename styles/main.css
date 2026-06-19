@@ -357,6 +357,22 @@ body {
     font-family: var(--font-mono);
     font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-mute);
 }
+.presenter-panel__preview {
+    flex: 0 0 auto;
+    margin-top: 10px;
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--bg);
+}
+.presenter-thumb__slide {
+    position: relative !important;
+    inset: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+    transform-origin: top left;
+}
 @media print { .presenter-panel { display: none !important; } }
 .tc-sep { color: var(--text-mute); }
 
