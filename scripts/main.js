@@ -324,6 +324,27 @@ class PresentationEngine {
         requestAnimationFrame(() => this.fitAll());
     }
 
+    /**
+     * Refresh the presenter panel for the active slide: its notes, the slide
+     * counter, and the next slide's title. No-op when the panel is off.
+     */
+    updatePresenterPanel() {
+        if (!this.presenterPanel) return;
+        const slide = this.slides[this.currentSlideIndex];
+        const note = (slide && slide.notes) ? slide.notes : '';
+        const next = this.slides[this.currentSlideIndex + 1];
+
+        this.presenterPanel.querySelector('.presenter-panel__count').textContent =
+            `${this.currentSlideIndex + 1} / ${this.slides.length}`;
+
+        const noteEl = this.presenterPanel.querySelector('.presenter-panel__note');
+        noteEl.textContent = note || 'Bu slayt için not yok.';
+        noteEl.classList.toggle('is-empty', !note);
+
+        this.presenterPanel.querySelector('.presenter-panel__next').textContent =
+            next ? `Sıradaki ▸ ${next.title}` : 'Son slayt';
+    }
+
     goToSlide(index) {
         if (index < 0 || index >= this.slides.length) return;
         
@@ -358,6 +379,9 @@ class PresentationEngine {
 
             // Update footer counters
             this.currentSlideNum.textContent = this.currentSlideIndex + 1;
+
+            // Refresh presenter notes (no-op unless ?presenter=1)
+            this.updatePresenterPanel();
             
             // Save current slide index to localStorage
             if (this.currentWeekKey) {
