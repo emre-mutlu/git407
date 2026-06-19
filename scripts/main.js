@@ -9,7 +9,7 @@ import { manifest } from '../weeks/manifest.js';
 // Engine version stamp — bump on any shared-engine change so drift between
 // git407 and git423 stays visible (bin/sync-engine.sh distributes this file
 // verbatim; the stamp tells you which copy a site is actually running).
-const ENGINE_VERSION = '1.2.0';
+const ENGINE_VERSION = '1.3.0';
 
 // Per-site localStorage namespace, derived from the first path segment
 // (github.io/git407/… → "git407", github.io/git423/… → "git423"). Keeps the
@@ -33,14 +33,45 @@ class PresentationEngine {
         this.currentSlideNum = document.getElementById('current-slide-num');
         this.totalSlidesNum = document.getElementById('total-slides-num');
         this.weekSelect = document.getElementById('week-select');
-        
+
+        // Presenter mode: ?presenter=1 reveals speaker notes. URL-only, never
+        // persisted, so the live link shared with students stays clean.
+        this.presenterMode = new URLSearchParams(location.search).get('presenter') === '1';
+        this.presenterPanel = null;
+
         this.init();
     }
 
     async init() {
         const defaultWeek = this.populateWeeks();
+        this.setupPresenterPanel();
         this.setupEventListeners();
         await this.loadWeek(defaultWeek);
+    }
+
+    /**
+     * Presenter panel: speaker-only notes strip below the stage. Built once,
+     * only when ?presenter=1 is present. For students there is no DOM, no
+     * toggle, nothing persisted. Per-slide content is filled by
+     * updatePresenterPanel() from goToSlide().
+     */
+    setupPresenterPanel() {
+        if (!this.presenterMode) return;
+        const shell = document.querySelector('.app-shell');
+        if (!shell) return;
+        const footer = shell.querySelector('.app-footer');
+        const panel = document.createElement('aside');
+        panel.className = 'presenter-panel';
+        panel.innerHTML = `
+            <div class="presenter-panel__bar">
+                <span class="presenter-panel__tag">◍ PRESENTER · yalnızca sen</span>
+                <span class="presenter-panel__count"></span>
+            </div>
+            <p class="presenter-panel__note"></p>
+            <div class="presenter-panel__next"></div>
+        `;
+        shell.insertBefore(panel, footer);
+        this.presenterPanel = panel;
     }
 
     /**
