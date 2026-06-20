@@ -1,45 +1,119 @@
-# CSS Katmanlama — Bağlam Notu (compact öncesi)
+# CSS Katmanlama — Bağlam Notu (RESUME dokümanı)
 
-- **Tarih:** 2026-06-20
-- **Durum:** Yaklaşım onaylandı (Emre: "katmanlama işini halledelim"), brainstorming bekliyor.
-- **Devam:** Compact sonrası "katmanlama" denince → `superpowers:brainstorming` ile aç (aşağıdaki açık kararlar) → spec → plan → execute. Başlangıç bağlamı bu dosya + memory [[git407-git423-css-ayri-sistem]].
+- **Tarih:** 2026-06-20 (güncellendi: keşif + kapsam kararı sonrası)
+- **Durum:** `superpowers:brainstorming` SÜRÜYOR. Kapsam KARARI verildi. Henüz spec/plan YOK.
+- **Bu dosya = /clear sonrası tek otorite.** Aşağıdaki file:line referansları sayesinde 727+1062 satırlık iki CSS'i baştan okumaya GEREK YOK. "katmanlama" / "devam" denince buradan sürdür.
 
-## Amaç
+---
 
-git407 + git423-ders CSS'lerini **tam birleştirme DEĞİL**, **katmanlama**: ortak yapısal/motor CSS (paylaşılan) + per-site tema (kimlik korunur). Böylece motora görsel özellik eklerken (presenter mode gibi) CSS tek yerde yazılır (DRY), kimlik + verimlilik korunur.
+## 0. KARAR: Dar kapsam (motor-bağlı)  ← Emre seçti, 2026-06-20
 
-## Neden tam birleştirme değil (bu oturumda karara bağlandı)
+Üç seçenek sunuldu (dar kapsam / tam yapısal birleştirme / sadece token sözleşmesi). Emre **"Dar kapsam (motor-bağlı)"** seçti.
 
-- Tek görünüm = iki sitenin kasıtlı farklı kimliğini bozar.
-- Tek dev dosya = her site diğerinin temasını da indirir → verimlilik düşer.
-- CSS zaten küçük (git407 42KB, git423 26KB; gzip ~6-8KB) → performans sorunu yok; tek gerçek sıkıntı DRY (motor-görsel CSS iki yerde).
+**Anlamı:** Yalnız GERÇEKTEN ortak + motor-bağlı mekanikleri küçük bir `styles/engine.css`'e al (sync edilir, byte-identical). Her sitenin slayt/nav/layout GÖRÜNÜMÜ ve ANİMASYON STRATEJİSİ kendi `main.css` temasında kalır. Amaç: presenter gibi motor-bağlı özellikleri tek yerde yazmak (DRY), kimlik + iki canlı siteyi bozmadan.
 
-## Mevcut durum (keşfedildi)
+**Tam birleştirme DEĞİL.** Animasyon stratejisi / grid-flex / slide-inner yapısı BİRLEŞTİRİLMEYECEK (bunlar iki sitede kasıtlı farklı, birleştirmek hissi değiştirir + regresyon riski).
 
-- **Motor** `scripts/main.js` ORTAK (byte-identical, `bin/sync-engine.sh` dağıtır, şu an v1.3.0). `sync-engine.sh` YALNIZ main.js kopyalar; CSS/index.html per-site, dokunmaz.
-- **git407** `styles/main.css`: 42KB, 36 `:root` değişkeni, "Motion Studio". Token'lar: `--bg`/`--bg-2`/`--surface`/`--surface-2/3`/`--line`/`--line-2`/`--text`/`--text-dim`/`--text-mute`/`--magenta`/`--cyan`/`--violet`/`--amber`/`--radius`/`--radius-sm`/`--shadow`; font `--font-display`(Archivo)/`--font-body`(Hanken Grotesk)/`--font-mono`(Martian Mono). Layout `.app-main-layout` **GRID** (`1fr 58px`; presenter modda `body.presenter-on` ile `1fr minmax(300px,28vw) 58px`).
-- **git423-ders** `styles/main.css`: 26KB, 21 `:root` değişkeni, "Neural Expressive". Token'lar: `--color-bg-base/-surface/-card/-code`, `--color-primary`(lime #d4ff00)/`-secondary`(cyan)/`-accent`(violet)/`-success`/`-warning`, `--color-text-primary/-secondary/-muted`, `--border-glow/-light/-hover`, `--shadow-card/-glow`, `--card-radius`; font CSS değişkeni YOK (`'Geist'` + `'JetBrains Mono'` doğrudan). Layout `.app-main-layout` **FLEX** (`.slide-container` flex:1, `.sidebar-nav` 48px; presenter paneli flex-item `flex:0 0 clamp(300px,28vw,460px)`).
-- **Ortak motor class'ları** (iki dosyada da stilli, değerleri farklı): `.slide`, `.slide-inner`, `.slide-header`, `.slide-title`, `.slide-category`, `.slide-body`, `.nav-dot(-item)`, `.app-shell`, `.app-main-layout`, `.app-footer`, `.reveal-trigger/-wrapper/-content`, `.slide-fill`, hero/reveal/standard tipleri, `.presenter-panel*` (yeni).
-- **DOM iskelet ortak** (motor üretir, iki sitede de var): `#slide-container`, `.app-main-layout`, `.sidebar-nav`, `#nav-dots`, `#week-select`, `#current-slide-num`, `#total-slides-num`, `.app-shell`, `.app-header`, `.app-footer`.
+---
 
-## Önerilen yaklaşım (brainstorming'de netleştir)
+## 1. Brainstorming NEREDE KALDI + sıradaki adımlar
 
-1. **Ortak token sözleşmesi**: nötr isimler (örn. `--bg`, `--surface`, `--accent`, `--text`, `--text-muted`, `--line`, `--radius`, `--shadow`, `--font-ui`, `--font-mono`). İki site bu isimlere KENDİ değerlerini verir.
-2. **engine.css** (paylaşılan, sync edilir): layout iskeleti + motor class'ları + presenter, ortak token İSİMLERİYLE yazılı.
-3. **theme-<site>.css** (per-site): `:root` token DEĞERLERİ + kimlik bileşenleri (logo, atmosfer, dekor).
-4. **index.html**: iki link (engine + theme) + cache-bust.
-5. **sync-engine.sh**: main.js + engine.css dağıtsın (şu an yalnız main.js).
+Tamamlanan: (1) proje bağlamı keşfi [iki CSS derinlemesine okundu], (2) kritik bulgu çıkarıldı [bkz. §2], (3) ilk clarifying soru = KAPSAM → "dar kapsam" yanıtlandı.
 
-## Açık kararlar (brainstorming gündemi)
+**Sıradaki (brainstorming devam):**
+1. Kalan clarifying sorular (§6 açık kararlar) — birer birer.
+2. 2-3 yaklaşım sun (dar kapsam içinde: ne kadar çıkaralım, dosya yapısı, token gerek var mı).
+3. Tasarımı bölüm bölüm sun → Emre onayı.
+4. Spec yaz: `docs/superpowers/specs/2026-06-20-css-katmanlama-design.md` + commit.
+5. Spec self-review → Emre spec'i gözden geçirir.
+6. `superpowers:writing-plans` ile uygulama planı. (Terminal state = writing-plans; başka implementation skill ÇAĞIRMA.)
 
-1. Token isim sözleşmesi (tam liste + iki sitenin eski→yeni eşlemesi).
-2. Layout uzlaşması: engine `.app-main-layout` GRID mi FLEX mi (git407 grid, git423 flex)? Tek model mi, token/class ile parametrik mi?
-3. Dosya yapısı: ayrı engine.css + theme.css mı, yoksa tek dosya + `@import` mı (build-siz korunmalı, SASS yok)?
-4. Geçiş stratejisi: iki CANLI siteyi (push=canlı) bozmadan adım adım; her adımda görsel regresyon doğrulaması.
-5. `sync-engine.sh` + `lint-deck.mjs` güncellemeleri.
+HARD-GATE: tasarım onaylanmadan kod/implementation YOK.
 
-## Riskler
+---
 
-- İki CANLI site (push=canlı) → regresyon = canlı bozulma. Her adım iki sitede görsel doğrulama (headless [[headless-chrome-dogrulama-git407]] + Emre gözle).
-- Build-siz felsefe korunmalı.
-- Em-dash yasağı [[em-dash-yazim-tercihi]] sürüyor.
+## 2. BULGU: ortak yüzey küçük + mekanik olarak farklı (keşifle doğrulandı)
+
+İki sitenin "ortak görünen" sınıfları yalnız renk/font değil, **mekanik olarak da** farklı. Bu, kapsamı belirledi.
+
+| Ortak görünen | git407 | git423 |
+|---|---|---|
+| `.slide` geçişi | opacity+visibility ANINDA takas; **transition YOK**; giriş çocuk keyframe'lerle (`enter-up`/`enter-soft`, kademeli) | tüm slayt `translateY(20px) scale(.98)` + `transition .6s`; ayrı `@supports view-transition` bloğu |
+| `.slide-inner` | `max-width:1080px`, düz blok | `flex column`, `will-change`, max-width YOK (max-width `.slide-header`'da) |
+| `.app-main-layout` | **GRID** (`1fr 58px`) | **FLEX** |
+| nav | timeline/playhead (frame counter, üçgen, dikey çizgi) | daha sade dot listesi |
+| chrome (DOM+CSS, per-site, index.html'ler FARKLI) | `.scrubber`/`.stage-glow`/`.stage-grain`/`.timecode`/`.transport`/`.hud-fps`/`.rec-dot`/`.logo-text`/`.logo-accent` | `.ambient-bg`/`.keyboard-hints`/`.slide-progress`/`.logo-dot` |
+| içerik bileşenleri | `.split` (chromatic) + stage dekoru | `.vcd-*` kütüphanesi (grid/card/stats/bullet/code/badge/table) |
+
+Sonuç: büyük iskeleti ortak yapmak = animasyon+layout'u tek tipe indirmek = bir sitenin hissini değiştirmek. Bu yüzden dar kapsam.
+
+---
+
+## 3. GERÇEKTEN ortak + motor-bağlı envanter (engine.css adayları, risk sıralı)
+
+**A. Trivial / birebir aynı** → engine.css'e al, risksiz:
+- Reset `* { box-sizing:border-box; margin:0; padding:0 }` (git407:52 / git423:39)
+- `.sr-only` (git407:68-71 / git423:62-71)
+
+**B. Token-FREE saf mekanik / birebir aynı** → engine.css'e al, en net kazanç:
+- `.presenter-thumb__slide` (git407:368 / git423:1053): `position/inset/opacity/visibility/pointer-events/transform-origin` hepsi `!important`; cloneNode + scale küçük-önizleme mekaniği. Token içermez.
+
+**C. Ortak iskelet mekaniği, GÖRÜNÜM per-site kalır** → mekanik kısmı engine.css, look kısmı temada:
+- `.presenter-panel*` (git407:324-376 / git423:1009-1061). Ortak mekanik: flex-column; `__note { flex:1; overflow-y:auto }`; `__preview` kutu oranı; `__bar/__count/__next` iskeleti; `@media print { display:none }`.
+  Per-site kalan: bg/border/radius/shadow/renk/font; `__tag` aksan (git407 `--cyan` / git423 `--color-primary`).
+  DİKKAT: git407 ek olarak `.presenter-on .app-main-layout { grid-template-columns: 1fr minmax(300px,28vw) 58px }` (git407:321) GRID'e özgü → git407 temasında KALIR. git423 flex olduğu için panel flex-item, override yok.
+
+**D. Ortak ruh ama NAZİK (muhtemelen per-site bırak / brainstorm'da karar):**
+- reveal aç/kapa: git407:628-635 (sade) vs git423:388-470 (`.reveal-trigger::before` + `.reveal-trigger-icon` ek markup, farklı değerler). Mekanik ortak (`.reveal-content { max-height:0; overflow:hidden; opacity:0 }` → `.revealed` açar) ama markup/değer farkı çıkarmayı kırılgan yapar. Öneri: ilk turda DOKUNMA, sadece A+B+C-mekanik çıkar.
+- view-transition: ikisinde de var ama farklı isim (git407 `stage` :648-656 / git423 `slide-container` :627-707) + farklı animasyon. Ortak DEĞİL, per-site kalır.
+
+**İlk tur engine.css ≈ A + B + C-mekanik.** Küçük, temiz, düşük risk; "presenter tek yerde" motivasyonunu birebir karşılar.
+
+---
+
+## 4. ÖNEMLİ sadeleşme: token sözleşmesi gerekmeyebilir
+
+Dar kapsamda paylaşılan kısım neredeyse tamamen **token-free saf mekanik** (A+B+C-mekanik). Görünüm her sitenin kendi temasında kaldığı için, engine.css **hiç token referansı içermeyebilir** → büyük token-yeniden-adlandırma (eski→yeni eşleme) İŞİ MUHTEMELEN GEREKMEZ. Her site mevcut token'larını (git407 36 var "Motion Studio" / git423 21 var "Neural Expressive") aynen korur.
+
+Açık kalan: bir shared mekanik kuralı kaçınılmaz olarak temalı bir değere değerse (örn. easing), onu hardcode mu, küçük bir token mı? Brainstorm'da karar. Eğilim: engine.css token-free; tema dosyaları rename'siz.
+
+---
+
+## 5. Per-site KALACAKLAR (engine.css'e GİRMEZ)
+
+Atmosfer/chrome (stage-glow/grain/scrubber/ambient-bg/timecode/transport/hud/keyboard-hints/slide-progress/logo-*); `.split`; `.vcd-*`; nav görünümü; `.slide`/`.slide.active`/`.slide-inner` (animasyon stratejisi + yapı farklı); `.app-main-layout` (grid vs flex); slide-header/category/title/subtitle/body görünümü; hero; entrance keyframe'leri; view-transition; reveal görünümü (+ ilk turda mekaniği de).
+
+---
+
+## 6. Açık kararlar (brainstorming gündemi — dar kapsama göre güncel)
+
+1. **Çıkarım sınırı:** ilk tur sadece A+B+C-mekanik mi? reveal (D) dahil mi, sonraya mı?
+2. **Dosya yapısı:** ayrı `styles/engine.css` (link sırası: engine ÖNCE, main.css SONRA ki tema override edebilsin) — build-siz, `@import` yerine ikinci `<link>`. Onayla.
+3. **Token:** engine.css token-free mi (eğilim evet) yoksa minik ortak sözleşme mi?
+4. **Geçiş:** iki CANLI siteyi bozmadan; her adımda görsel doğrulama; site site mi, kural kural mı?
+5. **Altyapı:** `bin/sync-engine.sh` engine.css'i de kopyalasın (şu an yalnız scripts/main.js); `index.html` (iki site) yeni `<link>` + cache-bust (?v=); `bin/lint-deck.mjs` etkilenmiyor olmalı (deck verisi linti, CSS değil — doğrula).
+
+---
+
+## 7. Mevcut altyapı (sabit gerçekler)
+
+- Motor `scripts/main.js` ORTAK, byte-identical, `bin/sync-engine.sh` dağıtır (şu an v1.3.0, YALNIZ main.js kopyalar; CSS/index.html per-site).
+- İki site GitHub Pages, **push = canlı** (~12s). git407 remote `emre-mutlu/git407`, git423 `emre-mutlu/git423`.
+- `index.html` per-site, DOM chrome'u FARKLI (ortak iskelet: `#slide-container`/`.app-main-layout`/`.sidebar-nav`/`#nav-dots`/`#week-select`/`#current-slide-num`/`#total-slides-num`).
+- git407 `styles/main.css` 727 satır; git423 `styles/main.css` 1062 satır.
+
+### git407 file:line haritası
+:root 8-50 · reset 52 · sr-only 68-71 · atmosphere 76-110 · header/hud/select 115-169 · app-main-layout(GRID) 172 · slide 198-204 · slide-inner 206 · header/cat/title/body 212-228 · .split 231-236 · hero 239-247 · entrance keyframes 252-266 · nav 271-303 · footer/timecode 306-314 · PRESENTER 321-376 (grid-override 321, panel 324, __tag cyan 343, thumb 368, print 376) · reveal 628-635 · view-transition(stage) 648-656 · reduced-motion 725-726
+
+### git423 file:line haritası
+:root 6-36 · reset 39 · html font-clamp 45-48 · sr-only 62-71 · ambient-bg 76 · header/logo-dot/select 92-172 · slide 198-216 · slide-inner 220-226 · slide-fill-inner 236 · slide.active 241-246 · @supports view-transition disable 249-258 · header/cat/title 260-284 · center-composite 286-318 · slide-body+scrollbar 320-351 · slide-fill 353-362 · hero 364-383 · reveal 388-470 · app-main-layout(FLEX) 475 · nav 482-553 · footer/keyboard-hints/progress 557-595 · #slide-container view-transition 627-707 · vcd-* 714-930 · PRESENTER 1005-1061 (panel 1009, __tag color-primary 1029, thumb 1053, print 1061)
+
+---
+
+## 8. Riskler + değişmezler
+
+- İki CANLI site (push=canlı) → regresyon = canlı bozulma. Her adım iki sitede görsel doğrulama (headless [[headless-chrome-dogrulama-git407]] _capture deseni + Emre gözle "test yapma ben kontrol ediyorum" demişti, son söz onda).
+- Build-siz felsefe korunur (SASS/derleme yok, sade `<link>`).
+- Em-dash YASAK [[em-dash-yazim-tercihi]] (· : ; , kullan).
+- Headless Claude yasağı sürer (script/CI'ya claude gömme).
+- İlgili memory: [[css-katmanlama-bekliyor]] · [[git407-git423-css-ayri-sistem]]
