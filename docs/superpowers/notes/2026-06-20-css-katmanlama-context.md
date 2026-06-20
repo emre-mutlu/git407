@@ -1,7 +1,7 @@
 # CSS Katmanlama — Bağlam Notu (RESUME dokümanı)
 
 - **Tarih:** 2026-06-20 (güncellendi: keşif + kapsam kararı sonrası)
-- **Durum:** `superpowers:brainstorming` SÜRÜYOR. Kapsam KARARI verildi. Henüz spec/plan YOK.
+- **Durum:** ✅ TAMAMLANDI + CANLI (06-20, iki repo push'landı). engine.css uygulandı; spec (`../specs/2026-06-20-css-katmanlama-design.md`) + plan (`../plans/2026-06-20-css-katmanlama.md`) commit'li. Bu dosya artık tarihsel kayıt + repo uyarısı için tutulur.
 - **Bu dosya = /clear sonrası tek otorite.** Aşağıdaki file:line referansları sayesinde 727+1062 satırlık iki CSS'i baştan okumaya GEREK YOK. "katmanlama" / "devam" denince buradan sürdür.
 - **⚠ REPO UYARISI (06-20 doğrulandı):** İkinci deck = yerel **`../git423-ders`** klasörü (remote `emre-mutlu/git423`; motor git407 ile byte-identical; `styles/main.css` 1062 satır, presenter CSS 1009-1061 VAR). **KARIŞTIRMA:** ayrı bir `../git423` klasörü daha var = Astro ders-platformu (`platform/public/ders/...`, presenter YOK, motor farklı/478 satır). CSS katmanlama işinin ikinci sitesi = **`git423-ders`**, Astro `git423` DEĞİL. `sync-engine.sh` hedefi de `../git423-ders`. Bu file:line haritaları `git423-ders` içindir.
 
