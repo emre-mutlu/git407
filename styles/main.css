@@ -49,8 +49,6 @@
     --progress: 0%;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
 html, body { height: 100%; }
 
 body {
@@ -64,11 +62,6 @@ body {
 }
 
 ::selection { background: var(--magenta); color: #fff; }
-
-.sr-only {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
-}
 
 /* --------------------------------------------------------------------------
    ATMOSPHERE
@@ -365,15 +358,6 @@ body {
     overflow: hidden;
     background: var(--bg);
 }
-.presenter-thumb__slide {
-    position: relative !important;
-    inset: auto !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: none !important;
-    transform-origin: top left;
-}
-@media print { .presenter-panel { display: none !important; } }
 .tc-sep { color: var(--text-mute); }
 
 /* ==========================================================================

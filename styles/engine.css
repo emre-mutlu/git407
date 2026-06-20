@@ -1,0 +1,20 @@
+/* engine.css — paylaşılan motor-bağlı mekanik. git407 kanonik kaynak;
+   bin/sync-engine.sh byte-identical dağıtır. Görünüm/tema main.css'te kalır. */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.presenter-thumb__slide {           /* motor cloneNode + scale önizleme */
+    position: relative !important;
+    inset: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+    transform-origin: top left;
+}
+
+@media print { .presenter-panel { display: none !important; } }
