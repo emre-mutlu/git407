@@ -582,6 +582,10 @@ body {
 .ae-demo--full .ae-demo__steps > li { font-size: 1.14rem; }
 .ae-demo-note { font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-dim); margin-top: 15px; padding-top: 13px; border-top: 1px dashed var(--line-2); line-height: 1.5; }
 
+/* week4 · responsive 16:9 YouTube embed wrapper (deck-only, motor değişmez) */
+.yt-embed { position: relative; width: min(640px, 90%); margin: 16px auto 0; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--line-2); box-shadow: 0 10px 34px -14px rgba(0, 0, 0, 0.65); }
+.yt-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
 /* AE window mock — interface tour (CSS homage, not the app UI) */
 .ae-ui-mock { border: 1px solid var(--line-2); border-radius: var(--radius-sm); overflow: hidden; background: var(--bg); }
 .ae-ui-mock__bar { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mute); padding: 7px 12px; background: var(--surface-2); border-bottom: 1px solid var(--line); }
