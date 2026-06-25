@@ -120,5 +120,54 @@ export const week4 = {
             notes: "AE pratiği: Anchor Point'i tabana (Y · Pan Behind), Scale → Separate Dimensions, sonra çarpışma karesinde boy kısa en geniş. Hacim korunsun: boy %80 ise en ~%120. Video link, sınıfta vakit varsa aç. Sonraki bölüm: tam bouncing ball kurulumu.",
         },
 
+        /* ── C · AE'DE BOUNCING BALL ───────────────────────────────────── */
+        {
+            id: "bouncing-kurulum",
+            category: "After Effects",
+            title: "Bouncing Ball: Kurulum",
+            html: `
+                <p class="mg-intro">Klasik egzersiz adım adım kurulur. Önce iskelet: bir top, bir zemin ve düşüşün <strong>Position</strong> (konum) keyframe'leri. Easing henüz yok, hareket şimdilik mekanik.</p>
+                <div class="ae-demo ae-demo--full">
+                    <div class="ae-demo__head">
+                        <span class="ae-demo__badge"><b>Ae</b></span>
+                        <span class="ae-demo__label">Canlı · After Effects</span>
+                    </div>
+                    <ol class="ae-demo__steps">
+                        <li>Bir <strong>Shape Layer</strong> ile daire (top) çizilir, altına ince bir solid ile <strong>zemin</strong> konur.</li>
+                        <li>Topun <strong>Position</strong> özelliği açılır (<span class="ae-kbd">P</span>); tepe ve zemin için iki keyframe ile düşüş kurulur.</li>
+                        <li>Sekmeler dizilir: her tepe bir öncekinden <strong>alçak</strong> olacak şekilde Position keyframe'leri eklenir.</li>
+                    </ol>
+                    <p class="ae-demo-note">Şimdilik düz (linear) hareket; karakter bir sonraki adımda graph editor'da gelir.</p>
+                </div>
+            `,
+            notes: "İskelet kurulum: top + zemin + Position (P) keyframe'leri, sekmeler her seferinde alçalarak. Henüz easing yok, mekanik. W3 keyframe köprüsü. Vurgu: önce kaba hareket, karakter graph editor'da gelecek.",
+        },
+        {
+            id: "graph-agirlik",
+            category: "Graph Editor",
+            title: "Graph'la Ağırlık",
+            html: `
+                <p class="mg-intro">Ağırlık <strong>graph editor</strong>'da kurulur (<span class="ae-kbd">Shift</span> <span class="ae-kbd">F3</span>). Düşüşte hareket dibe doğru <strong>hızlanır</strong> (ease-in), tepeye doğru <strong>yavaşlar</strong> (ease-out). Her sekme bir öncekinden <strong>alçak</strong>: enerji kaybı tepeleri giderek düşürür.</p>
+                <svg viewBox="0 0 228 104" role="img" aria-label="bouncing ball value graph: gittikçe alçalan yaylar" style="width:min(460px,84%); height:auto; display:block; margin:6px auto 12px;">
+                    <line x1="10" y1="92" x2="218" y2="92" style="stroke:var(--line-2); stroke-width:1.5;"/>
+                    <path d="M10,30 Q38,86 50,92 Q82,4 114,92 Q140,32 166,92 Q186,56 206,92" fill="none" style="stroke:var(--cyan); stroke-width:2;"/>
+                    <text x="214" y="102" text-anchor="end" style="font-family:var(--font-mono); font-size:8px; fill:var(--text-mute);">zaman →</text>
+                </svg>
+                <p class="mg-sub">Value graph yüksekliğin kendisini çizer (yukarıdaki yay dizisi); <strong>speed graph</strong> aynı hareketin hızını verir, orada her çarpışma <strong>sivri bir tepe</strong> olur. İkisi de aynı şeyi söyler: sert dip, yumuşak tepe.</p>
+            `,
+            notes: "Graph editor (Shift+F3): düşüşte ease-in (dibe hızlanma), tepede ease-out (yavaşlama). Alçalan yaylar = enerji kaybı. Value graph = yükseklik (yaylar); speed graph = hız (çarpışmada sivri tepe). Öğrenci ikisinden birini seçebilir (W3'teki tercih).",
+        },
+        {
+            id: "ss-carpisma",
+            category: "Sentez",
+            title: "Squash'ı Çarpışmaya Ekle",
+            className: "slide-fill",
+            html: `
+                <p class="mg-sub" style="max-width:720px; margin:0 auto;">Ağırlık kurulduktan sonra <strong>squash &amp; stretch</strong> çarpışma anına eklenir: temas karesinde top bir iki kare <strong>yatay ezilir</strong>, hemen sonra düşüş ve çıkışta hafifçe <strong>uzar</strong>. Az miktarı bile cansız sekmeyi diriltir. Aşağıdaki video graph editor ile S&amp;S'i birlikte kurar.</p>
+                <div class="yt-embed"><iframe src="https://www.youtube.com/embed/fKnwxQVedbs" title="Bouncing Ball + Graph Editor · Motion Made" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+            `,
+            notes: "Sentez: ağırlık (graph) + squash (temas karesi). Ezilme sadece 1-2 kare, çarpışma anında, yatay; çıkışta hafif stretch. Az miktar yeter. Videoyu (Motion Made) izlet: graph + S&S birlikte. Vurgu: önce ağırlık doğru olsun, S&S süs değil tuz.",
+        },
+
     ]
 };
