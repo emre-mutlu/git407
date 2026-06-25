@@ -210,7 +210,6 @@ export const week4 = {
             id: "arcs",
             category: "İlke",
             title: "Arcs: Doğal Hareket Yay Çizer",
-            className: "slide-fill",
             html: `
                 <p class="mg-sub" style="max-width:720px; margin:0 auto;"><strong>Arcs</strong> (yaylar): doğadaki hemen her hareket düz çizgi değil, bir <strong>yay</strong> çizer. Sekleyen topun tepe noktaları, savrulan kuyruğun ucu, hepsi yay izler. W3'teki <strong>motion path</strong> tam da bu yayı çizmek içindi: düz çizgi robotik, yay canlı durur.</p>
                 <div class="yt-embed"><iframe src="https://www.youtube.com/embed/I1_tZ9LhJD4" title="Arcs · Alan Becker" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
