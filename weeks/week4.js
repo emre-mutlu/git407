@@ -55,5 +55,70 @@ export const week4 = {
             notes: "Hook: aynı düşüş, iki his. Videoyu (Alan Becker · Squash & Stretch) sınıfta aç, sonra 'fark = ağırlık + ezilme/gerilme + spacing' vurgusu. Haftanın sözü: bu topu birlikte canlandıracağız.",
         },
 
+        /* ── B · SPACING + SQUASH & STRETCH ────────────────────────────── */
+        {
+            id: "spacing-agirlik",
+            category: "Spacing",
+            title: "Spacing: Ağırlığın Dili",
+            html: `
+                <p class="mg-intro">Geçen hafta <strong>spacing</strong> (aralık) hareketin hızını çiziyordu. Bu hafta o aralık <strong>ağırlığı</strong> anlatır: yere düşen cisim hızlanır, tepede yavaşlar. Ara kareler <strong>tepede sıkışır</strong>, <strong>dipte açılır</strong>. Sekerken yukarı çıkış girişten kısadır: aradaki fark <strong>enerji kaybıdır</strong>.</p>
+                <svg viewBox="0 0 220 118" role="img" aria-label="düşüş ve sekmede spacing: tepede dar, dipte geniş aralık, sekme girişten kısa" style="width:min(440px,82%); height:auto; display:block; margin:6px auto 14px;">
+                    <line x1="28" y1="106" x2="192" y2="106" style="stroke:var(--line-2); stroke-width:1.5;"/>
+                    <path d="M72 103 Q110 117 148 103" fill="none" style="stroke:var(--line); stroke-width:1; stroke-dasharray:2 3;"/>
+                    <text x="72" y="12" text-anchor="middle" style="font-family:var(--font-mono); font-size:8px; fill:var(--cyan);">DÜŞÜŞ</text>
+                    <text x="148" y="12" text-anchor="middle" style="font-family:var(--font-mono); font-size:8px; fill:var(--magenta);">SEKME</text>
+                    <circle cx="72" cy="20" r="4.5" style="fill:var(--cyan);"/><circle cx="72" cy="25" r="4.5" style="fill:var(--cyan);"/><circle cx="72" cy="33" r="4.5" style="fill:var(--cyan);"/><circle cx="72" cy="45" r="4.5" style="fill:var(--cyan);"/><circle cx="72" cy="61" r="4.5" style="fill:var(--cyan);"/><circle cx="72" cy="81" r="4.5" style="fill:var(--cyan);"/><circle cx="72" cy="103" r="4.5" style="fill:var(--cyan);"/>
+                    <circle cx="148" cy="103" r="4.5" style="fill:var(--magenta);"/><circle cx="148" cy="84" r="4.5" style="fill:var(--magenta);"/><circle cx="148" cy="69" r="4.5" style="fill:var(--magenta);"/><circle cx="148" cy="58" r="4.5" style="fill:var(--magenta);"/><circle cx="148" cy="51" r="4.5" style="fill:var(--magenta);"/><circle cx="148" cy="47" r="4.5" style="fill:var(--magenta);"/><circle cx="148" cy="45" r="4.5" style="fill:var(--magenta);"/>
+                </svg>
+                <p class="mg-sub">Aynı top, iki yön: aralığın dağılımı tek başına <strong>ağırlığı ve enerjiyi</strong> anlatır. Squash &amp; stretch eklenmeden önce his çoktan spacing'tedir.</p>
+            `,
+            notes: "W3 spacing'i ağırlığa bağla: yerçekimi = dibe hızlanma = açılan aralık. Tahtada düşüş kolonu (tepede sık, dipte seyrek) ile sekme kolonunu (alçalan tepe = enerji kaybı) göster. Bouncing ball'un yarısı burada, henüz S&S yok.",
+        },
+        {
+            id: "squash-stretch",
+            category: "İlke",
+            title: "Squash & Stretch: Hacim Korunur",
+            html: `
+                <p class="mg-intro"><strong>Squash &amp; stretch</strong> (ezilme ve gerilme) animasyonun ilk ve en güçlü ilkesidir. Cisim hızlanınca hareket yönünde <strong>uzar</strong> (stretch), bir yüzeye çarpınca <strong>yassılır</strong> (squash). Tek kural: <strong>hacim sabit kalır</strong>. Genişledikçe kısalır, uzadıkça incelir; aksi halde top ya şişer ya erir.</p>
+                <svg viewBox="0 0 240 116" role="img" aria-label="normal, ezilmiş ve gerilmiş top: hacim korunur" style="width:min(440px,82%); height:auto; display:block; margin:6px auto 12px;">
+                    <line x1="22" y1="94" x2="218" y2="94" style="stroke:var(--line-2); stroke-width:1.5;"/>
+                    <circle cx="55" cy="72" r="22" style="fill:var(--cyan); fill-opacity:0.9;"/>
+                    <ellipse cx="120" cy="80" rx="31" ry="14" style="fill:var(--magenta); fill-opacity:0.9;"/>
+                    <ellipse cx="188" cy="62" rx="13" ry="32" style="fill:var(--amber); fill-opacity:0.9;"/>
+                    <text x="55" y="110" text-anchor="middle" lang="en" style="font-family:var(--font-mono); font-size:8.5px; fill:var(--text-mute);">NORMAL</text>
+                    <text x="120" y="110" text-anchor="middle" lang="en" style="font-family:var(--font-mono); font-size:8.5px; fill:var(--text-mute);">SQUASH</text>
+                    <text x="188" y="110" text-anchor="middle" lang="en" style="font-family:var(--font-mono); font-size:8.5px; fill:var(--text-mute);">STRETCH</text>
+                </svg>
+                <p class="mg-sub">Ağırlık ve esneklik buradan gelir: lastik top çok ezilir, bowling topu neredeyse hiç. Ezilme miktarı <strong>malzemeyi</strong> anlatır.</p>
+                <div style="margin-top:16px;"><span class="mg-trace" lang="en">squash &amp; stretch</span></div>
+            `,
+            notes: "İlk ilke. Vurgu: hacim sabit (en × boy korunur), en sık acemi hatası hacim kaçağı. Ezilme miktarı malzemeyi anlatır: pinpon az ezilir mi çok mu? (çok). Bowling? (neredeyse hiç). Bir sonraki slaytta AE'de nasıl yapıldığı.",
+        },
+        {
+            id: "ae-squash-stretch",
+            category: "After Effects",
+            title: "AE'de Squash & Stretch",
+            html: `
+                <p class="mg-intro">After Effects'te ezilme ve gerilme <strong>Scale</strong> (ölçek) ile yapılır. İki ön hazırlık şart: ölçeğin eni ve boyu ayrı oynayabilmeli, bir de ezilme doğru yerden olmalı.</p>
+                <div class="ae-demo ae-demo--full">
+                    <div class="ae-demo__head">
+                        <span class="ae-demo__badge"><b>Ae</b></span>
+                        <span class="ae-demo__label">Canlı · After Effects</span>
+                    </div>
+                    <ol class="ae-demo__steps">
+                        <li><strong>Anchor Point</strong> (sabit nokta) tabana taşınır: ezilme zeminden olsun diye çapa noktası alt kenara alınır (<span class="ae-kbd">Y</span> ile <span class="ae-menu" lang="en">Pan Behind</span> aracı).</li>
+                        <li><strong>Scale</strong> üzerinde sağ tık → <span class="ae-menu" lang="en">Separate Dimensions</span>: en (X) ve boy (Y) artık ayrı keyframe'lenir.</li>
+                        <li>Çarpışma karesinde boy <strong>kısaltılır</strong>, en <strong>genişletilir</strong> (hacim sabit); bir iki kare sonra normale, ardından hızlanırken hafif <strong>stretch</strong>.</li>
+                    </ol>
+                    <p class="ae-demo-note">Separate Dimensions olmadan Scale eni ve boyu birlikte ölçekler; ezilme yapılamaz.</p>
+                </div>
+                <div class="mg-links" style="justify-content:center; margin-top:16px;">
+                    <span class="mg-links__label">izle</span>
+                    <a class="mg-link" href="https://youtu.be/3RqoUMz3-8I" target="_blank" rel="noopener">Squash &amp; Stretch · After Effects (Motifize)</a>
+                </div>
+            `,
+            notes: "AE pratiği: Anchor Point'i tabana (Y · Pan Behind), Scale → Separate Dimensions, sonra çarpışma karesinde boy kısa en geniş. Hacim korunsun: boy %80 ise en ~%120. Video link, sınıfta vakit varsa aç. Sonraki bölüm: tam bouncing ball kurulumu.",
+        },
+
     ]
 };
