@@ -239,5 +239,175 @@ export const week4 = {
             notes: "Abartı bağlama göre ayarlanır: karakter/oyun cömert, kurumsal/arayüz ölçülü. Aşırı S&S = ucuz his. W3'teki 'bu işe ne yakışır' sorusunun ağırlık/canlılık versiyonu. Köprü: recap'e geçiş.",
         },
 
+        /* ── E · SENTEZ + KAPANIŞ ──────────────────────────────────────── */
+        {
+            id: "his-sozlugu",
+            category: "Sentez",
+            title: "His Sözlüğü: Dört İlke",
+            html: `
+                <p class="mg-intro">Bu hafta topa dört ilke eklendi. Hepsi tek amaca hizmet eder: <strong>ağırlığı ve canlılığı</strong> hissettirmek. Tek bakışta his sözlüğü:</p>
+                <div class="mg-grid-2 stagger">
+                    <div class="mg-card mg-card--cyan">
+                        <div class="mg-card__title" lang="en">Squash &amp; Stretch</div>
+                        <p class="mg-card__text">Ezilme ve gerilme: ağırlık, esneklik, malzeme. Hacim sabit kalır.</p>
+                    </div>
+                    <div class="mg-card mg-card--amber">
+                        <div class="mg-card__title" lang="en">Anticipation</div>
+                        <p class="mg-card__text">Hazırlık: asıl hareketten önce küçük ters jest. Göz hareketi bekler.</p>
+                    </div>
+                    <div class="mg-card mg-card--magenta">
+                        <div class="mg-card__title" lang="en">Follow-through</div>
+                        <p class="mg-card__text">Savrulma: uzantı ana gövdeden sonra durur. Gecikmeli yumuşaklık.</p>
+                    </div>
+                    <div class="mg-card">
+                        <div class="mg-card__title" lang="en">Arcs</div>
+                        <p class="mg-card__text">Yaylar: doğal hareket düz değil, eğri çizer.</p>
+                    </div>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:18px;">
+                    <span class="mg-trace" lang="en">squash &amp; stretch</span>
+                    <span class="mg-trace" lang="en">anticipation</span>
+                    <span class="mg-trace" lang="en">follow through / overlapping</span>
+                    <span class="mg-trace" lang="en">arcs</span>
+                </div>
+            `,
+            notes: "Haftanın dört ilkesi tek bakışta. İlke izi tamam: squash & stretch, anticipation, follow-through, arcs. W1'in 12 ilkesinden bu hafta dördü işlendi. Recap: her birini bir cümleyle bağla, sonra hatalar.",
+        },
+        {
+            id: "hatalar",
+            category: "Acemi Hataları",
+            title: "Sık Yapılan Dört Hata",
+            html: `
+                <p class="mg-intro">Çoğu "ölü" sonucun arkasında şu dört hatadan biri vardır:</p>
+                <div class="mg-grid-2 stagger">
+                    <div class="mg-card mg-card--magenta">
+                        <div class="mg-card__title">Hacim kaçağı</div>
+                        <p class="mg-card__text">Ezilirken genişlemeyi (ya da gerilirken incelmeyi) unutmak: top şişer veya erir. Hacim sabit kalmalı.</p>
+                    </div>
+                    <div class="mg-card mg-card--magenta">
+                        <div class="mg-card__title">Linear düşüş</div>
+                        <p class="mg-card__text">Düşüşe easing vermemek: top yerçekimi yokmuş gibi sabit hızla iner, ağırlık kaybolur.</p>
+                    </div>
+                    <div class="mg-card mg-card--magenta">
+                        <div class="mg-card__title">Simetrik sekme</div>
+                        <p class="mg-card__text">Her sekmenin aynı yükseklikte olması: enerji kaybı görünmez, hareket mekanik döngüye düşer.</p>
+                    </div>
+                    <div class="mg-card mg-card--magenta">
+                        <div class="mg-card__title">Aşırı squash</div>
+                        <p class="mg-card__text">Çok fazla ezilme: top lastikten çok balona döner, his ucuzlar. Az çoktur.</p>
+                    </div>
+                </div>
+            `,
+            notes: "Dört yaygın hata = dört 'ölü' sebebi. Hacim kaçağı (en sık), linear düşüş (ağırlık yok), simetrik sekme (enerji kaybı yok), aşırı squash (ucuz). Öğrencinin ödevinde bunları ara.",
+        },
+        {
+            id: "cheatsheet",
+            category: "Referans",
+            title: "Ağırlık & Canlılık Cheatsheet",
+            html: `
+                <div class="cheat-grid stagger">
+                    <div class="cheat-group">
+                        <h4>Squash &amp; Stretch</h4>
+                        <ul>
+                            <li><span class="keys"><span class="ae-kbd">Y</span></span> <span lang="en">Pan Behind</span> (Anchor Point taşı)</li>
+                            <li>Scale sağ tık → <span lang="en">Separate Dimensions</span></li>
+                            <li>hacim sabit: boy kısalırsa en uzar</li>
+                        </ul>
+                    </div>
+                    <div class="cheat-group">
+                        <h4><span lang="en">Graph Editor</span></h4>
+                        <ul>
+                            <li><span class="keys"><span class="ae-kbd">Shift</span> <span class="ae-kbd">F3</span></span> editörü aç / kapat</li>
+                            <li><span class="keys"><span class="ae-kbd">F9</span></span> Easy Ease (yumuşat)</li>
+                            <li><span lang="en">Choose graph type</span> value / speed</li>
+                        </ul>
+                    </div>
+                    <div class="cheat-group">
+                        <h4>Keyframe &amp; savrulma</h4>
+                        <ul>
+                            <li><span class="keys"><span class="ae-kbd">P</span></span> Position (konum)</li>
+                            <li><span class="keys"><span class="ae-kbd">U</span></span> animasyonlu özellikler</li>
+                            <li>kuyruk keyframe'lerini geciktir (offset)</li>
+                        </ul>
+                    </div>
+                    <div class="cheat-group">
+                        <h4>Gezinme &amp; önizleme</h4>
+                        <ul>
+                            <li><span class="keys"><span class="ae-kbd">J</span> <span class="ae-kbd">K</span></span> önceki / sonraki keyframe</li>
+                            <li><span class="keys"><span class="ae-kbd">Space</span></span> önizleme</li>
+                            <li>her tepe bir öncekinden alçak</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
+            notes: "Referans slaytı. En kritik: Y (Anchor Point), Separate Dimensions, Shift+F3, offset keyframe (savrulma). Öğrenci fotoğraf çeksin.",
+        },
+        {
+            id: "ilham",
+            category: "İlham",
+            title: "Büyük Resim: On İki İlke",
+            className: "slide-fill",
+            html: `
+                <p class="mg-sub" style="max-width:720px; margin:0 auto;">Bu haftanın dört ilkesi, on iki ilkenin tamamının parçası. Aşağıdaki seri hepsini bir arada gösterir: izlerken "hangi ilke nerede" diye bakmak en iyi pekiştirmedir.</p>
+                <div class="yt-embed"><iframe src="https://www.youtube.com/embed/uDqjIdI4bF4" title="12 Principles of Animation · Full Series" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+            `,
+            notes: "İlham + recap: 12 ilkenin tamamı tek videoda. Bu hafta öğrenilen 4'ünü büyük resme bağla. Sınıfta aç ya da ödev önerisi olarak ver. 'Hangi ilke nerede' egzersizi.",
+        },
+        {
+            id: "odev",
+            category: "Haftalık Ödev",
+            title: "Bu Haftanın Ödevi: Canlı Sekme",
+            html: `
+                <div class="mg-task">
+                    <p class="mg-task__brief">Geçen hafta top <strong>sekiyordu</strong>; bu hafta ona <strong>kişilik</strong> verilir. Bir <strong>logo noktası</strong> ya da basit bir ikon sekecek: ağırlık (spacing + graph), çarpışmada <strong>squash &amp; stretch</strong> ve peşinde <strong>savrulan bir kuyruk</strong> (follow-through). Tek MP4.</p>
+                    <ul class="mg-list">
+                        <li>Düşüşte hızlanma, tepede yavaşlama: ağırlık <strong>graph editor</strong>'da kurulur (<span class="ae-kbd">Shift</span> <span class="ae-kbd">F3</span>).</li>
+                        <li>Çarpışma karesinde <strong>squash</strong> (hacim sabit), çıkışta hafif <strong>stretch</strong>.</li>
+                        <li>Bir <strong>kuyruk/uzantı</strong> eklenip keyframe'leri <strong>geciktirilir</strong> (offset): savrulsun.</li>
+                        <li>Her sekme bir öncekinden alçak (enerji kaybı). <strong>H.264 / MP4</strong>, en fazla 5 sn.</li>
+                    </ul>
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:18px;">
+                        <span class="mg-links__label">teslim</span>
+                        <span class="mg-chip mg-chip--magenta">MP4 (H.264)</span>
+                        <span class="mg-chip mg-chip--cyan">UZAK'a yükle</span>
+                        <span class="mg-chip">gelecek haftaya kadar</span>
+                    </div>
+                </div>
+                <div class="mg-callout" style="margin-top:18px;">
+                    <h4>İpucu</h4>
+                    <p>Önce sadece sektirmeyi kur (geçen haftanın işi), sonra üstüne squash, stretch ve kuyruğu ekle. Topa bir kişilik seç: tembel bir bowling topu mu, zıpır bir pinpon mu?</p>
+                </div>
+            `,
+            notes: "Ödev: canlı sekme, MP4 olarak UZAK'a gelecek haftaya kadar. W3 sektirmesinin üstüne kişilik: squash & stretch + savrulan kuyruk (offset). Logo noktası/ikon. Sıra: önce sektirme, sonra ilkeler. Bonus: kişilik seçimi (bowling vs pinpon). En az 5 sekme, alçalan.",
+        },
+        {
+            id: "odev-kaynaklar",
+            category: "Kaynak",
+            title: "Ödev İçin Kaynaklar",
+            html: `
+                <p class="mg-intro">Canlı sekme, animasyonun klasik ilk egzersizidir: ağırlık, squash &amp; stretch ve canlılığı bir arada çalıştırır. Aşağıdaki kaynaklar hem ilkeleri hem AE pratiğini derinleştirir.</p>
+                <div class="mg-grid-2 stagger">
+                    <div class="mg-card mg-card--cyan">
+                        <div class="mg-links__label" style="margin-bottom:10px;">Seri · Alan Becker</div>
+                        <div class="mg-card__title">12 Principles of Animation</div>
+                        <p class="mg-card__text">Her ilkeyi tek tek, animasyonla anlatan kısa bölümler. Squash &amp; stretch, anticipation, follow-through, arcs için en net kaynak.</p>
+                        <a class="mg-link" href="https://youtu.be/uDqjIdI4bF4" target="_blank" rel="noopener">YouTube'da izle</a>
+                    </div>
+                    <div class="mg-card mg-card--magenta">
+                        <div class="mg-links__label" style="margin-bottom:10px;">Video · Motion Made</div>
+                        <div class="mg-card__title">Bouncing Ball · Graph Editor</div>
+                        <p class="mg-card__text">Tam ödevin konusu: graph editor ve squash &amp; stretch ile gerçekçi top sektirme, adım adım.</p>
+                        <a class="mg-link" href="https://youtu.be/fKnwxQVedbs" target="_blank" rel="noopener">YouTube'da izle</a>
+                    </div>
+                </div>
+                <div class="mg-links" style="justify-content:center; margin-top:16px;">
+                    <span class="mg-links__label">ara</span>
+                    <span class="mg-chip" lang="en">bouncing ball after effects</span>
+                    <span class="mg-chip" lang="en">squash and stretch tutorial</span>
+                </div>
+            `,
+            notes: "Kaynak slaytı (ops, pacing kısıtlıysa kırpılabilir). Alan Becker serisi (ilkeler) + Motion Made (AE bouncing ball). Arama terimleri öğrenciyi daha fazlasına yönlendirir. Telif: sınıf-içi/öğrenci kaynağı.",
+        },
+
     ]
 };
