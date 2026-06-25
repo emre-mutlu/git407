@@ -169,5 +169,75 @@ export const week4 = {
             notes: "Sentez: ağırlık (graph) + squash (temas karesi). Ezilme sadece 1-2 kare, çarpışma anında, yatay; çıkışta hafif stretch. Az miktar yeter. Videoyu (Motion Made) izlet: graph + S&S birlikte. Vurgu: önce ağırlık doğru olsun, S&S süs değil tuz.",
         },
 
+        /* ── D · CANLILIK KATMANI ──────────────────────────────────────── */
+        {
+            id: "anticipation",
+            category: "İlke",
+            title: "Anticipation: Hazırlık",
+            html: `
+                <p class="mg-intro"><strong>Anticipation</strong> (hazırlık), büyük bir hareketten önce gelen küçük ters jesttir. Top zıplamadan önce hafifçe <strong>çömelir</strong>, bir yay gibi gerilir; göz bu hazırlıkla hareketi bekler. Hazırlık olmadan hareket aniden başlar, sahte ve mekanik durur.</p>
+                <div class="ae-flow" style="margin:20px 0 16px; justify-content:center;">
+                    <span class="ae-flow__step">Çömel (ters)</span>
+                    <span class="ae-flow__arrow">→</span>
+                    <span class="ae-flow__step is-now">Zıpla (asıl)</span>
+                    <span class="ae-flow__arrow">→</span>
+                    <span class="ae-flow__step">Yerleş</span>
+                </div>
+                <div class="mg-links" style="justify-content:center;">
+                    <span class="mg-links__label">izle</span>
+                    <a class="mg-link" href="https://youtu.be/F8OtE60T8yU" target="_blank" rel="noopener">Anticipation · Alan Becker</a>
+                </div>
+                <div style="margin-top:16px; text-align:center;"><span class="mg-trace" lang="en">anticipation</span></div>
+            `,
+            notes: "Hazırlık = asıl hareketten önce küçük ters jest. Zıplamadan önce çömelme, yumruktan önce kolu geri çekme. Göz hareketi önceden okur. Bouncing ball'a uygulaması: tepe noktasında minik bir bekleme/ezilme. Video link (Alan Becker).",
+        },
+        {
+            id: "follow-through",
+            category: "İlke",
+            title: "Follow-through ve Overlapping",
+            html: `
+                <p class="mg-intro"><strong>Follow-through</strong> (savrulma) ve <strong>overlapping action</strong> (üst üste binme): bir cisim durduğunda ona bağlı yumuşak parçalar hemen durmaz, biraz sonra yerleşir. Topun peşindeki kuyruk, bir saç tutamı ya da kumaş, ana gövde durduktan birkaç kare sonra savrulup oturur.</p>
+                <p class="mg-sub">AE'de pratik teknik: kuyruğun keyframe'lerini ana gövdeden birkaç kare <strong>geciktirmek</strong> (offset). Gecikme ne kadar büyükse parça o kadar yumuşak ve ağır görünür.</p>
+                <div class="mg-links" style="justify-content:center; margin-top:16px;">
+                    <span class="mg-links__label">izle</span>
+                    <a class="mg-link" href="https://youtu.be/4OxphYV8W3E" target="_blank" rel="noopener">Follow Through &amp; Overlapping · Alan Becker</a>
+                </div>
+                <div style="margin-top:16px; text-align:center;"><span class="mg-trace" lang="en">follow through / overlapping</span></div>
+            `,
+            notes: "Savrulma + üst üste binme: ana gövde durunca uzantı (kuyruk/saç/kumaş) birkaç kare sonra durur. AE tekniği = kuyruk keyframe'lerini offset'le (geciktir). Bu hafta ödevde 'savrulan kuyruk' bu. Video link (Alan Becker).",
+        },
+        {
+            id: "arcs",
+            category: "İlke",
+            title: "Arcs: Doğal Hareket Yay Çizer",
+            className: "slide-fill",
+            html: `
+                <p class="mg-sub" style="max-width:720px; margin:0 auto;"><strong>Arcs</strong> (yaylar): doğadaki hemen her hareket düz çizgi değil, bir <strong>yay</strong> çizer. Sekleyen topun tepe noktaları, savrulan kuyruğun ucu, hepsi yay izler. W3'teki <strong>motion path</strong> tam da bu yayı çizmek içindi: düz çizgi robotik, yay canlı durur.</p>
+                <div class="yt-embed"><iframe src="https://www.youtube.com/embed/I1_tZ9LhJD4" title="Arcs · Alan Becker" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <div style="margin-top:14px; text-align:center;"><span class="mg-trace" lang="en">arcs</span></div>
+            `,
+            notes: "Yaylar: doğal hareket düz değil eğridir. Bouncing ball'un tepe-tepe yolu zaten bir yay; kuyruğun ucu da yay çizer. W3 motion path köprüsü. Video (Alan Becker) izlet. Düz çizgi = robotik kontrast.",
+        },
+        {
+            id: "abarti-dengesi",
+            category: "Denge",
+            title: "Abartı Dengesi",
+            html: `
+                <p class="mg-intro"><strong>Exaggeration</strong> (abartı) dengesi: her harekete squash, stretch ve overshoot uygun mudur? Cevap bağlama bağlı. Bir karakterde ya da oyunda abartı cömertçe kullanılır; kurumsal bir logoda ya da arayüz geçişinde ölçülü kalır. Ölçü kaçınca hareket ucuzlar.</p>
+                <div class="mg-grid-2 stagger">
+                    <div class="mg-card mg-card--magenta">
+                        <div class="mg-card__title">Cömert abartı</div>
+                        <p class="mg-card__text">Karakter, oyun, esprili mikro animasyon: belirgin squash, yüksek overshoot, geniş yaylar.</p>
+                    </div>
+                    <div class="mg-card mg-card--cyan">
+                        <div class="mg-card__title">Ölçülü abartı</div>
+                        <p class="mg-card__text">Kurumsal logo, arayüz, bilgi grafiği: hafif ezilme, küçük overshoot, sakin his.</p>
+                    </div>
+                </div>
+                <p class="mg-foot">Soru "ne kadar abartı" değil, "bu işe ne yakışır": abartı bir <strong>ton</strong> seçimidir.</p>
+            `,
+            notes: "Abartı bağlama göre ayarlanır: karakter/oyun cömert, kurumsal/arayüz ölçülü. Aşırı S&S = ucuz his. W3'teki 'bu işe ne yakışır' sorusunun ağırlık/canlılık versiyonu. Köprü: recap'e geçiş.",
+        },
+
     ]
 };
