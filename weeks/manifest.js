@@ -21,5 +21,5 @@ export const manifest = [
     { key: 'week1', label: '01 · Hareketli Grafiğe Giriş', default: true },
     { key: 'week2', label: "02 · After Effects'e Giriş" },
     { key: 'week3', label: '03 · Graph Editor' },
-    { key: 'week4', label: '04 · Ağırlık ve Canlılık' },
+    // { key: 'week4', label: '04 · Ağırlık ve Canlılık' },  // 07-10 öğrenciden gizli (ders gelince geri aç — weeks/week4.js hazır+canlı)
 ];
