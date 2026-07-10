@@ -1,0 +1,120 @@
+<div id="odev" style="max-width:800px; margin:0 auto; font-family:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; color:#2a2a32; line-height:1.7; font-size:17px;">
+
+  <!-- Başlık -->
+  <div style="font-family:'Martian Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#e11d5a; margin-bottom:14px;">GİT407 · Hareketli Grafik Tasarımı</div>
+  <h1 style="font-family:'Archivo','Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif; margin:0; font-size:36px; line-height:1.12; font-weight:800; letter-spacing:-0.02em; color:#14141a;">Graph Editor ile Tasarlanmış Hareket · Speed &amp; Value Graph</h1>
+  <div style="font-size:16px; color:#6b6b76; margin-top:14px;">Ödev brief'i · Son teslim 20 Temmuz 2026, Pazartesi</div>
+
+  <!-- 1 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">1.</span> Ödevin Tanımı ve Amacı</h2>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Görev.</strong> Tek bir objenin ya da öğenin hareket ettiği kısa bir animasyon hazırlayacaksınız. Bu ödevin konusu doğrudan hareketin niteliği: objenin belirli noktalarda anlamlıca hızlanması, yavaşlaması, bir an durması. Hareketin "olmuş bitmiş" değil, tasarlanmış görünmesi gerekiyor.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Amaç.</strong> Derste işlediğimiz speed graph ve value graph mantığını bilinçli kullanmak. Value graph bir özelliğin (konum, rotasyon, ölçek) zaman içindeki değerini; speed graph ise o değişimin hızını gösterir. İster speed graph'la çalışın, ister value graph'la, ister ikisini birden kullanın, fark etmez. Önemli olan harekete ağırlık, momentum ve niyet hissi katabilmeniz.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Konsept.</strong> Konu tamamen size ait. Derste üzerine çalıştığımız havada süzülen kağıt uçak animasyonunu yapabilir ya da kendi fikrinizle gelebilirsiniz. Aşağıdaki listedeki örnekler yalnızca fikir vermek için; sizi bağlamaz, kendi objenizi ya da sahnenizi seçmekte özgürsünüz. Önemli olan hareketin anlamsız bir titreşim değil, bir şey gibi görünen bir hareket olması ve iyi bir kompozisyonda yaşaması.</p>
+  <p style="margin:0;"><strong style="color:#14141a;">2B mi 3B mi?</strong> İkisi de kabul. Ama mümkünse 3B çalışmak tavsiye edilir: 3B alanda çalışmak kamera, derinlik ve daha fazla eksende hareket kontrolü kazandırır, yani daha çok şey öğrenirsiniz. Zorunlu değil; iyi kurulmuş 2B bir hareket, kötü kurulmuş bir 3B'den her zaman daha değerlidir.</p>
+
+  <!-- 2 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">2.</span> İstenenler</h2>
+  <ul style="margin:0; padding:0; list-style:none;">
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Anlamlı timing.</strong> Hareket doğrusal ve mekanik olmamalı. Nerede hızlanacağı, nerede yavaşlayacağı, nerede bir an duracağı bilinçli bir karar olsun. Sabit hızlı, otomatik görünen hareket puan kaybettirir.</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Graph editor.</strong> Hareketi speed graph, value graph ya da ikisini birden kullanarak inceltebilirsiniz, hangisiyle rahatsanız. Value graph değerin nereye gittiğini (ease-in/out, overshoot, yumuşak yerleşme), speed graph ise hangi hızla gittiğini (ivmelenme, momentum, sönümlenme) kontrol etmeye yarar. Yeter ki hareketi bilinçle şekillendirin.</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">İyi kompozisyon.</strong> Hareket iyi görünen bir sahnede yaşamalı. Kadraj, denge, boşluk kullanımı, renk ve genel tasarım dili önemli. Konseptiniz de bu kompozisyonun bir parçası: sahne bir şey anlatmalı, estetik açıdan derli toplu durmalı.</li>
+    <li style="margin-bottom:0;"><strong style="color:#14141a;">Süre.</strong> 4 ile 10 saniye arası. Tek bir hareketin niteliğine odaklanın; uzun tutmak yerine kısa ve iyi kurgulanmış bir hareket hedefleyin.</li>
+  </ul>
+
+  <!-- 3 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">3.</span> Ne yapabilirsiniz? (yalnızca fikir)</h2>
+  <p style="margin:0 0 14px 0;">Aşağıdakiler sadece ilham vermek için. <strong style="color:#14141a;">Bunlardan birini seçmek zorunda değilsiniz;</strong> kendi objenizle, sahnenizle gelebilirsiniz.</p>
+  <ul style="margin:0; padding:0; list-style:none;">
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Kağıt uçak süzülüşü.</strong> Derste üzerine çalıştığımız örnek. Havada asılı kalma, hafif alçalma, bir hava akımıyla yükselme; süzülmenin akıcı ritmi.</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Sıcak hava balonu yükselişi.</strong> Ağır ve yavaş bir ivmeyle yukarı, hafif salınımla. Objenin ağırlığını timing ile hissettirmek.</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Düşen / süzülen yaprak.</strong> Sağa sola salınarak, hafifçe dönerek inen bir yaprak. Value graph'ta güzel, yumuşak eğriler.</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Drone kalkışı.</strong> Yerde hafif bir titreme, ardından ani bir yükseliş, sonra havada asılı kalma (hover).</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Sarkaç / salıncak.</strong> Uçlarda yavaşlayıp ortada hızlanan salınım; ease-in/out ve momentumun en saf hali.</li>
+    <li style="margin-bottom:0;"><strong style="color:#14141a;">Uzayda süzülen obje.</strong> Sıfır yerçekiminde yavaşça dönen, sürüklenen bir obje ya da astronot.</li>
+  </ul>
+
+  <!-- 4 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">4.</span> İpuçları</h2>
+  <div style="background:#fff7ec; border:1px solid #f3d9b0; border-radius:12px; padding:20px 22px; margin-bottom:16px;">
+    <p style="margin:0 0 12px 0;"><strong style="color:#14141a;">Önce kafanızda canlandırın.</strong> Yapacağınız hareketi zihninizde oynatın: ne kadar sürede gerçekleşmeli, nerede hızlanıyor, nerede yavaşlıyor, nerede bir an duruyor? Ritmini ve saniyesini hissedin. İsterseniz kendiniz kısa bir referans video çekin ya da elinize bir obje alıp (bir kağıt, bir kalem) o hareketi gerçekten yapın; oradaki süreyi ve hızı gözleyip taklit edin.</p>
+    <p style="margin:0;"><strong style="color:#14141a;">Neden.</strong> Animasyonda inandırıcı hareket icat edilmez, gözlemlenir. Graph editor'deki eğriler aslında gerçek dünyadaki hız değişiminin bir kaydıdır; bir objenin ağırlığı ve momentumu tam da bu zamanlamada okunur. Önce gerçeği anlarsanız, keyframe'ler ve graph editor sadece o hareketi geri kurmanın aracı olur.</p>
+  </div>
+  <ul style="margin:0; padding:0; list-style:none;">
+    <li style="margin-bottom:11px;">Value graph <em>nereye</em>, speed graph <em>ne hızla</em> sorusunu ayrı ayrı sorun. Hangisiyle çalışırsanız çalışın, ne yaptığınızı bilerek çalışın.</li>
+    <li style="margin-bottom:11px;">Önce kaba <strong style="color:#14141a;">blocking</strong> yapın (ana pozları ve kabaca zamanlamayı koyun), sonra graph editor'de inceltin. Hareketi baştan mükemmel kurmaya çalışmayın.</li>
+    <li style="margin-bottom:0;">Hızlı anlarda <strong style="color:#14141a;">motion blur</strong> açın; ani hareketler inandırıcı olur.</li>
+  </ul>
+
+  <!-- 5 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">5.</span> Teknik Gereksinimler ve Teslimat</h2>
+  <ul style="margin:0; padding:0; list-style:none;">
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Araç.</strong> After Effects tavsiye edilir (graph editor bu ödevin merkezinde). İsterseniz easing/graph kontrolünü kurabildiğiniz başka bir araçla da (ör. Blender, Cinema 4D) çalışabilirsiniz.</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Çözünürlük.</strong> 1920×1080 (Full HD)</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Kare hızı.</strong> 24 ya da 30 fps</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Süre.</strong> 4-10 saniye</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Ses.</strong> İsteğe bağlı. Kullanırsanız telifsiz olsun.</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Çıktı formatı.</strong> H.264 kodlu MP4</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Teslim yeri.</strong> Render alınmış MP4 dosyasını UZAK üzerinden yükleyin.</li>
+    <li style="margin-bottom:0;"><strong style="color:#14141a;">Kaynak dosya.</strong> Proje dosyanızı (<code style="font-family:'Martian Mono',ui-monospace,Menlo,monospace; background:#eef7fb; color:#0b6b82; padding:1px 6px; border-radius:4px; font-size:14px;">.aep</code> ya da kullandığınız aracın proje dosyası) asset'leriyle birlikte kendinizde saklayın. İstenirse graph editor ve keyframe kurulumunu gösterebilmelisiniz.</li>
+  </ul>
+
+  <!-- 6 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">6.</span> Dikkat Edilecekler</h2>
+  <div style="background:#fdeef3; border:1px solid #f5c6d7; border-radius:12px; padding:20px 22px;">
+    <ul style="margin:0; padding:0; list-style:none;">
+      <li style="margin-bottom:11px;">Doğrusal (sabit hızlı) ve sıçramalı hareket bu ödevin en büyük puan kaybı. Graph editor'ü es geçmeyin.</li>
+      <li style="margin-bottom:11px;">Easing'i son anda "biraz oynasın" diye eklemeyin. Timing, işin baştan planlanan merkezi olmalı.</li>
+      <li style="margin-bottom:11px;">Anlamsız, "sadece kımıldayan" bir hareketten kaçının; hareket bir şeyi anlatmalı, bir niyet taşımalı.</li>
+      <li style="margin-bottom:0;">Kompozisyonu ihmal etmeyin. İyi bir hareket, dağınık bir sahnede boşa gider.</li>
+    </ul>
+  </div>
+
+  <!-- 7 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">7.</span> Yardımcı Kaynaklar</h2>
+  <p style="margin:0 0 18px 0; color:#6b6b76;">Aşağıdaki videolar İngilizce ama görsel olarak takip edilebilir. Başlamadan önce izlemeniz işi hızlandırır.</p>
+
+  <p style="margin:0 0 8px 0; font-weight:700; color:#c01a54;">Graph editor (speed &amp; value graph)</p>
+  <ul style="margin:0 0 18px 0; padding:0; list-style:none;">
+    <li style="margin-bottom:8px;"><a href="https://www.youtube.com/watch?v=7pOCtlrrE3Y" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">The LAST Graph Editor Tutorial You'll Ever Need</a></li>
+    <li style="margin-bottom:0;"><a href="https://www.youtube.com/watch?v=WyU30vgN104" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">Keyframes, Easy Ease &amp; Graph Editor Explained</a></li>
+  </ul>
+
+  <p style="margin:0 0 8px 0; font-weight:700; color:#c01a54;">Easing ve timing</p>
+  <ul style="margin:0 0 18px 0; padding:0; list-style:none;">
+    <li style="margin-bottom:8px;"><a href="https://www.youtube.com/watch?v=HpVtzOtaHlg" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">After Effects Easing… like a pro</a></li>
+    <li style="margin-bottom:0;"><a href="https://www.youtube.com/watch?v=RPgFuyTOp5Q" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">Easing in After Effects (Beginners)</a></li>
+  </ul>
+
+  <p style="margin:0 0 8px 0; font-weight:700; color:#c01a54;">3B'de hareket (opsiyonel)</p>
+  <ul style="margin:0; padding:0; list-style:none;">
+    <li style="margin-bottom:0;"><a href="https://www.youtube.com/watch?v=WgtLCehQUJ8" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">Camera and 3D Layers: After Effects for Beginners</a></li>
+  </ul>
+
+  <!-- 8 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">8.</span> Değerlendirme</h2>
+  <table style="width:100%; border-collapse:collapse; font-size:17px;">
+    <tbody>
+      <tr>
+        <td style="padding:14px 4px; border-bottom:1px solid #e6e6ec; color:#14141a;">Hareket kalitesi (speed/value graph · easing · timing)</td>
+        <td style="padding:14px 4px; border-bottom:1px solid #e6e6ec; text-align:right; font-weight:800; color:#e11d5a; font-size:19px; width:80px;">%50</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 4px; border-bottom:1px solid #e6e6ec; color:#14141a;">Kompozisyon ve tasarım (kadraj · renk · konsept · estetik)</td>
+        <td style="padding:14px 4px; border-bottom:1px solid #e6e6ec; text-align:right; font-weight:800; color:#e11d5a; font-size:19px;">%35</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 4px; color:#14141a;">Teknik teslim ve temizlik</td>
+        <td style="padding:14px 4px; text-align:right; font-weight:800; color:#e11d5a; font-size:19px;">%15</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 9 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">9.</span> Son Teslim</h2>
+  <div style="border:1px solid #bfe6f1; background:#f0fafd; border-radius:12px; padding:22px 24px;">
+    <div style="font-size:14px; letter-spacing:1px; text-transform:uppercase; color:#0b7fa0; margin-bottom:8px;">Son Teslim</div>
+    <div style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:26px; font-weight:800; letter-spacing:-0.01em; color:#14141a;">20 Temmuz 2026, Pazartesi</div>
+    <div style="margin-top:6px; color:#6b6b76;">Teslim UZAK üzerinden yapılır.</div>
+  </div>
+
+</div>
