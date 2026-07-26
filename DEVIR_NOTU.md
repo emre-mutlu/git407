@@ -8,6 +8,18 @@
 **CANLI:** https://emre-mutlu.github.io/git407/ — GitHub Pages, `main`/kök (06-05).
 
 ## Kaldığın yer
+- **Dönem kapanış ödevleri + FİNAL brief'i ✅ (07-26):** `odev/` altına üç brief (md kaynak + inline-stil
+  HTML, Moodle/UZAK deseni) + telegram duyurusu. **Takvim:** wrapped taslağı (3 styleframe, dikey
+  1080×1920, hareket planı derste anlatılır) **31 Temmuz Cuma** · animasyon ilkeleri (timing+spacing
+  zorunlu, anticipation/squash&stretch/overlapping'den ≥2) **17 Ağustos 10.00** · **FİNAL** wrapped
+  üçlemesi (3 ayrı dikey MP4, 5-10sn, ortak görsel dil, her parçada animasyonlu veri öğesi, ses zorunlu
+  + ≥1 parçada senkron, %45/%35/%20) **17 Ağustos 10.00**.
+  **KRİTİK BULGU:** TOBB ETÜ yaz takviminde *başarı notlarının bildirimi* **20 Ağustos 2026** (dersler
+  son gün 6 Ağustos, sınavlar 7-18 Ağustos) → ilk konulan 21 Ağustos teslimi not girişinden SONRAYA
+  düşüyordu, 17 Ağustos'a çekildi. Yeni teslim tarihi verirken takvime bak: https://www.etu.edu.tr/tr/akademik-takvim
+  Brief'lerdeki tüm dış linkler tek tek açılıp doğrulandı (School of Motion styleframe yazısı 404 →
+  elendi; **rainboxlab.org (Duik) artık kumar sitesine 301 yönlendiriyor** → verilmedi).
+  Kurallar: hazır **template yasak** (ciddi not kesintisi) · geç teslim yok, sistem 17.08 10.00'da kapanır.
 - **Deste-lint aracı ✅ (06-14, Janus otonom-tur):** `bin/lint-deck.mjs` (node, build'siz) —
   manifest-güdümlü şema (`id` benzersiz + zorunlu alanlar + type kuralları) + `notes` eksiği +
   em-dash (toplu, kod-yorumu hariç). Cross-repo: `bin/lint-deck.mjs ../git423-ders`. `--strict`
@@ -195,7 +207,7 @@ Design/styleframe (H6) → Animation/WIP animatik (H7) → Render öğretimi + s
 
 ⚓ Anchor onboard EDİLDİ (06-05) · ilişki: GİT423'ün sunum motorunu paylaşır (ortak-sistem / kardeş varyant), git423 ile kardeş eğitim projesi; ikisi de GitHub Pages'te canlı · kova: eğitim
 
-*Son güncelleme: 2026-06-18 (2) — **W3 revizyon** (Emre): 27→21 slayt. Çıkanlar: playground +
+*Son güncelleme: 2026-07-26 — **dönem kapanış ödevleri + final brief'i** (wrapped taslağı 31 Tem · animasyon ilkeleri + FİNAL 17 Ağu 10.00; teslim tarihi akademik takvimdeki 20 Ağustos not-bildirimine göre kuruldu) · 2026-06-18 (2) — **W3 revizyon** (Emre): 27→21 slayt. Çıkanlar: playground +
 3-easing race (+demoları), motion-path (+demo), logoya-uygula coda. **Slayt 4** reveal→TED-Ed
 timing/spacing video embed (gömülü iframe; YouTube `KRVhtMxQWRs`). Düzeltme: "motor"→"After
 Effects" · keyframe "Bezier/Ease"→"Bezier" + Easy Ease ayrımı (F9 = hazır bezier) · "Eğriyi Elle"
