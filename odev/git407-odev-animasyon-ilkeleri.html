@@ -1,0 +1,132 @@
+<div id="odev" style="max-width:800px; margin:0 auto; font-family:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; color:#2a2a32; line-height:1.7; font-size:17px;">
+
+  <!-- Başlık -->
+  <div style="font-family:'Martian Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#e11d5a; margin-bottom:14px;">GİT407 · Hareketli Grafik Tasarımı</div>
+  <h1 style="font-family:'Archivo','Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif; margin:0; font-size:36px; line-height:1.12; font-weight:800; letter-spacing:-0.02em; color:#14141a;">Animasyon İlkeleriyle Canlı Hareket</h1>
+  <div style="font-size:16px; color:#6b6b76; margin-top:14px;">Ödev brief'i · Son teslim 17 Ağustos 2026, Pazartesi · saat 10.00</div>
+
+  <!-- 1 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">1.</span> Ödevin Tanımı ve Amacı</h2>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Görev.</strong> Animasyon ilkelerini kullandığınız kısa bir hareketli grafik tasarımı hazırlayacaksınız. Konuyu siz seçeceksiniz: bir obje, bir logo, bir arayüz öğesi, bir karakter ya da soyut bir şekil olabilir. Değerlendirilen şey neyin hareket ettiği değil, nasıl hareket ettiği.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Amaç.</strong> Bir hareketin sadece çalışması ile canlı görünmesi arasında fark vardır. Bu farkı animasyon ilkeleri kurar: objenin ağırlığı, niyeti, esnekliği ve parçalarının birbirinden geç kalması. Bu ödevde ilkeleri ezberden değil, sahnenizin gerektirdiği yerde kullanmanız bekleniyor.</p>
+  <p style="margin:0;"><strong style="color:#14141a;">Bir önceki ödevden farkı.</strong> Speed &amp; value graph ödevinde tek bir objenin hız eğrisini incelttiniz. Burada aynı özen devam ediyor, ama bu kez birden fazla ilke birlikte çalışacak. Tek bir iyi eğri artık yeterli değil.</p>
+
+  <!-- 2 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">2.</span> İstenenler</h2>
+
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Zorunlu iki ilke.</strong> Aşağıdaki ikisi her işte olmalı:</p>
+  <div style="background:#fdeef3; border:1px solid #f5c6d7; border-radius:12px; padding:20px 22px; margin-bottom:18px;">
+    <ul style="margin:0; padding:0; list-style:none;">
+      <li style="margin-bottom:11px;"><strong style="color:#14141a;">Timing.</strong> Hareketin ne kadar sürdüğü. Aynı mesafeyi 6 karede mi 24 karede mi geçtiği, objenin ağır mı hafif mi olduğunu belirler. Süreyi bilerek seçin.</li>
+      <li style="margin-bottom:0;"><strong style="color:#14141a;">Spacing (slow-in / slow-out).</strong> Kareler arasındaki mesafenin dağılımı. Gerçek nesneler sabit hızla başlayıp durmaz; hızlanır, yavaşlar ve yerine oturur. Graph editor'de kurulur.</li>
+    </ul>
+  </div>
+
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Seçmeli ilkeler — en az iki tanesi.</strong> Aşağıdaki üçlüden <strong style="color:#14141a;">en az ikisini</strong> işinizde açıkça görebilmeliyiz:</p>
+  <ul style="margin:0 0 18px 0; padding:0; list-style:none;">
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Anticipation (hazırlık).</strong> Hareketten önce ters yöne yapılan küçük hazırlık. Zıplamadan önce çömelmek, sağa fırlamadan önce sola bir tık gitmek gibi. İzleyiciyi gelecek harekete hazırlar.</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Squash &amp; stretch (ezilme ve uzama).</strong> Çarpışmada ezilme, hızlanmada uzama. Objeyi esnek ve canlı gösterir. Kural: <strong style="color:#14141a;">hacim korunur</strong> — bir eksende ezilirken diğerinde genişler.</li>
+    <li style="margin-bottom:0;"><strong style="color:#14141a;">Overlapping action (üst üste binen hareket).</strong> Objenin parçaları aynı anda durmaz. Kuyruk, kumaş, saç gibi uzantılar ana gövdeden geç kalkar ve geç durur. Keyframe'leri kaydırarak (offset) yapılır.</li>
+  </ul>
+
+  <ul style="margin:0; padding:0; list-style:none;">
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Diğer ilkeler serbest.</strong> Arcs, follow-through, secondary action, exaggeration, staging gibi ilkeleri de kullanabilirsiniz. Zorunlu değil; yerinde kullanılırsa değerlendirmeye olumlu yansır.</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">İyi kompozisyon.</strong> Hareket iyi bir sahnede olmalı. Kadraj, denge, boşluk, renk ve genel tasarım dili değerlendirmeye girer.</li>
+    <li style="margin-bottom:0;"><strong style="color:#14141a;">Süre.</strong> 4-10 saniye. Uzun bir iş yerine kısa ve iyi kurgulanmış bir hareket yapın.</li>
+  </ul>
+
+  <!-- 3 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">3.</span> İpuçları</h2>
+  <div style="background:#fff7ec; border:1px solid #f3d9b0; border-radius:12px; padding:20px 22px; margin-bottom:16px;">
+    <p style="margin:0;"><strong style="color:#14141a;">Önce ilkeleri izleyin.</strong> 5. bölümdeki Alan Becker serisi her ilkeyi tek tek anlatıyor. Başlamadan önce izlemek işinizi kolaylaştırır ve ilkeleri doğru yerde kullanmanızı sağlar.</p>
+  </div>
+  <ul style="margin:0; padding:0; list-style:none;">
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Önce blocking yapın.</strong> Ana pozları ve kaba zamanlamayı koyun, hareket ayakta dursun. Squash, anticipation ve offset gibi ilkeleri sonra ekleyin.</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Anticipation kısa tutulur.</strong> Genelde 3-6 kare yeterlidir. Uzun tutarsanız hareket yavaş görünür.</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Squash &amp; stretch'te hacmi koruyun.</strong> Scale'i tek eksende değiştirirseniz obje büyümüş ya da küçülmüş görünür. Bir eksen küçülürken diğeri büyümeli.</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Overlapping, keyframe kaydırmakla yapılır.</strong> Uzantının keyframe'lerini ana gövdeninkinden 2-5 kare geciktirin. Parça hafifledikçe gecikme artar.</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Hızlı anlarda motion blur açın.</strong> Ani hareketler daha inandırıcı olur.</li>
+    <li style="margin-bottom:0;"><strong style="color:#14141a;">Sahneyi kalabalıklaştırmayın.</strong> Tek bir öğeyi iyi animasyonlamak, çok sayıda öğeyi ortalama animasyonlamaktan daha değerli.</li>
+  </ul>
+
+  <!-- 4 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">4.</span> Teknik Gereksinimler ve Teslimat</h2>
+  <ul style="margin:0; padding:0; list-style:none;">
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Araç.</strong> After Effects tavsiye edilir. İsterseniz aynı kontrolü kurabildiğiniz başka bir araçla da (ör. Blender, Cinema 4D) çalışabilirsiniz.</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Çözünürlük.</strong> 1920×1080 (Full HD)</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Kare hızı.</strong> 24 ya da 30 fps · <strong style="color:#14141a;">Süre.</strong> 4-10 saniye</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Ses.</strong> İsteğe bağlı. Kullanırsanız telifsiz olsun.</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Çıktı formatı.</strong> H.264 kodlu MP4</li>
+    <li style="margin-bottom:11px;"><strong style="color:#14141a;">Teslim yeri.</strong> Render alınmış MP4 dosyasını UZAK üzerinden yükleyin.</li>
+    <li style="margin-bottom:0;"><strong style="color:#14141a;">Kaynak dosya.</strong> Proje dosyanızı (<code style="font-family:'Martian Mono',ui-monospace,Menlo,monospace; background:#eef7fb; color:#0b6b82; padding:1px 6px; border-radius:4px; font-size:14px;">.aep</code> ya da kullandığınız aracınki) asset'leriyle birlikte saklayın; istenirse keyframe ve graph editor kurulumunu gösterebilmelisiniz.</li>
+  </ul>
+
+  <!-- 5 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">5.</span> Dikkat Edilecekler</h2>
+  <div style="background:#fdeef3; border:1px solid #f5c6d7; border-radius:12px; padding:20px 22px;">
+    <ul style="margin:0; padding:0; list-style:none;">
+      <li style="margin-bottom:11px;">Sabit hızlı hareket bu ödevin en büyük puan kaybı. Timing ve spacing zorunlu; graph editor'ü kullanın.</li>
+      <li style="margin-bottom:11px;">İlkeleri sonradan eklenmiş gibi kullanmayın. Sahnenin gerektirmediği bir squash ya da sebepsiz bir anticipation işi zayıflatır.</li>
+      <li style="margin-bottom:11px;">Squash &amp; stretch'te hacmi bozmak sık yapılan bir hatadır; obje büyümüş ya da küçülmüş görünmemeli.</li>
+      <li style="margin-bottom:11px;">Her şeyi aynı karede durdurmak hareketi mekanik gösterir; overlapping'i unutmayın.</li>
+      <li style="margin-bottom:11px;">İlkeler hissedilmeli, ama işi karikatüre çevirmemeli (bilinçli bir üslup tercihi değilse).</li>
+      <li style="margin-bottom:0;">Kompozisyonu ihmal etmeyin. İyi bir hareket dağınık bir sahnede değerini kaybeder.</li>
+    </ul>
+  </div>
+
+  <!-- 6 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">6.</span> Yardımcı Kaynaklar</h2>
+
+  <p style="margin:0 0 8px 0; font-weight:700; color:#c01a54;">Animasyonun temel ilkeleri (ana kaynak)</p>
+  <ul style="margin:0 0 18px 0; padding:0; list-style:none;">
+    <li style="margin-bottom:0;"><a href="https://youtu.be/uDqjIdI4bF4" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">12 Principles of Animation — Alan Becker</a> · Her ilkeyi tek tek, animasyonla anlatan seri. Bu ödevin çıkış noktası.</li>
+  </ul>
+
+  <p style="margin:0 0 18px 0; color:#6b6b76;">Aşağıdaki videolar İngilizce ama görsel olarak takip edilebilir.</p>
+
+  <p style="margin:0 0 8px 0; font-weight:700; color:#c01a54;">İlke bazında (Alan Becker serisi)</p>
+  <ul style="margin:0 0 18px 0; padding:0; list-style:none;">
+    <li style="margin-bottom:8px;"><a href="https://youtu.be/F8OtE60T8yU" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">Anticipation</a></li>
+    <li style="margin-bottom:0;"><a href="https://youtu.be/4OxphYV8W3E" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">Follow Through &amp; Overlapping Action</a></li>
+  </ul>
+
+  <p style="margin:0 0 8px 0; font-weight:700; color:#c01a54;">After Effects pratiği</p>
+  <ul style="margin:0 0 18px 0; padding:0; list-style:none;">
+    <li style="margin-bottom:8px;"><a href="https://youtu.be/3RqoUMz3-8I" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">Squash &amp; Stretch · After Effects (Motifize)</a></li>
+    <li style="margin-bottom:0;"><a href="https://youtu.be/fKnwxQVedbs" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">Bouncing Ball · Graph Editor (Motion Made)</a> · squash &amp; stretch ve ağırlığı graph editor'de kurmanın adım adım örneği</li>
+  </ul>
+
+  <p style="margin:0 0 8px 0; font-weight:700; color:#c01a54;">Timing ve spacing</p>
+  <ul style="margin:0; padding:0; list-style:none;">
+    <li style="margin-bottom:8px;"><a href="https://www.youtube.com/watch?v=7pOCtlrrE3Y" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">The LAST Graph Editor Tutorial You'll Ever Need</a></li>
+    <li style="margin-bottom:0;"><a href="https://www.youtube.com/watch?v=HpVtzOtaHlg" target="_blank" rel="noopener noreferrer" style="color:#c01a54; text-decoration:underline;">After Effects Easing… like a pro</a></li>
+  </ul>
+
+  <!-- 7 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">7.</span> Değerlendirme</h2>
+  <table style="width:100%; border-collapse:collapse; font-size:17px;">
+    <tbody>
+      <tr>
+        <td style="padding:14px 4px; border-bottom:1px solid #e6e6ec; color:#14141a;">İlkelerin uygulanışı (timing · spacing + seçilen en az iki ilke)</td>
+        <td style="padding:14px 4px; border-bottom:1px solid #e6e6ec; text-align:right; font-weight:800; color:#e11d5a; font-size:19px; width:80px;">%50</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 4px; border-bottom:1px solid #e6e6ec; color:#14141a;">Kompozisyon ve konsept (kadraj · renk · tasarım · estetik)</td>
+        <td style="padding:14px 4px; border-bottom:1px solid #e6e6ec; text-align:right; font-weight:800; color:#e11d5a; font-size:19px;">%35</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 4px; color:#14141a;">Teknik teslim ve temizlik</td>
+        <td style="padding:14px 4px; text-align:right; font-weight:800; color:#e11d5a; font-size:19px;">%15</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 8 -->
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">8.</span> Son Teslim</h2>
+  <div style="border:1px solid #bfe6f1; background:#f0fafd; border-radius:12px; padding:22px 24px;">
+    <div style="font-size:14px; letter-spacing:1px; text-transform:uppercase; color:#0b7fa0; margin-bottom:8px;">Son Teslim</div>
+    <div style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:26px; font-weight:800; letter-spacing:-0.01em; color:#14141a;">17 Ağustos 2026, Pazartesi · saat 10.00</div>
+    <div style="margin-top:6px; color:#6b6b76;">Teslim UZAK üzerinden yapılır.</div>
+  </div>
+
+</div>
