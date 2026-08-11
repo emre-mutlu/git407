@@ -13,31 +13,26 @@
 
 ### 2. İstenenler
 
-**En az beş sekme.** Top yere düşsün ve en az beş kez seksin.
-
-**Enerji kaybı.** Her sekme bir öncekinden alçak olsun. Top ilk seferki yüksekliğe bir daha çıkmasın, giderek sönümlensin.
-
-**Düşüşte hızlanma, tepede yavaşlama.** Top yere doğru inerken hızlanmalı, tepe noktasına yaklaşırken yavaşlamalı, orada bir an asılı kalmalı. Sabit hızlı bir iniş çıkış bu ödevin istediği şey değil.
-
-**Eğri elle şekillenmeli.** Hareketi graph editor'da kendiniz kurun. Hazır preset uygulayıp geçmeyin; eğriyi görüp üzerinde oynamanız gerekiyor.
-
-**Speed graph ya da value graph.** Hangisiyle çalışacağınız size kalmış. Value graph topun nerede olduğunu, speed graph hangi hızla gittiğini gösterir. İkisinden biriyle ya da ikisiyle birden çalışabilirsiniz.
+- **En az beş sekme.** Top yere düşsün ve en az beş kez seksin.
+- **Enerji kaybı.** Her sekme bir öncekinden alçak olsun, top ilk seferki yüksekliğe bir daha çıkmasın.
+- **Düşüşte hızlanma, tepede yavaşlama.** Top inerken hızlanmalı, tepeye yaklaşırken yavaşlamalı, orada bir an asılı kalmalı. Sabit hızlı bir iniş çıkış bu ödevin istediği şey değil.
+- **Eğri elle şekillenmeli.** Hareketi graph editor'da kendiniz kurun, hazır preset uygulayıp geçmeyin.
+- **Speed graph ya da value graph.** Hangisiyle çalışacağınız size kalmış. Value graph topun nerede olduğunu, speed graph hangi hızla gittiğini gösterir.
 
 ### 3. Bu ödevde istenmeyenler
 
-**Squash and stretch yok.** Topun yere değerken ezilmesi, havada uzaması bu ödevin konusu değil. Yalnız sektirmeye odaklanın.
-
-**Karmaşık sahne yok.** Kamera hareketi, çok sayıda obje, efekt beklenmiyor. Tek bir topun hareketi yeterli.
+- **Squash and stretch yok.** Topun yere değerken ezilmesi, havada uzaması bu ödevin konusu değil.
+- **Karmaşık sahne yok.** Kamera hareketi, çok sayıda obje ya da efekt beklenmiyor, tek bir topun hareketi yeterli.
 
 ### 4. İpuçları
 
-**Önce sadece dikey konumu kurun.** Position'ın Y değerini keyframe'leyip zıplamaları kabaca yerleştirin. Hareket kabaca oturmadan eğriye girmeyin.
+**Önce kabaca kurun, sonra eğriye girin.** Position'ın Y değerini keyframe'leyip zıplamaları yerleştirin. Hareket kabaca oturmadan graph editor'a geçmeyin.
 
-**Sonra graph editor'da şekillendirin.** Yere değme anları eğride sivri, tepe noktaları yuvarlak olur. Sivri uç ani yön değişimi demek, yuvarlak tepe ise yavaşlayıp hızlanma demek. Eğriye bakınca hareketi okuyabilir hale gelmek bu ödevin kazanımı.
+Birkaç pratik ipucu:
 
-**Zamanlamayı kısaltarak deneyin.** Sekmeler arası süre giderek kısalır: top alçaldıkça daha sık sekmeye başlar. Bunu es geçerseniz hareket ağır ve yapay durur.
-
-**İsterseniz topa bir kişilik verin.** Ağır bir bowling topu mu, zıpır bir pinpon topu mu? Zorunlu değil ama zamanlamanın ne kadar şey anlattığını görmenizi sağlar.
+- Yere değme anları eğride sivri, tepe noktaları yuvarlak olur. Sivri uç ani yön değişimi, yuvarlak tepe yavaşlayıp hızlanma demek.
+- Sekmeler arası süre giderek kısalır: top alçaldıkça daha sık seker. Bunu es geçerseniz hareket ağır ve yapay durur.
+- İsterseniz topa bir kişilik verin, ağır bir bowling topu mu zıpır bir pinpon topu mu? Zorunlu değil ama zamanlamanın ne anlattığını görmenizi sağlar.
 
 ### 5. Teknik Gereksinimler ve Teslimat
 
@@ -51,19 +46,30 @@
 
 ### 6. Dikkat Edilecekler
 
-**Video dışında bir dosya teslim sayılmaz.** Proje dosyası, ekran görüntüsü, PDF ya da başka bir belge yükleyen teslim etmemiş sayılır. Yüklemeniz gereken şey render alınmış MP4.
+- **Yüklediğinizi kontrol edin.** Dosyayı sistemden geri indirip açın: video oynuyor mu, süresi doğru mu. Açılmayan ya da bozuk giden dosya teslim edilmemiş sayılır.
+- **İş sizin olmalı.** Başkasının proje dosyasını ya da render'ını yükleyen bu ödevden not alamaz. Aynı animasyonun rengi değiştirilmiş hali de kendi işiniz sayılmaz.
+- **Hazır şablon kullanmayın.** İndirilmiş ya da satın alınmış hazır proje dosyaları kabul edilmiyor.
 
-**Yüklediğinizi kontrol edin.** Dosyayı sistemden geri indirip açın: video oynuyor mu, süresi doğru mu. Açılmayan ya da bozuk giden dosya teslim edilmemiş sayılır.
+### 7. Yardımcı Kaynaklar
 
-**İş sizin olmalı.** Başkasının proje dosyasını ya da render'ını yükleyen bu ödevden not alamaz. Aynı animasyonun rengi değiştirilmiş hali de kendi işiniz sayılmaz.
+Aşağıdaki videolar İngilizce ama görsel olarak takip edilebilir. Başlamadan önce izlemeniz işi hızlandırır.
 
-### 7. Değerlendirme
+**Top sektirme ve graph editor**
+- [Graph Editor → Perfect Ball Bounce (School of Motion)](https://youtu.be/mEmRHw4p4_A)
+- [The LAST Graph Editor Tutorial You'll Ever Need (Jake In Motion)](https://youtu.be/7pOCtlrrE3Y)
 
-Bu ödevde tek ölçüt var: **hareketin kalitesi.** Yani sekmelerin zamanlaması, enerji kaybının inandırıcılığı ve eğrinin bilinçle kurulmuş olması.
+**Kendi araştırmanız için arama terimleri**
+- bouncing ball after effects · graph editor ball bounce · ease in out after effects · bouncing ball timing spacing · after effects top sektirme
+
+### 8. Değerlendirme
+
+| Ölçüt | Ağırlık |
+|---|---|
+| Hareket kalitesi (sekmelerin zamanlaması · enerji kaybı · eğrinin kuruluşu) | %100 |
 
 Teknik şartlar (süre, format) puanın kendisine girmiyor ama teslimin geçerli olması için karşılanması gerekiyor.
 
-### 8. Son Teslim
+### 9. Son Teslim
 
 **26 Haziran 2026, Cuma.** Teslim UZAK üzerinden yapılır.
 

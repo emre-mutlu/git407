@@ -40,19 +40,27 @@ LI = "margin-bottom:13px;"
 STRONG = "color:#14141a;"
 KOD = ("font-family:'Martian Mono',ui-monospace,Menlo,monospace; background:#eef7fb; "
        "color:#0b6b82; padding:1px 6px; border-radius:4px; font-size:14px;")
+BAG = "color:#c01a54; text-decoration:underline;"
+TABLO = "width:100%; border-collapse:collapse; font-size:17px;"
+HUCRE = "padding:14px 4px; {cizgi}color:#14141a;"
+AGIRLIK = ("padding:14px 4px; {cizgi}text-align:right; font-weight:800; color:#e11d5a; "
+           "font-size:19px;")
+CIZGI = "border-bottom:1px solid #e6e6ec; "
 
 
 def satir_ici(m):
-    """Kalin, kod ve x isaretini HTML'e cevirir. Once kacis yapilir."""
+    """Kalin, kod, baglanti ve x isaretini HTML'e cevirir. Once kacis yapilir."""
     m = html.escape(m, quote=False)
     m = re.sub(r"`([^`]+)`", rf'<code style="{KOD}">\1</code>', m)
+    m = re.sub(r"\[([^\]]+)\]\((https?://[^)]+)\)",
+               rf'<a href="\2" target="_blank" rel="noopener noreferrer" style="{BAG}">\1</a>', m)
     m = re.sub(r"\*\*([^*]+)\*\*", rf'<strong style="{STRONG}">\1</strong>', m)
     return m.replace("×", "&times;")
 
 
 def cevir(kaynak):
     satirlar = kaynak.split("\n")
-    parca, liste, altbilgi_yazildi = [], [], False
+    parca, liste, tablo, altbilgi_yazildi = [], [], [], False
     ust = baslik = None
 
     def listeyi_kapat():
@@ -61,10 +69,36 @@ def cevir(kaynak):
             parca.append(f'<ul style="{UL}">{ogeler}\n  </ul>')
             liste.clear()
 
+    def tabloyu_kapat():
+        """Olcut/agirlik tablosu: son satirda alt cizgi yok."""
+        if not tablo:
+            return
+        satir_html = []
+        for n, (sol, sag) in enumerate(tablo):
+            c = "" if n == len(tablo) - 1 else CIZGI
+            satir_html.append(
+                f'      <tr>\n'
+                f'        <td style="{HUCRE.format(cizgi=c)}">{sol}</td>\n'
+                f'        <td style="{AGIRLIK.format(cizgi=c)}">{sag}</td>\n'
+                f'      </tr>')
+        parca.append(f'  <table style="{TABLO}">\n    <tbody>\n'
+                     + "\n".join(satir_html) + "\n    </tbody>\n  </table>")
+        tablo.clear()
+
     for ham in satirlar:
         s = ham.rstrip()
         if not s.strip():
             listeyi_kapat()
+            tabloyu_kapat()
+            continue
+        if s.startswith("|"):
+            hucreler = [h.strip() for h in s.strip("|").split("|")]
+            if all(set(h) <= set("-: ") for h in hucreler):
+                continue                      # ayirici satir
+            if len(hucreler) == 2 and tablo == [] and hucreler[1].lower() in ("ağırlık", "agirlik"):
+                continue                      # baslik satiri, tabloda gosterilmiyor
+            if len(hucreler) == 2:
+                tablo.append((satir_ici(hucreler[0]), satir_ici(hucreler[1])))
             continue
         if s.startswith("# "):
             ust = satir_ici(s[2:])
@@ -72,6 +106,7 @@ def cevir(kaynak):
             baslik = satir_ici(s[3:])
         elif s.startswith("### "):
             listeyi_kapat()
+            tabloyu_kapat()
             govde = satir_ici(s[4:])
             m = re.match(r"^(\d+)\.\s+(.*)$", s[4:])
             if m:
@@ -81,12 +116,14 @@ def cevir(kaynak):
             liste.append(satir_ici(s[2:]))
         else:
             listeyi_kapat()
+            tabloyu_kapat()
             if not altbilgi_yazildi and ust and baslik:
                 parca.append(f'<div style="{ALTBILGI}">{satir_ici(s)}</div>')
                 altbilgi_yazildi = True
             else:
                 parca.append(f'  <p style="{P}">{satir_ici(s)}</p>')
     listeyi_kapat()
+    tabloyu_kapat()
 
     bas = [f'<div id="odev" style="{SARMAL}">', "",
            f'  <div style="{USTETIKET}">{ust}</div>',
