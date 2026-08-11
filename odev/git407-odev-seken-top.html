@@ -1,0 +1,53 @@
+<div id="odev" style="max-width:800px; margin:0 auto; font-family:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; color:#2a2a32; line-height:1.7; font-size:17px;">
+
+  <div style="font-family:'Martian Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#e11d5a; margin-bottom:14px;">GİT407 · Hareketli Grafik Tasarımı</div>
+  <h1 style="font-family:'Archivo','Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif; margin:0; font-size:36px; line-height:1.12; font-weight:800; letter-spacing:-0.02em; color:#14141a;">Seken Top · Graph Editor ile Kurulmuş Hareket</h1>
+<div style="font-size:16px; color:#6b6b76; margin-top:14px;">Ödev brief'i · Son teslim 26 Haziran 2026, Cuma</div>
+
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">1.</span> Ödevin Tanımı ve Amacı</h2>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Görev.</strong> Bir top yere düşüp sekiyor. En az beş kez seksin ve her seferinde bir öncekinden alçak kalsın. Hareketin bütün karakteri graph editor'daki eğride kurulacak.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Amaç.</strong> Keyframe'leri koymak kolay, asıl iş aralarındaki hızı tasarlamak. Bu ödev doğrudan onu çalıştırıyor: düşerken hızlanan, tepede yavaşlayan, her sekmede biraz enerji kaybeden bir hareket. Animasyonun en temel alıştırması budur, üzerine kurulan her şey buradan gelir.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Konsept.</strong> Sahne size kalmış. Boş bir zeminde tek bir top yeterli, isterseniz basit bir arka plan kurabilirsiniz. Önemli olan hareketin kendisi.</p>
+
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">2.</span> İstenenler</h2>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">En az beş sekme.</strong> Top yere düşsün ve en az beş kez seksin.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Enerji kaybı.</strong> Her sekme bir öncekinden alçak olsun. Top ilk seferki yüksekliğe bir daha çıkmasın, giderek sönümlensin.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Düşüşte hızlanma, tepede yavaşlama.</strong> Top yere doğru inerken hızlanmalı, tepe noktasına yaklaşırken yavaşlamalı, orada bir an asılı kalmalı. Sabit hızlı bir iniş çıkış bu ödevin istediği şey değil.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Eğri elle şekillenmeli.</strong> Hareketi graph editor'da kendiniz kurun. Hazır preset uygulayıp geçmeyin; eğriyi görüp üzerinde oynamanız gerekiyor.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Speed graph ya da value graph.</strong> Hangisiyle çalışacağınız size kalmış. Value graph topun nerede olduğunu, speed graph hangi hızla gittiğini gösterir. İkisinden biriyle ya da ikisiyle birden çalışabilirsiniz.</p>
+
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">3.</span> Bu ödevde istenmeyenler</h2>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Squash and stretch yok.</strong> Topun yere değerken ezilmesi, havada uzaması bu ödevin konusu değil. Yalnız sektirmeye odaklanın.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Karmaşık sahne yok.</strong> Kamera hareketi, çok sayıda obje, efekt beklenmiyor. Tek bir topun hareketi yeterli.</p>
+
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">4.</span> İpuçları</h2>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Önce sadece dikey konumu kurun.</strong> Position'ın Y değerini keyframe'leyip zıplamaları kabaca yerleştirin. Hareket kabaca oturmadan eğriye girmeyin.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Sonra graph editor'da şekillendirin.</strong> Yere değme anları eğride sivri, tepe noktaları yuvarlak olur. Sivri uç ani yön değişimi demek, yuvarlak tepe ise yavaşlayıp hızlanma demek. Eğriye bakınca hareketi okuyabilir hale gelmek bu ödevin kazanımı.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Zamanlamayı kısaltarak deneyin.</strong> Sekmeler arası süre giderek kısalır: top alçaldıkça daha sık sekmeye başlar. Bunu es geçerseniz hareket ağır ve yapay durur.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">İsterseniz topa bir kişilik verin.</strong> Ağır bir bowling topu mu, zıpır bir pinpon topu mu? Zorunlu değil ama zamanlamanın ne kadar şey anlattığını görmenizi sağlar.</p>
+
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">5.</span> Teknik Gereksinimler ve Teslimat</h2>
+<ul style="margin:0; padding:0; list-style:none;">
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Araç.</strong> After Effects.</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Çözünürlük.</strong> 1920&times;1080 (Full HD) önerilir.</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Süre.</strong> En fazla 5 saniye</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Ses.</strong> Gerekmiyor. Kullanırsanız telifsiz olsun.</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Çıktı formatı.</strong> H.264 kodlu MP4</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Teslim yeri.</strong> Render alınmış MP4 dosyasını UZAK üzerinden yükleyin. Tek dosya.</li>
+    <li style="margin-bottom:13px;"><strong style="color:#14141a;">Kaynak dosya.</strong> Proje dosyanızı kendinizde saklayın. İstenirse graph editor kurulumunu gösterebilmelisiniz.</li>
+  </ul>
+
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">6.</span> Dikkat Edilecekler</h2>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Video dışında bir dosya teslim sayılmaz.</strong> Proje dosyası, ekran görüntüsü, PDF ya da başka bir belge yükleyen teslim etmemiş sayılır. Yüklemeniz gereken şey render alınmış MP4.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">Yüklediğinizi kontrol edin.</strong> Dosyayı sistemden geri indirip açın: video oynuyor mu, süresi doğru mu. Açılmayan ya da bozuk giden dosya teslim edilmemiş sayılır.</p>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">İş sizin olmalı.</strong> Başkasının proje dosyasını ya da render'ını yükleyen bu ödevden not alamaz. Aynı animasyonun rengi değiştirilmiş hali de kendi işiniz sayılmaz.</p>
+
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">7.</span> Değerlendirme</h2>
+  <p style="margin:0 0 14px 0;">Bu ödevde tek ölçüt var: <strong style="color:#14141a;">hareketin kalitesi.</strong> Yani sekmelerin zamanlaması, enerji kaybının inandırıcılığı ve eğrinin bilinçle kurulmuş olması.</p>
+  <p style="margin:0 0 14px 0;">Teknik şartlar (süre, format) puanın kendisine girmiyor ama teslimin geçerli olması için karşılanması gerekiyor.</p>
+
+  <h2 style="font-family:'Archivo','Hanken Grotesk',system-ui,sans-serif; font-size:23px; font-weight:800; color:#14141a; margin:38px 0 16px 0; letter-spacing:-0.01em;"><span style="color:#e11d5a;">8.</span> Son Teslim</h2>
+  <p style="margin:0 0 14px 0;"><strong style="color:#14141a;">26 Haziran 2026, Cuma.</strong> Teslim UZAK üzerinden yapılır.</p>
+  <p style="margin:0 0 14px 0;">Bu ödevi zamanında veremediyseniz eksik ödevler için ayrı bir teslim aralığı var: <strong style="color:#14141a;">16 Ağustos 2026, Pazar, 12.00 ile 17.00 arası.</strong> Ödev kutuları yalnız o beş saat açık kalacak, ikinci bir tarih olmayacak. Geç teslimde not tavanı 60'tır.</p>
+
+</div>
